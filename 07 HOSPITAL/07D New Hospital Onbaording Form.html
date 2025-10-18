@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD National Care Alliance - Tertiary Care Hospital Partnership Onboarding Form</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .form-section-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+        }
+        .helper-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .submit-button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #4338ca;
+        }
+        .repeatable-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background-color: #4f46e5;
+            height: 1rem;
+            border-radius: 9999px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">SFRD National Care Alliance - Tertiary Care Hospital Partnership Onboarding Form</h1>
+            <p class="text-sm text-gray-500 mt-1">Version: 1.0; Dated 07-Sep-2025</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <p id="progressText" class="text-center text-sm text-gray-600 mb-4">0% Complete</p>
+
+        <form id="hospitalOnboardingForm">
+
+            <!-- Section A: Institutional Identity & Contact Information -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section A: Institutional Identity & Contact Information</h2>
+                    <p class="text-gray-600 mt-1">Welcome. Saba Foundation for Rare Diseases (SFRD) invites your institution to become a pillar of our National Care Alliance. Your hospital's expertise in managing complex conditions is vital. This strategic partnership is designed to co-create a leading center for rare disease care by combining your clinical excellence with SFRD's specialized knowledge, patient network, and support systems.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="hospitalName" class="form-label">Full Legal Name of Hospital <span class="text-red-500">*</span></label>
+                        <input type="text" id="hospitalName" name="hospitalName" class="form-input" placeholder="As on legal documents" required>
+                    </div>
+                    <div>
+                        <label for="institutionType" class="form-label">Type of Institution <span class="text-red-500">*</span></label>
+                        <select id="institutionType" name="institutionType" class="form-select" required>
+                            <option>Private</option>
+                            <option>Government</option>
+                            <option>Trust-run</option>
+                            <option>Public-Private Partnership</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="inceptionDate" class="form-label">Date of Inception <span class="text-red-500">*</span></label>
+                        <input type="date" id="inceptionDate" name="inceptionDate" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="websiteUrl" class="form-label">Official Website URL <span class="text-red-500">*</span></label>
+                        <input type="url" id="websiteUrl" name="websiteUrl" class="form-input" placeholder="https://yourhospital.com" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="socialMedia" class="form-label">Social Media Handles <span class="text-red-500">*</span></label>
+                        <textarea id="socialMedia" name="socialMedia" rows="3" class="form-textarea" placeholder="One per line" required></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="hqAddress" class="form-label">Headquarters Address <span class="text-red-500">*</span></label>
+                        <textarea id="hqAddress" name="hqAddress" rows="3" class="form-textarea" placeholder="Enter full registered address" required></textarea>
+                    </div>
+                    <div>
+                        <label for="nodalOfficerName" class="form-label">Nodal Officer for SFRD Partnership <span class="text-red-500">*</span></label>
+                        <input type="text" id="nodalOfficerName" name="nodalOfficerName" class="form-input" placeholder="e.g., Medical Superintendent" required>
+                    </div>
+                    <div>
+                        <label for="nodalOfficerDesignation" class="form-label">Nodal Officer's Designation <span class="text-red-500">*</span></label>
+                        <input type="text" id="nodalOfficerDesignation" name="nodalOfficerDesignation" class="form-input" placeholder="Enter designation" required>
+                    </div>
+                    <div>
+                        <label for="officialEmail" class="form-label">Official Contact Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="officialEmail" name="officialEmail" class="form-input" placeholder="sfrd@yourhospital.com" required>
+                    </div>
+                    <div>
+                        <label for="officialPhone" class="form-label">Official Contact Phone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="officialPhone" name="officialPhone" class="form-input" placeholder="+91-1234567890" required>
+                    </div>
+                     <div>
+                        <label for="hospitalId" class="form-label">Unique Hospital Identifier</label>
+                        <input type="text" id="hospitalId" name="hospitalId" class="form-input bg-gray-100" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Legal, Structural & Accreditations -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section B: Legal, Structural & Accreditations</h2>
+                     <p class="text-gray-600 mt-1">This information helps us understand your hospital's governance and quality standards.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="form-label">Tax Exemption Status</label>
+                        <div class="space-y-2">
+                             <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="12A" class="form-checkbox"> <span class="ml-2">12A</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="80G" class="form-checkbox"> <span class="ml-2">80G</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="FCRA" class="form-checkbox"> <span class="ml-2">FCRA</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="Not Applicable" class="form-checkbox"> <span class="ml-2">Not Applicable</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">Accreditations <span class="text-red-500">*</span></label>
+                        <div class="space-y-2">
+                             <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="NABH" class="form-checkbox"> <span class="ml-2">NABH</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="NABL" class="form-checkbox"> <span class="ml-2">NABL</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="JCI" class="form-checkbox"> <span class="ml-2">JCI</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="ISO Certified" class="form-checkbox"> <span class="ml-2">ISO Certified</span></label>
+                             <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="Other" class="form-checkbox"> <span class="ml-2">Other</span></label>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="keyDocuments" class="form-label">Upload Key Documents <span class="text-red-500">*</span></label>
+                        <input type="file" id="keyDocuments" name="keyDocuments" class="form-input" multiple required>
+                        <p class="helper-text">Please upload PDF copies of your By-laws, MoA, and AoA.</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                     <h3 class="text-lg font-medium text-gray-900 mb-2">Key Office Bearers</h3>
+                     <div id="officeBearersContainer">
+                        <!-- Repeatable fields will be added here by JS -->
+                     </div>
+                     <button type="button" id="addOfficeBearer" class="mt-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">+ Add another person</button>
+                </div>
+                <div class="mt-6">
+                    <label for="geographicalPresence" class="form-label">Geographical Presence <span class="text-red-500">*</span></label>
+                    <textarea id="geographicalPresence" name="geographicalPresence" rows="3" class="form-textarea" placeholder="e.g., Mumbai, Delhi, Bangalore" required></textarea>
+                    <p class="helper-text">If you have multiple branches, please list the cities/states.</p>
+                </div>
+            </div>
+
+            <!-- Section C: Operational Capacity & Expertise -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section C: Operational Capacity & Expertise</h2>
+                    <p class="text-gray-600 mt-1">Help us understand the scale and scope of your clinical services. This is crucial for matching patients to the right level of care.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="bedCapacity" class="form-label">Total Bed Capacity <span class="text-red-500">*</span></label>
+                        <input type="number" id="bedCapacity" name="bedCapacity" class="form-input" placeholder="0" required>
+                    </div>
+                    <div>
+                        <label for="staffCount" class="form-label">Number of Full-Time Staff <span class="text-red-500">*</span></label>
+                        <input type="number" id="staffCount" name="staffCount" class="form-input" placeholder="0" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="medicalSpecialities" class="form-label">List of Medical Specialities <span class="text-red-500">*</span></label>
+                        <select id="medicalSpecialities" name="medicalSpecialities" class="form-select" multiple>
+                            <option>Allergy and Immunology</option>
+                            <option>Anesthesiology</option>
+                            <option>Cardiology</option>
+                            <option>Clinical Genetics</option>
+                            <option>Dermatology</option>
+                            <option>Emergency Medicine</option>
+                            <option>Endocrinology</option>
+                            <option>Family Medicine</option>
+                            <option>Gastroenterology</option>
+                            <option>General Paediatrics</option>
+                            <option>Geriatrics</option>
+                            <option>Hematology</option>
+                            <option>Infectious Disease</option>
+                            <option>Internal Medicine</option>
+                            <option>Medical Genetics and Genomics</option>
+                            <option>Nephrology</option>
+                            <option>Neurology</option>
+                            <option>Obstetrics and Gynecology</option>
+                            <option>Oncology</option>
+                            <option>Ophthalmology</option>
+                            <option>Orthopaedics</option>
+                            <option>Otolaryngology</option>
+                            <option>Pathology</option>
+                            <option>Pediatrics</option>
+                            <option>Physical Medicine and Rehabilitation</option>
+                            <option>Psychiatry</option>
+                            <option>Pulmonology</option>
+                            <option>Radiology</option>
+                            <option>Rheumatology</option>
+                            <option>Surgery</option>
+                            <option>Urology</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="advancedEquipment" class="form-label">Advanced Equipment & Facilities <span class="text-red-500">*</span></label>
+                        <textarea id="advancedEquipment" name="advancedEquipment" rows="4" class="form-textarea" placeholder="e.g., MRI, CT Scanner, Genetic Sequencer" required></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="futurePlans" class="form-label">Future Plans / Expansions</label>
+                        <textarea id="futurePlans" name="futurePlans" rows="4" class="form-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section D: The SFRD Partnership: Building a Centre of Care -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section D: The SFRD Partnership: Building a Centre of Care</h2>
+                    <p class="text-gray-600 mt-1">Our partnership is centered on a mutual commitment: SFRD provides the knowledge and patient pipeline to help you build a rare disease vertical, and you provide the expert care that these patients need.</p>
+                </div>
+                <div class="space-y-5">
+                    <label class="flex items-start"><input type="checkbox" name="capacityBuilding" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm"><b>1. Capacity Building Agreement:</b> "Yes, our institution agrees to partner with SFRD on a capacity-building program. We will facilitate the training of our clinicians, paramedics, and staff through SFRD-led workshops, CMEs, and knowledge-sharing sessions." <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="priorityCare" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm"><b>2. Priority Care Commitment:</b> "We agree to establish a protocol to treat all SFRD-referred patients on a priority basis, aiming to reduce waiting times for consultations and admissions." <span class="text-red-500">*</span></span></label>
+                    <div>
+                        <label class="flex items-start"><input type="checkbox" name="concessionalServices" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm"><b>3. Concessional Services Commitment:</b> "We agree to offer a special, preferential discounted rate card for both out-patient and in-patient services for all SFRD-referred patients." <span class="text-red-500">*</span></span></label>
+                        <input type="file" name="rateCardUpload" class="form-input mt-2" required>
+                        <p class="helper-text">Please upload the proposed rate card or specify the discount percentage.</p>
+                    </div>
+                    <label class="flex items-start"><input type="checkbox" name="digitalIntegration" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm"><b>4. Digital Integration:</b> "We agree to assign a nodal officer to coordinate with the SFRD Network, manage digital referrals, and provide updates on patient status to ensure a seamless care continuum." <span class="text-red-500">*</span></span></label>
+                </div>
+                 <div class="mt-8">
+                     <h3 class="text-lg font-medium text-gray-900">How else can we collaborate?</h3>
+                     <p class="helper-text mb-4">Please select other ways you would be interested in contributing:</p>
+                     <div class="space-y-4">
+                        <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="camps"><span class="ml-3">Joint Diagnostic & Health Camps: Co-hosting camps for undiagnosed patients.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="research"><span class="ml-3">Research & Clinical Trials: Collaborating as a site for future rare disease research and clinical trials.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="advocacy"><span class="ml-3">Policy Advocacy: Joining SFRD in advocating for better healthcare policies for rare diseases.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="education"><span class="ml-3">Patient Education: Co-creating and disseminating educational materials for patients and the broader medical community.</span></label>
+                     </div>
+                </div>
+            </div>
+
+            <!-- Section E: Consent & Formal Agreement -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section E: Consent & Formal Agreement</h2>
+                    <p class="text-gray-600 mt-1">This agreement formalizes our strategic partnership. Please have an authorized representative of your institution complete this section.</p>
+                </div>
+                <div class="space-y-5">
+                    <label class="flex items-start"><input type="checkbox" name="consentAuthRep" required class="form-checkbox"><span class="ml-3 text-sm">I confirm that I am an authorized representative of the hospital named in this form. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentVoluntary" required class="form-checkbox"><span class="ml-3 text-sm">I understand that this partnership is voluntary and collaborative. We can choose to end our association at any time by providing 60 days' written notice. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentStore" required class="form-checkbox"><span class="ml-3 text-sm">I consent to SFRD securely storing our hospital's information and listing our institution (Name, Logo, Website, Key Specialities) in its public directory of trusted Care Partners. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentConfidentiality" required class="form-checkbox"><span class="ml-3 text-sm"><b>Patient Data Confidentiality:</b> We agree to handle all patient data received through the SFRD Network with the strictest confidentiality, in compliance with all national data privacy, medical information, and hospital regulations. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentAccuracy" required class="form-checkbox"><span class="ml-3 text-sm">By checking this box, I confirm that all the information provided is accurate to the best of my knowledge and our hospital agrees to the terms of this partnership. <span class="text-red-500">*</span></span></label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t">
+                        <div>
+                            <label for="authRepName" class="form-label">Full Name of Authorized Representative <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepName" name="authRepName" class="form-input" placeholder="Enter full name" required>
+                        </div>
+                        <div>
+                            <label for="authRepDesignation" class="form-label">Designation <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepDesignation" name="authRepDesignation" class="form-input" placeholder="e.g., CEO, Director" required>
+                        </div>
+                        <div>
+                            <label for="consentDate" class="form-label">Date</label>
+                            <input type="date" id="consentDate" name="consentDate" class="form-input bg-gray-100" readonly>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="digitalSignature" class="form-label">Digital Signature <span class="text-red-500">*</span></label>
+                        <textarea id="digitalSignature" name="digitalSignature" rows="3" class="form-textarea" placeholder="Type your full name again to sign" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="submit-button">SUBMIT PARTNERSHIP FORM</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script type="module">
+        import { auth, db, storage, appId } from '../js/firebase-config.js';
+        import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+        import { initializeFormEnhancements } from '../js/form-enhancements.js';
+        import { ProgressBarManager } from '../js/progress-bar-utils.js';
+        import { FormEventCoordinator } from '../js/form-coordinator.js';
+
+        const form = document.getElementById('hospitalOnboardingForm');
+        const formId = 'hospitalOnboardingForm';
+        let currentUserId = null;
+        let formEnhancements = null;
+        let progressBarManager = null;
+        let formCoordinator = null;
+
+        // --- Office Bearer Logic ---
+        const officeBearersContainer = document.getElementById('officeBearersContainer');
+        const addOfficeBearerButton = document.getElementById('addOfficeBearer');
+        let bearerCount = 0;
+
+        function addBearerFields() {
+            bearerCount = officeBearersContainer.children.length;
+            const div = document.createElement('div');
+            div.className = 'grid grid-cols-1 md:grid-cols-4 gap-4 repeatable-section mb-4';
+            div.innerHTML = `
+                <div class="md:col-span-4 flex justify-between items-center">
+                    <p class="font-semibold">Office Bearer ${bearerCount + 1}</p>
+                    <button type="button" class="remove-bearer text-sm font-medium text-red-600 hover:text-red-500">&times; Remove</button>
+                </div>
+                <div><label class="form-label text-sm">Name</label><input type="text" name="bearerName_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Designation</label><input type="text" name="bearerDesignation_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Email</label><input type="email" name="bearerEmail_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Phone</label><input type="tel" name="bearerPhone_${bearerCount}" class="form-input"></div>
+            `;
+            officeBearersContainer.appendChild(div);
+        }
+        if (officeBearersContainer.children.length < 1) { addBearerFields(); }
+        addOfficeBearerButton.addEventListener('click', addBearerFields);
+        officeBearersContainer.addEventListener('click', e => {
+            if (e.target.classList.contains('remove-bearer')) {
+                e.target.closest('.repeatable-section').remove();
+            }
+        });
+
+        // --- Standard Caching, Auth, and Submission Logic ---
+        const saveFormProgress = () => {
+            if (!currentUserId) return;
+            const formData = new FormData(form);
+            const data = {};
+            const checkboxGroups = {};
+            for (let [key, value] of formData.entries()) {
+                const element = form.elements[key];
+                if (element && element.type === 'checkbox') {
+                    if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                    checkboxGroups[key].push(value);
+                } else { data[key] = value; }
+            }
+            Object.assign(data, checkboxGroups);
+            localStorage.setItem(`${formId}_${currentUserId}`, JSON.stringify(data));
+            console.log('Form progress saved.');
+        };
+
+        const loadFormProgress = () => {
+            if (!currentUserId) return;
+            const savedData = localStorage.getItem(`${formId}_${currentUserId}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    const element = form.elements[key];
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = Array.isArray(data[key]) ? data[key].length > 0 : !!data[key];
+                        } else if (element.length && element[0]?.type === 'checkbox') {
+                            const values = Array.isArray(data[key]) ? data[key] : [];
+                            Array.from(element).forEach(cb => { cb.checked = values.includes(cb.value); });
+                        } else if (element.type !== 'file') { element.value = data[key]; }
+                    }
+                }
+                console.log('Form progress loaded.');
+            }
+        };
+
+        const clearFormProgress = () => {
+            if (!currentUserId) return;
+            localStorage.removeItem(`${formId}_${currentUserId}`);
+            console.log('Cached form data cleared.');
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUserId = user.uid;
+                document.getElementById('officialEmail').value = user.email;
+                document.getElementById('hospitalId').value = user.uid;
+                document.getElementById('consentDate').valueAsDate = new Date();
+                formEnhancements = initializeFormEnhancements(form, formId, currentUserId);
+                loadFormProgress();
+
+                // Initialize progress bar with coordinator mode enabled (no event listeners)
+                progressBarManager = new ProgressBarManager(form, 'progressBar', 'progressText', true);
+                
+                // Initialize unified event coordinator (attaches all listeners)
+                formCoordinator = new FormEventCoordinator(form, saveFormProgress, progressBarManager, formEnhancements);
+                
+                console.log('Hospital form: Unified event coordination initialized');
+            } else { /* Handled by auth-guard.js */ }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'SUBMITTING...';
+
+            if (!currentUserId) {
+                alert('Authentication error. Please sign in again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT PARTNERSHIP FORM';
+                return;
+            }
+
+            try {
+                const formData = new FormData(form);
+                const data = { uid: currentUserId, createdAt: new Date().toISOString() };
+                const checkboxGroups = {};
+                const officeBearers = [];
+
+                document.querySelectorAll('#officeBearersContainer .repeatable-section').forEach((section, index) => {
+                    const bearer = {
+                        name: section.querySelector(`[name=bearerName_${index}]`).value,
+                        designation: section.querySelector(`[name=bearerDesignation_${index}]`).value,
+                        email: section.querySelector(`[name=bearerEmail_${index}]`).value,
+                        phone: section.querySelector(`[name=bearerPhone_${index}]`).value,
+                    };
+                    if(bearer.name) officeBearers.push(bearer);
+                });
+                data.officeBearers = officeBearers;
+
+                formData.forEach((value, key) => {
+                    const element = form.elements[key];
+                    if (key.startsWith('bearer')) return;
+                    if (element && element.type === 'checkbox') {
+                        if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                        checkboxGroups[key].push(value);
+                    } else { data[key] = value; }
+                });
+                Object.assign(data, checkboxGroups);
+
+                // Exclude the raw file input from the data to be saved in Firestore
+                delete data.keyDocuments;
+                delete data.rateCardUpload;
+
+                // Handle file uploads
+                const keyDocumentsInput = document.getElementById('keyDocuments');
+                if (keyDocumentsInput.files.length > 0) {
+                    const uploadPromises = Array.from(keyDocumentsInput.files).map(file => {
+                        const filePath = `artifacts/hospital-documents/${currentUserId}/${file.name}`;
+                        const fileRef = ref(storage, filePath);
+                        return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
+                    });
+                    data.keyDocumentUrls = await Promise.all(uploadPromises);
+                }
+                const rateCardInput = document.querySelector('[name=rateCardUpload]');
+                if (rateCardInput.files.length > 0) {
+                    const file = rateCardInput.files[0];
+                    const filePath = `artifacts/hospital-rate-cards/${currentUserId}/${file.name}`;
+                    const fileRef = ref(storage, filePath);
+                    const snapshot = await uploadBytes(fileRef, file);
+                    data.rateCardUrl = await getDownloadURL(snapshot.ref);
+                }
+
+                console.log('Saving Hospital data:', data);
+                console.log('Using appId:', appId);
+
+                await setDoc(doc(db, `artifacts/${appId}/hospitals`, currentUserId), data);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUserId);
+                await updateDoc(userDocRef, { 
+                    profileComplete: true, 
+                    status: 'pending_approval',
+                    role: 'hospital' // Explicitly set the role to 'hospital'
+                });
+
+                clearFormProgress();
+                alert('Form submitted successfully! Your profile is now under review.');
+                window.location.href = '/index.html'; // Redirect to homepage
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+                alert('An error occurred. Please check the console and try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT PARTNERSHIP FORM';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const specialitiesElement = document.getElementById('medicalSpecialities');
+            if(specialitiesElement) {
+                const choices = new Choices(specialitiesElement, {
+                    removeItemButton: true,
+                    searchEnabled: true,
+                    placeholder: true,
+                    placeholderValue: 'Select one or more specializations',
+                });
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

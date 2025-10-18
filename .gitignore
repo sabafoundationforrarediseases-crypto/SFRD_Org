@@ -1,0 +1,16 @@
+# Ignore Firebase admin SDK file
+sfrd-org-firebase-adminsdk-fbsvc-f22b78cea2.json
+
+# Ignore Markdown files
+*.md
+
+# Ignore Firebase rules files
+firestore.rules
+storage.rules
+
+# Ignore test files
+test-*.html
+
+# Ignore document source files
+*.docx
+*.txt

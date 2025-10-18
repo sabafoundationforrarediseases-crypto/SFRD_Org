@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD EPO Dashboard</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .stat-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .action-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .action-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.2), 0 10px 10px -5px rgba(99, 102, 241, 0.1);
+        }
+        .nav-link.active {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            color: #374151; /* text-gray-700 */
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <div class="hidden md:flex flex-col w-64 bg-white shadow-lg">
+            <div class="flex items-center justify-center h-20 border-b">
+                <h1 class="text-2xl font-bold text-indigo-600">SFRD</h1>
+            </div>
+            <div class="flex-grow">
+                <nav id="sidebar-nav" class="mt-5">
+                    <a href="#dashboard" class="nav-link flex items-center mt-4 py-2 px-6 active">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        <span class="mx-3">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="mx-3">FA Patient Registry</span>
+                    </a>
+                    <a href="#forum" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        <span class="mx-3">FA Expert Forum</span>
+                    </a>
+                    <a href="#alerts" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="mx-3">Alerts & Reminders</span>
+                    </a>
+                    <a href="#rewards" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
+                         <span class="mx-3">Rewards & Recognitions</span>
+                    </a>
+                    <a href="#support" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="mx-3">Support / Help</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex flex-col flex-1 overflow-y-auto">
+            <div class="flex items-center justify-between h-20 px-6 bg-white border-b">
+                <div class="flex items-center">
+                    <div class="relative mx-4 lg:mx-0">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3"><svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <input class="w-32 sm:w-64 form-input pl-10 pr-4 rounded-full" type="text" placeholder="Search Resources">
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="flex mx-4 text-gray-600 focus:outline-none">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </button>
+                    <div class="relative">
+                        <a href="./2C EPO Profile Page.html">
+                            <button class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
+                                <img class="h-full w-full object-cover" src="https://placehold.co/100x100/ec4899/FFFFFF?text=FA" alt="Organization logo">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <main class="p-6 sm:p-10 space-y-10">
+                <!-- Dashboard View -->
+                <div id="dashboard" class="page-content">
+                    <section>
+                        <div class="flex flex-col md:flex-row justify-between items-start">
+                            <div>
+                                <h2 class="text-4xl font-extrabold text-gray-800">Patient Organization Dashboard</h2>
+                                <p class="mt-1 text-lg text-indigo-600 font-semibold">Friedreich's Ataxia - India</p>
+                            </div>
+                             <div class="mt-4 md:mt-0 text-sm text-gray-500">
+                               <p>Last login: 6-Sep-2025, 07:24 PM</p>
+                               <p>EPO UID: SFRDEPO98765</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <a href="#patients" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div><span class="block text-2xl font-bold" id="patients-count">0</span><span class="block text-gray-500">Patients</span></div></div></a>
+                        <a href="#doctors" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div><span class="block text-2xl font-bold" id="doctors-count">0</span><span class="block text-gray-500">Expert Doctors</span></div></div></a>
+                        <a href="#hospitals" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div><span class="block text-2xl font-bold" id="hospitals-count">0</span><span class="block text-gray-500">Tertiary Care Centres</span></div></div></a>
+                        <a href="#labs" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div><span class="block text-2xl font-bold" id="labs-count">0</span><span class="block text-gray-500">Diagnostic Labs</span></div></div></a>
+                        <a href="#volunteers" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div><span class="block text-2xl font-bold" id="volunteers-count">0</span><span class="block text-gray-500">Volunteers</span></div></div></a>
+                    </section>
+                    <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        <a href="#" class="action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-indigo-500"><h3>FA Patient Registry</h3><p>Manage your patient cohort's data securely.</p></a>
+                        <a href="#forum" class="nav-link action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-purple-500"><h3>FA Expert Forum</h3><p>Collaborate with specialists and other EPOs.</p></a>
+                         <a href="#rewards" class="nav-link action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-teal-500"><h3>Rewards & Recognitions</h3><p>Track your impact and celebrate milestones.</p></a>
+                    </section>
+                    <section class="bg-indigo-600 text-white rounded-lg shadow-xl"><div class="p-8 flex flex-col md:flex-row justify-between items-center"><div class="text-center md:text-left"><h3 class="text-3xl font-bold">Flag a New Patient</h3><p class="mt-2 text-indigo-200 text-lg">Help expand the network and find undiagnosed patients.</p></div><a href="../00 GLOBAL/10 Probable RarePatient Identification_Flag.html" class="nav-link mt-6 md:mt-0 flex-shrink-0 inline-block px-8 py-4 bg-white text-indigo-600 font-bold rounded-lg text-lg hover:bg-indigo-50 transition">Flag a Patient</a></div></section>
+                </div>
+                
+                <div id="patients" class="page-content hidden"></div>
+                <div id="doctors" class="page-content hidden"></div>
+                <div id="hospitals" class="page-content hidden"></div>
+                <div id="labs" class="page-content hidden"></div>
+                <div id="volunteers" class="page-content hidden"></div>
+                
+                <div id="forum" class="page-content hidden">
+                    <section><h2 class="text-4xl font-extrabold text-gray-800">FA Expert Forum</h2><p class="mt-1 text-lg text-gray-600">Collaborate, discuss, and share knowledge.</p></section>
+                    <section class="mt-8 bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">Discussion Topics</h3><div class="space-y-4"><div class="p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"><p class="font-semibold text-indigo-600">Case Study: Atypical Presentation</p><p class="text-sm text-gray-500">Posted by Dr. R. Sharma | 3 replies</p></div><div class="p-4 border rounded-lg hover:bg-gray-50 cursor-pointer"><p class="font-semibold text-indigo-600">New Research on Genotype-Phenotype Correlations</p><p class="text-sm text-gray-500">Posted by Admin | 12 replies</p></div></div></section>
+                </div>
+
+                <div id="alerts" class="page-content hidden">
+                     <section><h2 class="text-4xl font-extrabold text-gray-800">Alerts & Reminders</h2><p class="mt-1 text-lg text-gray-600">Manage your organization's tasks.</p></section>
+                    <section class="mt-8"><div class="bg-white p-6 rounded-lg shadow"><div class="flex justify-between items-center border-b pb-4 mb-4"><h3 class="text-xl font-bold">Active Reminders</h3><button id="add-reminder-btn" class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">Add Reminder</button></div><div id="active-reminders-list" class="space-y-4"><div class="reminder-item flex items-start p-4 bg-blue-50 rounded-lg"><div class="ml-4 flex-grow"><p class="font-semibold text-gray-800">Submit Annual Report</p><p>Due: Sep 15, 2025</p></div><button class="dismiss-reminder-btn ml-4 text-gray-400 hover:text-gray-600">&times;</button></div></div></div><div class="bg-white p-6 rounded-lg shadow mt-8"><h3 class="text-xl font-bold border-b pb-4 mb-4">Reminder Logs</h3><div id="reminder-logs-list" class="space-y-4"><p class="text-gray-500 italic">No reminders dismissed yet.</p></div></div></section>
+                </div>
+                
+                <div id="rewards" class="page-content hidden">
+                    <section><h2 class="text-4xl font-extrabold text-gray-800">Rewards & Recognitions</h2><p class="mt-1 text-lg text-gray-600">Celebrating our collective impact.</p></section>
+                    <section class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="p-6 bg-white rounded-lg shadow border-l-4 border-yellow-400"><h3 class="text-lg font-bold">Top Referring EPO - Q3 2025</h3><p class="text-yellow-500 font-bold mt-4">Awarded</p></div><div class="p-6 bg-white rounded-lg shadow border-l-4 border-green-400"><h3 class="text-lg font-bold">Community Champion Award</h3><p class="text-green-500 font-bold mt-4">Awarded</p></div><div class="p-6 bg-white rounded-lg shadow border-l-4 border-gray-300"><h3 class="text-lg font-bold">Data Stewardship Badge</h3><p class="text-gray-400 font-bold mt-4">In Progress</p></div></section>
+                </div>
+
+                <div id="support" class="page-content hidden">
+                     <section><h2 class="text-4xl font-extrabold text-gray-800">Support & Help Center</h2><p class="mt-1 text-lg text-gray-600">Resources and assistance.</p></section>
+                    <section class="mt-8 grid md:grid-cols-3 gap-8"><div class="md:col-span-2"><div class="bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">Frequently Asked Questions (FAQ)</h3><div class="space-y-4" id="faq-accordion"></div></div></div><div class="space-y-6"><div class="bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">Contact SFRD Support</h3><form><div class="space-y-4"><div><input type="text" placeholder="Subject" class="w-full rounded-md border-gray-300"></div><div><textarea rows="4" placeholder="Your message..." class="w-full rounded-md border-gray-300"></textarea></div><button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700">Send</button></div></form></div><div class="bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">Quick Links</h3><ul class="space-y-2"><li><a href="#" class="text-indigo-600 hover:underline">Download Templates</a></li><li><a href="#" class="text-indigo-600 hover:underline">Branding & Media Kit</a></li><li><a href="#" class="text-indigo-600 hover:underline">Training Webinars</a></li></ul></div></div></section>
+                </div>
+
+
+                <footer class="text-center text-sm text-gray-500 pt-6">
+                    <p><strong>Friedreich's Ataxia Trust</strong></p>
+                    <p>Mittal Chambers, Fort, Mumbai - 400001, Maharashtra, India</p>
+                    <p>Contact: 020-33993399 | Email: reachout@faindia.org</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+    
+    <div id="reminder-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center p-4 hidden pointer-events-none opacity-0 z-40">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6"><h2 class="text-2xl font-bold text-gray-800 mb-4">Add Reminder</h2><form id="reminder-form"><div class="space-y-4"><div><label>Title</label><input type="text" id="reminder-title" class="mt-1 block w-full rounded-md" required></div><div><label>Date</label><input type="date" id="reminder-date" class="mt-1 block w-full rounded-md" required></div></div><div class="mt-6 flex justify-end space-x-3"><button type="button" id="cancel-reminder-btn" class="px-4 py-2 bg-gray-200 rounded-md">Cancel</button><button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Save</button></div></form></div>
+    </div>
+
+    <div id="tutorial-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden pointer-events-none opacity-0 z-50">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 transform scale-95"><div class="flex justify-between items-center border-b pb-3"><h2 class="text-2xl font-bold">How to Use Your Dashboard</h2><button id="close-tutorial-btn-icon" class="text-3xl">&times;</button></div><div class="mt-4"><div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen class="w-full h-full"></iframe></div></div><div class="mt-6 flex justify-between items-center"><div class="flex items-center"><input id="dont-show-again-checkbox" type="checkbox" class="h-4 w-4"><label for="dont-show-again-checkbox" class="ml-2">Don't show this again</label></div><button id="close-tutorial-btn" class="px-6 py-2 bg-indigo-600 text-white rounded-md">Close</button></div></div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, doc, getDoc, collection, getDocs, query } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+            alert("Could not connect to services. Please try again.");
+            window.location.href = '../00 GLOBAL/00-8 Login.html';
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                console.log('No user signed in. Redirecting to login.');
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+                return;
+            }
+
+            const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+            const docSnap = await getDoc(userRef);
+
+            if (docSnap.exists() && docSnap.data().role === 'epo' && docSnap.data().status === 'approved') {
+                const userData = docSnap.data();
+                if (userData.profileComplete === false) {
+                    console.log('Profile incomplete. Redirecting to EPO onboarding form.');
+                    alert('Welcome! Please complete your organization\'s profile to continue.');
+                    window.location.href = './02 Expert Patient Organization Form.html';
+                } else {
+                    console.log('EPO authenticated and approved. Loading dashboard...');
+                    loadDashboard(user, userData);
+                }
+            } else {
+                console.warn('User is not an approved EPO or has no profile. Redirecting...');
+                await signOut(auth);
+                alert('Access Denied: You do not have permission to view this page or your account is pending approval.');
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        async function loadDashboard(user, userData) {
+            document.body.style.display = 'block'; // Show body only after auth check
+
+            // --- Populate User-Specific Data ---
+            const orgNameElement = document.querySelector('.mt-1.text-lg.text-indigo-600.font-semibold');
+            if (orgNameElement) {
+                orgNameElement.textContent = userData.orgName || 'Expert Patient Organization';
+            }
+            const epoUIDElement = document.querySelector('.mt-4.md\:mt-0.text-sm.text-gray-500 p:last-child');
+            if (epoUIDElement) {
+                epoUIDElement.textContent = `EPO UID: ${user.uid}`;
+            }
+            const avatar = document.querySelector('.relative.block.h-8.w-8.rounded-full.overflow-hidden.shadow img');
+            if (avatar) {
+                avatar.src = user.photoURL || `https://placehold.co/100x100/ec4899/FFFFFF?text=${(userData.orgName || 'E').charAt(0).toUpperCase()}`;
+            }
+
+            // --- Fetch and Populate Counts ---
+            const collections = ['patients', 'doctors', 'hospitals', 'labs', 'volunteers'];
+            for (const coll of collections) {
+                const q = query(collection(db, `artifacts/${appId}/${coll}`));
+                const snapshot = await getDocs(q);
+                const countEl = document.getElementById(`${coll}-count`);
+                if(countEl) countEl.textContent = snapshot.size;
+            }
+
+            // --- UI LOGIC ---
+            const pageContents = document.querySelectorAll('.page-content');
+            function switchTab(targetId) {
+                pageContents.forEach(content => content.classList.toggle('hidden', content.id !== targetId));
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.toggle('active', link.getAttribute('href')?.substring(1) === targetId));
+            }
+            document.body.addEventListener('click', e => {
+                const link = e.target.closest('a.nav-link, button.nav-link, a.stat-card-link');
+                if (link && link.getAttribute('href')?.startsWith('#')) {
+                    e.preventDefault();
+                    switchTab(link.getAttribute('href').substring(1));
+                }
+            });
+            switchTab('dashboard');
+        }
+    </script>
+</body>
+</html>
+

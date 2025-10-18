@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saba Foundation for Rare Diseases (SFRD) - Hope, Care, and Community for India</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4F46E5, #9333EA);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link-desktop {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #6D28D9; /* Violet-700 */
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- Top Utility Bar -->
+        <div class="bg-gray-100/50 border-b border-gray-200">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-10 space-x-4">
+                    <div class="relative">
+                        <select class="text-xs text-gray-600 bg-transparent border-none focus:ring-0">
+                            <option>English</option>
+                            <option>हिन्दी</option>
+                            <option>తెలుగు</option>
+                        </select>
+                    </div>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="volume-2" class="w-4 h-4"></i><span>Screen Reader</span>
+                    </button>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="eye" class="w-4 h-4"></i><span>Accessibility</span>
+                    </button>
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Search..." class="w-32 text-xs rounded-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <div class="relative group">
+                        <a href="./00-1 About Us Page.html" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">About Us</a>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Get Involved <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-64 py-2">
+                            <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patients / Parents</a>
+                            <a href="../02 EPO/02D New EPO Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patient Organizations</a>
+                            <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Doctors / Clinicians</a>
+                             <a href="../05 NGO/05D New NGO Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For NGOs / Community</a>
+                            <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Volunteers</a>
+                            <a href="../06 LAB/06D New Lab Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Diagnostic Labs</a>
+                            <a href="../07 HOSPITAL/07D New Hospital Onbaording Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Hospitals</a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">Advocacy</a>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">News & Events</a>
+                </div>
+                
+                <div id="auth-buttons-desktop" class="hidden lg:flex items-center space-x-3">
+                    <a id="login-btn-desktop" href="./00-8 Login.html" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a id="register-btn-desktop" href="./00-7 Register.html" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="./00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">About Us</a>
+                <a href="./00-2 Contact Us.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Learn</a>
+                <a href="./00-3 Careers.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Get Involved</a>
+                <a href="./00-4 Media Enquiries.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Advocacy</a>
+                <a href="./00-5 All FAQs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">News & Events</a>
+                 <div class="border-t border-gray-200 mt-4 pt-4">
+                    <a href="./00-8 Login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
+                    <a href="./00-7 Register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
+                    <a href="#" id="dashboard-link" class="hidden ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Go to Dashboard</a>
+                        <a href="#" id="logout-btn" class="hidden ml-4 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-base font-medium text-gray-700 bg-white hover:bg-gray-50">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-indigo-800 text-white min-h-[60vh] flex items-center">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1579684385127-6abf9df8ca88?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-20" alt="Support group">
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">You Are Not Alone.</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-indigo-200">At SFRD, we are dedicated to empowering the 80-90 million children & adults affected by rare diseases in India, providing essential support and resources to help them lead fulfilling & healthy lives.</p>
+                <div class="mt-8">
+                     <a href="#flag-patient" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">Flag a Patient</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="bg-white py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900">Our Ecosystem, Growing Every Day</h2>
+                <div class="mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 text-center">
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="5183">0</div><p class="text-gray-500 mt-1">Patients</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="31">0</div><p class="text-gray-500 mt-1">Patient Orgs</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="278">0</div><p class="text-gray-500 mt-1">Doctors</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="54">0</div><p class="text-gray-500 mt-1">Hospitals</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="127">0</div><p class="text-gray-500 mt-1">Labs</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="974">0</div><p class="text-gray-500 mt-1">Volunteers</p></div>
+                    <div class="stat-item"><div class="text-4xl font-extrabold gradient-text" data-target="22">0</div><p class="text-gray-500 mt-1">NGOs</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Grid Section -->
+        <section class="py-12 sm:py-20 bg-gray-50" id="flag-patient">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-900">How Can We Help You?</h2>
+                    <p class="mt-2 text-lg text-gray-600">Connect with the right resources or become part of the solution.</p>
+                </div>
+                 <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Column 1 -->
+                    <div class="space-y-8">
+                        <div class="bg-violet-500 text-white p-8 rounded-2xl shadow-lg text-center">
+                            <h3 class="text-2xl font-bold">Flag a Rare Disease Patient</h3>
+                            <p class="mt-2 opacity-90">If you know someone struggling with undiagnosed symptoms, help them take the first step.</p>
+                            <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="mt-6 inline-block bg-white text-violet-600 font-semibold py-2 px-6 rounded-full hover:bg-violet-100 transition">Refer a Patient</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-bold text-gray-900">Expert Patient Organizations</h3>
+                            <a href="#" class="mt-4 block text-indigo-600 hover:underline">List of Patient Organizations</a>
+                            <a href="../02 EPO/02D New EPO Onboarding Form.html" class="mt-2 block text-indigo-600 hover:underline">Join as an EPO Partner</a>
+                        </div>
+                         <div class="bg-white p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-bold text-gray-900">Volunteers & NGOs</h3>
+                            <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="mt-4 block text-indigo-600 hover:underline">Join as a Pro-Bono Volunteer</a>
+                            <a href="../05 NGO/05D New NGO Onboarding Form.html" class="mt-2 block text-indigo-600 hover:underline">Collaborate with us as an NGO</a>
+                        </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="space-y-8">
+                        <div class="bg-emerald-500 text-white p-8 rounded-2xl shadow-lg text-center">
+                            <h3 class="text-2xl font-bold">Be a Volunteer</h3>
+                            <p class="mt-2 opacity-90">Lend your time and skills to make a tangible difference in the lives of patients and their families.</p>
+                            <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="mt-6 inline-block bg-white text-emerald-600 font-semibold py-2 px-6 rounded-full hover:bg-emerald-100 transition">Become a Champion</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-bold text-gray-900">Expert Doctors & Clinicians</h3>
+                            <a href="#" class="mt-4 block text-indigo-600 hover:underline">List of Expert Doctors</a>
+                            <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="mt-2 block text-indigo-600 hover:underline">Join as an Expert Doctor</a>
+                        </div>
+                         <div class="bg-white p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-bold text-gray-900">Specialty Diagnostic Labs</h3>
+                            <a href="#" class="mt-4 block text-indigo-600 hover:underline">List of Specialty Labs</a>
+                            <a href="../06 LAB/06D New Lab Onboarding Form.html" class="mt-2 block text-indigo-600 hover:underline">Join as a Specialty Lab</a>
+                        </div>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="space-y-8">
+                        <div class="bg-blue-500 text-white p-8 rounded-2xl shadow-lg text-center">
+                            <h3 class="text-2xl font-bold">Be a Policy Advocate</h3>
+                            <p class="mt-2 opacity-90">Join our efforts to champion the cause of the rare disease community at the highest levels.</p>
+                            <a href="#" class="mt-6 inline-block bg-white text-blue-600 font-semibold py-2 px-6 rounded-full hover:bg-blue-100 transition">Learn More</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-lg">
+                            <h3 class="text-xl font-bold text-gray-900">Expert Hospitals</h3>
+                            <a href="#" class="mt-4 block text-indigo-600 hover:underline">List of Expert Hospitals</a>
+                            <a href="../07 HOSPITAL/07D New Hospital Onbaording Form.html" class="mt-2 block text-indigo-600 hover:underline">Join as an Expert Hospital</a>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Main Footer Links -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="col-span-2 lg:col-span-2">
+                    <h3 class="text-lg font-semibold">Saba Foundation for Rare Diseases</h3>
+                    <p class="mt-2 text-gray-400 text-sm">Connecting, Collaborating, and Championing the Rare Disease Community in India.</p>
+                     <div class="mt-4">
+                        <h4 class="font-semibold">Signup for SFRD News</h4>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Your email" class="w-full rounded-l-md border-gray-600 bg-gray-700 text-white focus:ring-indigo-500">
+                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 rounded-r-md">Go</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">About</h4>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="./00-1 About Us Page.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="./00-3 Careers.html" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="./00-4 Media Enquiries.html" class="text-gray-400 hover:text-white">Media Inquiries</a></li>
+                        <li><a href="./00-2 Contact Us.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">Resources</h4>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="./00-5 All FAQs.html" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Patient Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Annual Filings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Site Map</a></li>
+                    </ul>
+                </div>
+                 <div class="col-span-2 lg:col-span-2">
+                     <h4 class="font-semibold tracking-wider uppercase">Contact</h4>
+                    <div class="mt-4 text-sm text-gray-400 space-y-2">
+                        <p>#1-8-143, 2nd Floor, Penderghast Road, Secunderabad, Hyderabad - 500 003, Telangana, India</p>
+                        <p>Email: <a href="mailto:help@sfrd.in" class="hover:text-white">help@sfrd.in</a></p>
+                        <p>Phone: <a href="tel:+917995755855" class="hover:text-white">+91 7995 755 855</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <h4 class="font-semibold text-gray-300">Disclaimer</h4>
+                <p class="text-xs text-gray-500 mt-2">
+                    SFRD provides this information for the benefit of the rare disease community & its ecosystem. SFRD is not a medical provider or health care facility and thus can neither diagnose any disease or disorder nor endorse or recommend any specific medical treatments. Patients must adhere to the personal and individualized medical advice of their qualified doctors. Information on this platform is for navigational and support purposes only.
+                </p>
+                 <p class="text-xs text-gray-400 mt-4">
+                    Not-for-Profit Foundation Incorporated under Section 8 of Companies Act, 2013. All Donations are 50% Tax Exempt under Section 80G of IT Act, 1961.
+                </p>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p class="text-gray-500">&copy; 2025 SFRD - Saba Foundation for Rare Diseases. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        // Initialize Firebase
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) {
+            console.error("Firebase init error on homepage", e);
+        }
+
+        // --- DOM Elements ---
+        const authButtonsDesktop = document.getElementById('auth-buttons-desktop');
+        const mobileMenuAuthContainer = document.querySelector('#mobile-menu .border-t');
+
+        // --- URLs ---
+        const dashboardUrls = {
+            patient: '/01 PATIENT/01G Patient Dashboard.html',
+            doctor: '/03 HCP/03E Healthcare Professional Dashboard.html',
+            volunteer: '/04 VOLUNTEER/04E Volunteer Dashboard.html',
+            epo: '/02 EPO/02E EPO Dashboard Code.html',
+            ngo: '/05 NGO/05E NGO Dashboard Code.html',
+            lab: '/06 LAB/06E Lab Dashboard.html',
+            hospital: '/07 HOSPITAL/07E Hospital Dashboard.html',
+            admin: '/SUPER ADMIN DASHBOARD.HTML',
+            default: '/00 GLOBAL/00-8 Login.html' // Fallback to login page
+        };
+
+        // --- Auth State Change Handler ---
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // User is signed in
+                const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                const docSnap = await getDoc(userRef);
+                let dashboardUrl = dashboardUrls.default;
+
+                let userStatus = 'profile_incomplete';
+                let userRole = 'patient';
+                
+                if (docSnap.exists()) {
+                    userStatus = docSnap.data().status || 'profile_incomplete';
+                    userRole = docSnap.data().role || 'patient';
+                    dashboardUrl = dashboardUrls[userRole] || dashboardUrls.default;
+                }
+
+                // Determine the correct button text and link based on user status
+                let actionButtonText = 'Dashboard';
+                let actionButtonLink = dashboardUrl;
+                let actionButtonClass = 'text-sm font-medium text-indigo-600 hover:text-indigo-500';
+                
+                if (userStatus === 'profile_incomplete') {
+                    actionButtonText = 'Complete Your Profile';
+                    // Map role to onboarding form
+                    const onboardingForms = {
+                        patient: '../01 PATIENT/01D New Patient Onboarding Form.html',
+                        doctor: '../03 HCP/03D New Healthcare Professional Onboarding.html',
+                        volunteer: '../04 VOLUNTEER/04D New Volunteer Onboarding Form.html',
+                        epo: '../02 EPO/02D New EPO Onboarding Form.html',
+                        ngo: '../05 NGO/05D New NGO Onboarding Form.html',
+                        hospital: '../07 HOSPITAL/07D New Hospital Onbaording Form.html',
+                        lab: '../06 LAB/06D New Lab Onboarding Form.html'
+                    };
+                    actionButtonLink = onboardingForms[userRole] || onboardingForms.patient;
+                    actionButtonClass = 'text-sm font-semibold text-white bg-orange-600 px-4 py-2 rounded-full hover:bg-orange-700 transition';
+                } else if (userStatus === 'pending_approval') {
+                    actionButtonText = 'Pending Approval';
+                    actionButtonLink = './00-9 Pending Approval.html';
+                    actionButtonClass = 'text-sm font-semibold text-white bg-yellow-600 px-4 py-2 rounded-full cursor-not-allowed';
+                }
+
+                // Update Desktop Header
+                const displayName = docSnap.exists() ? (docSnap.data().displayName || user.displayName) : user.displayName;
+                const photoURL = docSnap.exists() ? (docSnap.data().photoURL || user.photoURL) : user.photoURL;
+                const avatarSrc = photoURL || `https://placehold.co/100x100/7c3aed/FFFFFF?text=${(displayName || 'U').charAt(0).toUpperCase()}`;
+
+                authButtonsDesktop.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm font-medium text-gray-700">Welcome, ${displayName}</span>
+                        <img src="${avatarSrc}" alt="Your avatar" class="h-8 w-8 rounded-full">
+                        <a href="${actionButtonLink}" class="${actionButtonClass}">${actionButtonText}</a>
+                        <button id="logout-btn-desktop" class="text-sm font-semibold text-red-600 border border-red-600 px-4 py-2 rounded-full hover:bg-red-600 hover:text-white transition">Logout</button>
+                    </div>
+                `;
+
+                // Update Mobile Menu
+                mobileMenuAuthContainer.innerHTML = `
+                    <a href="${actionButtonLink}" class="block px-3 py-2 rounded-md text-base font-medium ${userStatus === 'profile_incomplete' ? 'text-orange-600' : userStatus === 'pending_approval' ? 'text-yellow-600' : 'text-indigo-600'} hover:bg-gray-100">${actionButtonText}</a>
+                    <button id="logout-btn-mobile" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-red-600 hover:bg-gray-100">Logout</button>
+                `;
+
+            } else {
+                // User is signed out
+                // Update Desktop Header
+                authButtonsDesktop.innerHTML = `
+                    <a href="./00-8 Login.html" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a href="./00-7 Register.html" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="./00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                `;
+                // Update Mobile Menu
+                mobileMenuAuthContainer.innerHTML = `
+                    <a href="./00-8 Login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
+                    <a href="./00-7 Register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
+                `;
+            }
+        });
+
+        // --- Event Listeners ---
+        document.body.addEventListener('click', (e) => {
+            if (e.target.matches('#logout-btn-desktop, #logout-btn-mobile')) {
+                e.preventDefault();
+                signOut(auth).catch(err => console.error('Logout failed', err));
+            }
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lucide Icons
+        lucide.createIcons();
+
+    </script>
+</body>
+</html>

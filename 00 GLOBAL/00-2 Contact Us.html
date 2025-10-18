@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .nav-link-desktop {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #6D28D9; /* Violet-700 */
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- Top Utility Bar -->
+        <div class="bg-gray-100/50 border-b border-gray-200">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-10 space-x-4">
+                    <div class="relative">
+                        <select class="text-xs text-gray-600 bg-transparent border-none focus:ring-0">
+                            <option>English</option>
+                            <option>हिन्दी</option>
+                            <option>తెలుగు</option>
+                        </select>
+                    </div>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="volume-2" class="w-4 h-4"></i><span>Screen Reader</span>
+                    </button>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="eye" class="w-4 h-4"></i><span>Accessibility</span>
+                    </button>
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Search..." class="w-32 text-xs rounded-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <div class="relative group">
+                        <a href="00-1 About Us Page.html" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">About Us</a>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
+                            <a href="00-5 All FAQs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Get Involved <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-64 py-2">
+                            <a href="sfrd_patient_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patients / Parents</a>
+                            <a href="sfrd_epo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patient Organizations</a>
+                            <a href="sfrd_hcp_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Doctors / Clinicians</a>
+                            <a href="sfrd_ngo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For NGOs / Community</a>
+                            <a href="sfrd_volunteer_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Volunteers</a>
+                            <a href="sfrd_lab_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Diagnostic Labs</a>
+                            <a href="sfrd_hospital_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Hospitals</a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">Advocacy</a>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">News & Events</a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="00-8 Login.html" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a href="00-7 Register.html" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                 <a href="00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">About Us</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Learn</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Get Involved</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Advocacy</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">News & Events</a>
+                 <div class="border-t border-gray-200 mt-4 pt-4">
+                    <a href="00-8 Login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
+                    <a href="00-7 Register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
+                    <a href="00-6 Donate.html" class="block w-full text-left mt-2 px-4 py-2 rounded-md text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header Section -->
+        <section class="bg-gray-50 py-20 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">Get in Touch</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">We're here to help. Whether you're a patient, a doctor, a potential partner, or just have a question, we'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Contact Grid Section -->
+        <section class="pb-16 md:pb-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 grid md:grid-cols-2 gap-12">
+                    
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-900">Contact Information</h2>
+                            <p class="mt-2 text-gray-600">Reach out to our National Secretariat directly through the channels below.</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-indigo-100 rounded-lg">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Our Office</h3>
+                                    <p class="text-gray-600 mt-1">#1-8-143, 2nd Floor, Penderghast Road<br>Secunderabad, Hyderabad - 500 003<br>Telangana, India</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-indigo-100 rounded-lg">
+                                    <i data-lucide="mail" class="w-6 h-6 text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Email Us</h3>
+                                    <a href="mailto:help@sfrd.in" class="text-indigo-600 hover:underline">help@sfrd.in</a>
+                                    <p class="text-gray-600 mt-1 text-sm">For all patient, partner, and general inquiries.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 h-12 w-12 flex items-center justify-center bg-indigo-100 rounded-lg">
+                                    <i data-lucide="phone" class="w-6 h-6 text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Call Our Helpline</h3>
+                                    <a href="tel:+917995755855" class="text-indigo-600 hover:underline">+91 7995 755 855</a>
+                                    <p class="text-gray-600 mt-1 text-sm">Available Monday - Friday, 10:00 AM to 5:00 PM IST.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Send Us a Message</h2>
+                        <form id="contact-form" class="mt-6 space-y-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="contact-name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                             <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="contact-email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                            </div>
+                             <div>
+                                <label for="contact-subject" class="block text-sm font-medium text-gray-700">Subject <span class="text-red-500">*</span></label>
+                                <select id="contact-subject" name="subject" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <option>Patient Inquiry</option>
+                                    <option>Partnership Inquiry</option>
+                                    <option>Media Inquiry</option>
+                                    <option>Donation Inquiry</option>
+                                    <option>General Question</option>
+                                </select>
+                            </div>
+                             <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700">Message <span class="text-red-500">*</span></label>
+                                <textarea id="contact-message" name="message" rows="5" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" id="submit-button" class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section>
+             <div class="w-full">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.904877717652!2d78.48839501535811!3d17.41651588806111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb995b5c3236e5%3A0x9d3637b856b2383c!2sPenderghast%20Rd%2C%20Secunderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1662371234567!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="col-span-2 lg:col-span-2"><h3 class="text-lg font-semibold">Saba Foundation for Rare Diseases</h3><p class="mt-2 text-gray-400 text-sm">Connecting, Collaborating, and Championing the Rare Disease Community in India.</p><div class="mt-4"><h4 class="font-semibold">Signup for SFRD News</h4><div class="flex mt-2"><input type="email" placeholder="Your email" class="w-full rounded-l-md border-gray-600 bg-gray-700 text-white focus:ring-indigo-500"><button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 rounded-r-md">Go</button></div></div></div>
+                <div><h4 class="font-semibold tracking-wider uppercase">About</h4><ul class="mt-4 space-y-2 text-sm"><li><a href="00-1 About Us Page.html" class="text-gray-400 hover:text-white">About Us</a></li><li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li><li><a href="#" class="text-gray-400 hover:text-white">Media Inquiries</a></li><li><a href="contact_us.html" class="text-gray-400 hover:text-white">Contact Us</a></li></ul></div>
+                <div><h4 class="font-semibold tracking-wider uppercase">Resources</h4><ul class="mt-4 space-y-2 text-sm"><li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li><li><a href="#" class="text-gray-400 hover:text-white">Patient Stories</a></li><li><a href="#" class="text-gray-400 hover:text-white">Annual Filings</a></li><li><a href="#" class="text-gray-400 hover:text-white">Site Map</a></li></ul></div>
+                <div class="col-span-2 lg:col-span-2"><h4 class="font-semibold tracking-wider uppercase">Contact</h4><div class="mt-4 text-sm text-gray-400 space-y-2"><p>#1-8-143, 2nd Floor, Penderghast Road, Secunderabad, Hyderabad - 500 003, Telangana, India</p><p>Email: <a href="mailto:help@sfrd.in" class="hover:text-white">help@sfrd.in</a></p><p>Phone: <a href="tel:+917995755855" class="hover:text-white">+91 7995 755 855</a></p></div></div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700"><h4 class="font-semibold text-gray-300">Disclaimer</h4><p class="text-xs text-gray-500 mt-2">SFRD provides this information for the benefit of the rare disease community & its ecosystem. SFRD is not a medical provider or health care facility and thus can neither diagnose any disease or disorder nor endorse or recommend any specific medical treatments. Patients must adhere to the personal and individualized medical advice of their qualified doctors. Information on this platform is for navigational and support purposes only.</p><p class="text-xs text-gray-400 mt-4">Not-for-Profit Foundation Incorporated under Section 8 of Companies Act, 2013. All Donations are 50% Tax Exempt under Section 80G of IT Act, 1961.</p></div>
+            <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm"><p class="text-gray-500">&copy; 2025 SFRD - Saba Foundation for Rare Diseases. All rights reserved.</p><div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a></div></div>
+        </div>
+    </footer>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div id="modal-icon-container" class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10"></div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500" id="modal-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="modal-close-button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        // Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, setPersistence, inMemoryPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // Firebase Config (to be injected by environment)
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-sfrd-app';
+        
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            setLogLevel('debug');
+        } catch (error) {
+            console.error("Firebase initialization failed:", error);
+            // Non-critical for contact form, but we can show a silent error
+        }
+
+        async function setupAuth() {
+            if (!auth) return;
+            try {
+                await setPersistence(auth, inMemoryPersistence);
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Authentication failed:", error);
+            }
+        }
+        setupAuth();
+
+
+        // Lucide Icons replacement
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Logic
+        const contactForm = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!db) {
+                showMessage('Error', 'Database connection is not available.', 'error');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...`;
+
+            const formData = new FormData(contactForm);
+            const inquiryData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message'),
+                submittedAt: serverTimestamp(),
+                status: 'New' // for backend tracking
+            };
+
+            try {
+                await addDoc(collection(db, `artifacts/${appId}/contactInquiries`), inquiryData);
+                showMessage('Message Sent!', 'Thank you for reaching out. Our team will get back to you shortly.', 'success');
+                contactForm.reset();
+            } catch (error) {
+                console.error("Error writing document: ", error);
+                showMessage('Send Failed', 'There was an error sending your message. Please try again or email us directly.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            }
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('message-modal');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        
+        function showMessage(title, message, type = 'success') {
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const iconContainer = document.getElementById('modal-icon-container');
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            if (type === 'success') {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        modalCloseButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+    </script>
+</body>
+</html>

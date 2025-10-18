@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .nav-link-desktop {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #6D28D9; /* Violet-700 */
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .team-member-card:hover .team-member-socials {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- Top Utility Bar -->
+        <div class="bg-gray-100/50 border-b border-gray-200">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-10 space-x-4">
+                    <div class="relative">
+                        <select class="text-xs text-gray-600 bg-transparent border-none focus:ring-0">
+                            <option>English</option>
+                            <option>हिन्दी</option>
+                            <option>తెలుగు</option>
+                        </select>
+                    </div>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="volume-2" class="w-4 h-4"></i><span>Screen Reader</span>
+                    </button>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="eye" class="w-4 h-4"></i><span>Accessibility</span>
+                    </button>
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Search..." class="w-32 text-xs rounded-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <div class="relative group">
+                        <a href="00-1 About Us Page.html" class="nav-link-desktop font-medium text-indigo-600">About Us</a>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Get Involved <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-64 py-2">
+                            <a href="sfrd_patient_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patients / Parents</a>
+                            <a href="sfrd_epo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patient Organizations</a>
+                            <a href="sfrd_hcp_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Doctors / Clinicians</a>
+                             <a href="sfrd_ngo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For NGOs / Community</a>
+                            <a href="sfrd_volunteer_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Volunteers</a>
+                            <a href="sfrd_lab_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Diagnostic Labs</a>
+                            <a href="sfrd_hospital_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Hospitals</a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">Advocacy</a>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">News & Events</a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="00-8 Login.html" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a href="00-7 Register.html" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="about_us.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-gray-100">About Us</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Learn</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Get Involved</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Advocacy</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">News & Events</a>
+                 <div class="border-t border-gray-200 mt-4 pt-4">
+                    <a href="00-8 Login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
+                    <a href="00-7 Register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
+                    <a href="00-6 Donate.html" class="block w-full text-left mt-2 px-4 py-2 rounded-md text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header Section -->
+        <section class="bg-indigo-700 py-20 md:py-32">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">About SFRD</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-indigo-200">Building a national ecosystem of hope, care, and collaboration for India's rare disease community.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900">Our Story: A Mission Born from Necessity</h2>
+                        <p class="mt-4 text-lg text-gray-600">The Saba Foundation for Rare Diseases (SFRD) was founded to address a critical, silent gap in India's healthcare landscape. For millions of families, the journey with a rare disease is a "diagnostic odyssey"—a lonely, confusing, and often decade-long search for answers. Witnessing this struggle firsthand, we knew a new approach was needed.</p>
+                        <p class="mt-4 text-gray-600">SFRD was established not just to be another organization, but to be the central connecting thread—a national hub designed to weave together the fragmented parts of the ecosystem. We believe that by connecting patients to doctors, doctors to researchers, and everyone to a supportive community, we can dramatically shorten the path to diagnosis and create a new standard of care.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba9996a?q=80&w=2070&auto=format&fit=crop" alt="Doctor and patient looking at a tablet" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Section -->
+        <section class="bg-gray-50 py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-gray-900">Our Guiding Principles</h2>
+                <div class="mt-12 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex justify-center items-center h-16 w-16 rounded-full bg-indigo-100 mx-auto">
+                            <i data-lucide="eye" class="w-8 h-8 text-indigo-600"></i>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Our Vision</h3>
+                        <p class="mt-2 text-gray-600">To create an integrated, nationwide ecosystem where every rare disease patient in India has a clear, supported, and accelerated path from initial symptoms to diagnosis, care, and long-term support.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex justify-center items-center h-16 w-16 rounded-full bg-violet-100 mx-auto">
+                            <i data-lucide="target" class="w-8 h-8 text-violet-600"></i>
+                        </div>
+                        <h3 class="mt-6 text-2xl font-semibold">Our Mission</h3>
+                        <p class="mt-2 text-gray-600">To Connect patients with resources, Collaborate with a national network of experts, and Champion the cause of the rare disease community through awareness and policy advocacy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Team Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-900">Meet Our Leadership</h2>
+                    <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">The National Secretariat is the engine of our mission, led by a dedicated team of professionals.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    <!-- Team Member Placeholder -->
+                    <div class="text-center team-member-card">
+                        <div class="relative inline-block">
+                            <img class="h-32 w-32 rounded-full mx-auto" src="https://placehold.co/200x200/6366F1/FFFFFF?text=ED" alt="Executive Director">
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Placeholder Name</h3>
+                        <p class="text-indigo-600">Executive Director</p>
+                    </div>
+                     <!-- Team Member Placeholder -->
+                    <div class="text-center team-member-card">
+                        <div class="relative inline-block">
+                            <img class="h-32 w-32 rounded-full mx-auto" src="https://placehold.co/200x200/8B5CF6/FFFFFF?text=HP" alt="Head of Partnerships">
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Placeholder Name</h3>
+                        <p class="text-indigo-600">Head of Partnerships</p>
+                    </div>
+                     <!-- Team Member Placeholder -->
+                    <div class="text-center team-member-card">
+                        <div class="relative inline-block">
+                            <img class="h-32 w-32 rounded-full mx-auto" src="https://placehold.co/200x200/10B981/FFFFFF?text=CM" alt="Comms Manager">
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Placeholder Name</h3>
+                        <p class="text-indigo-600">Comms & Advocacy Mgr</p>
+                    </div>
+                     <!-- Team Member Placeholder -->
+                    <div class="text-center team-member-card">
+                        <div class="relative inline-block">
+                            <img class="h-32 w-32 rounded-full mx-auto" src="https://placehold.co/200x200/3B82F6/FFFFFF?text=PC" alt="Patient Coordinator">
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Placeholder Name</h3>
+                        <p class="text-indigo-600">Patient Coordinator</p>
+                    </div>
+                     <!-- Team Member Placeholder -->
+                    <div class="text-center team-member-card">
+                        <div class="relative inline-block">
+                            <img class="h-32 w-32 rounded-full mx-auto" src="https://placehold.co/200x200/6B7280/FFFFFF?text=AO" alt="Admin Officer">
+                        </div>
+                        <h3 class="mt-4 text-lg font-semibold text-gray-900">Placeholder Name</h3>
+                        <p class="text-indigo-600">Admin & Finance Officer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Main Footer Links -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="col-span-2 lg:col-span-2">
+                    <h3 class="text-lg font-semibold">Saba Foundation for Rare Diseases</h3>
+                    <p class="mt-2 text-gray-400 text-sm">Connecting, Collaborating, and Championing the Rare Disease Community in India.</p>
+                     <div class="mt-4">
+                        <h4 class="font-semibold">Signup for SFRD News</h4>
+                        <div class="flex mt-2">
+                            <input type="email" placeholder="Your email" class="w-full rounded-l-md border-gray-600 bg-gray-700 text-white focus:ring-indigo-500">
+                            <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 rounded-r-md">Go</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">About</h4>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="00-1 About Us Page.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="00-3 Careers.html" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="00-4 Media Enquiries.html" class="text-gray-400 hover:text-white">Media Inquiries</a></li>
+                        <li><a href="00-2 Contact Us.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold tracking-wider uppercase">Resources</h4>
+                    <ul class="mt-4 space-y-2 text-sm">
+                        <li><a href="00-5 All FAQs.html" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Patient Stories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Annual Filings</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Site Map</a></li>
+                    </ul>
+                </div>
+                 <div class="col-span-2 lg:col-span-2">
+                     <h4 class="font-semibold tracking-wider uppercase">Contact</h4>
+                    <div class="mt-4 text-sm text-gray-400 space-y-2">
+                        <p>#1-8-143, 2nd Floor, Penderghast Road, Secunderabad, Hyderabad - 500 003, Telangana, India</p>
+                        <p>Email: <a href="mailto:help@sfrd.in" class="hover:text-white">help@sfrd.in</a></p>
+                        <p>Phone: <a href="tel:+917995755855" class="hover:text-white">+91 7995 755 855</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <h4 class="font-semibold text-gray-300">Disclaimer</h4>
+                <p class="text-xs text-gray-500 mt-2">
+                    SFRD provides this information for the benefit of the rare disease community & its ecosystem. SFRD is not a medical provider or health care facility and thus can neither diagnose any disease or disorder nor endorse or recommend any specific medical treatments. Patients must adhere to the personal and individualized medical advice of their qualified doctors. Information on this platform is for navigational and support purposes only.
+                </p>
+                 <p class="text-xs text-gray-400 mt-4">
+                    Not-for-Profit Foundation Incorporated under Section 8 of Companies Act, 2013. All Donations are 50% Tax Exempt under Section 80G of IT Act, 1961.
+                </p>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p class="text-gray-500">&copy; 2025 SFRD - Saba Foundation for Rare Diseases. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Lucide Icons replacement
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

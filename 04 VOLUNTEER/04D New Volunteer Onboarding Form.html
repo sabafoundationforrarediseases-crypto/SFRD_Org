@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Rare Disease Champion - Pro Bono Volunteer Onboarding Form</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .form-section-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+        }
+        .helper-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .submit-button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #4338ca;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background-color: #4f46e5;
+            height: 1rem;
+            border-radius: 9999px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">SFRD "Rare Disease Champion" - Pro-Bono Volunteer Onboarding Form</h1>
+            <p class="text-sm text-gray-500 mt-1">Version: 1.0; Dated 07-Sep-2025</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <p id="progressText" class="text-center text-sm text-gray-600 mb-4">0% Complete</p>
+
+        <form id="volunteerOnboardingForm">
+
+            <!-- Section A: Your Basic Information -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section A: Your Basic Information</h2>
+                    <p class="text-gray-600 mt-1">Thank you for taking the first step to become a Rare Disease Champion! By sharing your details, you are joining a national movement of hope. Your personal information will be kept confidential and used only for internal coordination.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="fullName" class="form-label">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label for="dob" class="form-label">Date of Birth <span class="text-red-500">*</span></label>
+                        <input type="date" id="dob" name="dob" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="gender" class="form-label">Gender <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" class="form-select" required>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="0">Not Known</option>
+                            <option value="9">Not Applicable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="primaryEmail" class="form-label">Primary Email Address <span class="text-red-500">*</span></label>
+                        <input type="email" id="primaryEmail" name="primaryEmail" class="form-input" placeholder="your.email@example.com" required>
+                        <p class="helper-text">We will use this to send you updates, training materials, and opportunities.</p>
+                    </div>
+                    <div>
+                        <label for="mobileNumber" class="form-label">Mobile / WhatsApp Number <span class="text-red-500">*</span></label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" class="form-input" placeholder="+91-9876543210" required>
+                        <p class="helper-text">For quick coordination by our Volunteer Coordinator.</p>
+                    </div>
+                    <div>
+                        <label for="cityState" class="form-label">City & State of Residence <span class="text-red-500">*</span></label>
+                        <input type="text" id="cityState" name="cityState" class="form-input" placeholder="e.g., Mumbai, Maharashtra" required>
+                        <p class="helper-text">Knowing your location helps us connect you with local initiatives.</p>
+                    </div>
+                    <div>
+                        <label for="linkedinUrl" class="form-label">LinkedIn Profile URL (Optional)</label>
+                        <input type="url" id="linkedinUrl" name="linkedinUrl" class="form-input">
+                         <p class="helper-text">Helps us understand your professional background and interests.</p>
+                    </div>
+                    <div>
+                        <label for="socialMedia" class="form-label">Social Media Profiles (Optional)</label>
+                        <input type="text" id="socialMedia" name="socialMedia" class="form-input" placeholder="Facebook, Instagram, Twitter, etc.">
+                        <p class="helper-text">To help us reach with updates quickly.</p>
+                    </div>
+                    <div>
+                        <label for="volunteerId" class="form-label">Unique Volunteer Identifier</label>
+                        <input type="text" id="volunteerId" name="volunteerId" class="form-input bg-gray-100" readonly>
+                        <p class="helper-text">Your permanent identification no in SFRD. Helps you login into SFRD Framework.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section B: Your Skills & Expertise -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section B: Your Skills & Expertise (All are mandatory)</h2>
+                    <p class="text-gray-600 mt-1">Your unique skills can change lives. Whether you are a student, a professional, or retired, your experience is valuable to us. Please tell us a bit about your background.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="qualification" class="form-label">Highest Professional/Academic Qualification <span class="text-red-500">*</span></label>
+                        <input type="text" id="qualification" name="qualification" class="form-input" placeholder="E.g., B.Com, MA in Social Work, PhD" required>
+                    </div>
+                    <div>
+                        <label for="primaryExpertise" class="form-label">Primary Area of Expertise <span class="text-red-500">*</span></label>
+                        <select id="primaryExpertise" name="primaryExpertise" class="form-select" required>
+                            <option>Healthcare</option>
+                            <option>Marketing/Communications</option>
+                            <option>IT/Technology</option>
+                            <option>Legal</option>
+                            <option>Finance/Accounting</option>
+                            <option>Counselling/Social Work</option>
+                            <option>Education</option>
+                            <option>Event Management</option>
+                            <option>Administration</option>
+                            <option>Student</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="skills" class="form-label">Skills <span class="text-red-500">*</span></label>
+                        <input type="text" id="skills" name="skills" class="form-input" required>
+                        <p class="helper-text">List your skills and press Enter after each one (e.g., Content Writing, Graphic Design, Public Speaking).</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="employmentStatus" class="form-label">Current Employment Status <span class="text-red-500">*</span></label>
+                        <select id="employmentStatus" name="employmentStatus" class="form-select" required>
+                            <option>Public Service (Govt.)</option>
+                            <option>Private Service (Corporate)</option>
+                            <option>Professional Services (E.g., Lawyer, CA)</option>
+                            <option>Self-Employed</option>
+                            <option>Homemaker</option>
+                            <option>Student</option>
+                            <option>Retired</option>
+                            <option>Not Currently Employed</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="experienceDescription" class="form-label">Please briefly describe your professional background or any hands-on experience relevant to your chosen expertise. <span class="text-red-500">*</span></label>
+                        <textarea id="experienceDescription" name="experienceDescription" rows="4" class="form-textarea" placeholder="e.g., 'I am a retired bank manager with 30 years of experience in finance'" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section C: How You Can Contribute -->
+            <div class="form-section">
+                 <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section C: How You Can Contribute to the Mission</h2>
+                    <p class="text-gray-600 mt-1">Here's how you can be a part of the solution. Please select all the areas where you feel you can contribute your time and skills. We will provide training where needed!</p>
+                </div>
+                <div>
+                    <label class="form-label">I am interested in contributing towards SFRD's mission in the following ways:</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="outreach" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Patient Identification & Outreach:</b> Spreading awareness in your local community, school, or workplace.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="support" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Patient & Family Support:</b> Providing emotional support, helping families navigate resources (after training).</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="education" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Education & Empowerment:</b> Helping translate materials into local languages, organizing local awareness talks.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="events" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Event Management & Support:</b> Helping organize and manage local or virtual events, webinars, and support group meetings.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="content" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Content Creation & Social Media:</b> Writing articles, designing posts, helping manage our social media channels.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="fundraising" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Fundraising Support:</b> Helping with fundraising campaigns, reaching out to potential local donors.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="advocacy" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Advocacy & Awareness:</b> Participating in awareness walks, signature campaigns, and other advocacy efforts.</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="pro_bono" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-2"><b>Professional Skills Pro-Bono:</b> Lending your specific professional expertise (e.g., legal advice, accounting, IT support).</span></label>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label for="otherHelp" class="form-label">Is there any other way you would like to help?</label>
+                    <textarea id="otherHelp" name="otherHelp" rows="3" class="form-textarea" placeholder="Please share any other ideas or skills you'd like to offer."></textarea>
+                </div>
+            </div>
+            
+            <!-- Section D: Your Availability -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section D: Your Availability (All are mandatory)</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="weeklyAvailability" class="form-label">How many hours per week can you realistically commit? <span class="text-red-500">*</span></label>
+                        <select id="weeklyAvailability" name="weeklyAvailability" class="form-select" required>
+                            <option>1-3 hours</option>
+                            <option>4-6 hours</option>
+                            <option>7+ hours</option>
+                            <option>Flexible (Event-based)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="emergencyContactName" class="form-label">Emergency Contact Person <span class="text-red-500">*</span></label>
+                        <input type="text" id="emergencyContactName" name="emergencyContactName" class="form-input" placeholder="Enter name of emergency contact" required>
+                         <p class="helper-text">In case we cannot reach you for an urgent matter.</p>
+                    </div>
+                    <div>
+                        <label for="emergencyContactPhone" class="form-label">Emergency Contact Phone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" class="form-input" placeholder="Enter phone number of emergency contact" required>
+                        <p class="helper-text">This will be kept strictly confidential.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section E: Volunteer Consent & Agreement -->
+            <div class="form-section">
+                <div class="form-section-header">
+                     <h2 class="text-xl font-semibold text-gray-800">Section E: Volunteer Consent & Agreement (All are mandatory)</h2>
+                    <p class="text-gray-600 mt-1">This agreement formalizes your voluntary role with SFRD. It is designed to protect you, the foundation, and most importantly, the patients and families we serve. Please read each point carefully.</p>
+                </div>
+                <div class="space-y-5">
+                     <label class="flex items-start"><input type="checkbox" name="consentProBono" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm">I understand and acknowledge that my role as a volunteer for SFRD is entirely <strong>pro-bono</strong> (unpaid).</span></label>
+                     <label class="flex items-start"><input type="checkbox" name="consentStoreInfo" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm">I consent to SFRD securely storing the personal information I have provided in this form in its internal, confidential volunteer database for the purpose of coordination and communication.</span></label>
+                     <label class="flex items-start"><input type="checkbox" name="consentConfidentiality" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm"><strong>Confidentiality Agreement:</strong> I understand that in my role, I may be exposed to sensitive patient information. I agree to maintain the strictest confidentiality of all patient and family information and will not share it with any third party, in accordance with SFRD's privacy policy.</span></label>
+                     <label class="flex items-start"><input type="checkbox" name="consentRepresentation" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm">I agree to represent the Saba Foundation for Rare Diseases in a positive and professional manner and adhere to the Volunteer Code of Conduct, which will be provided during my orientation.</span></label>
+                     <label class="flex items-start"><input type="checkbox" name="consentAccuracy" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3 text-sm">By checking this box, I confirm that all the information provided is accurate to the best of my knowledge and I agree to the terms of this volunteer partnership.</span></label>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t">
+                         <div>
+                            <label for="signatureName" class="form-label">Full Name (as a digital signature) <span class="text-red-500">*</span></label>
+                            <input type="text" id="signatureName" name="signatureName" class="form-input" placeholder="Please type your full name to sign" required>
+                        </div>
+                        <div>
+                            <label for="consentDate" class="form-label">Date</label>
+                            <input type="date" id="consentDate" name="consentDate" class="form-input bg-gray-100" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="submit-button">BECOME A RARE DISEASE CHAMPION</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="https://unpkg.com/@yaireo/tagify"></script>
+    <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+    <script>
+        // The DOM element you wish to replace with Tagify
+        var input = document.querySelector('input[name=skills]');
+
+        // initialize Tagify on the input element
+        new Tagify(input);
+    </script>
+    <script type="module">
+        import { auth, db, appId } from '../js/firebase-config.js';
+        import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+        import { initializeFormEnhancements } from '../js/form-enhancements.js';
+        import { ProgressBarManager } from '../js/progress-bar-utils.js';
+        import { FormEventCoordinator } from '../js/form-coordinator.js';
+
+        const form = document.getElementById('volunteerOnboardingForm');
+        const formId = 'volunteerOnboardingForm';
+        let currentUserId = null;
+        let formEnhancements = null;
+        let progressBarManager = null;
+        let formCoordinator = null;
+
+        // --- Standard Caching, Auth, and Submission Logic ---
+        const saveFormProgress = () => {
+            if (!currentUserId) return;
+            const formData = new FormData(form);
+            const data = {};
+            const checkboxGroups = {};
+            for (let [key, value] of formData.entries()) {
+                const element = form.elements[key];
+                if (element && element.type === 'checkbox') {
+                    if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                    checkboxGroups[key].push(value);
+                } else { data[key] = value; }
+            }
+            Object.assign(data, checkboxGroups);
+            localStorage.setItem(`${formId}_${currentUserId}`, JSON.stringify(data));
+            console.log('Form progress saved.');
+        };
+
+        const loadFormProgress = () => {
+            if (!currentUserId) return;
+            const savedData = localStorage.getItem(`${formId}_${currentUserId}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    const element = form.elements[key];
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = Array.isArray(data[key]) ? data[key].length > 0 : !!data[key];
+                        } else if (element.length && element[0]?.type === 'checkbox') {
+                            const values = Array.isArray(data[key]) ? data[key] : [];
+                            Array.from(element).forEach(cb => { cb.checked = values.includes(cb.value); });
+                        } else { element.value = data[key]; }
+                    }
+                }
+                console.log('Form progress loaded.');
+            }
+        };
+
+        const clearFormProgress = () => {
+            if (!currentUserId) return;
+            localStorage.removeItem(`${formId}_${currentUserId}`);
+            console.log('Cached form data cleared.');
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUserId = user.uid;
+                document.getElementById('primaryEmail').value = user.email;
+                document.getElementById('volunteerId').value = user.uid;
+                document.getElementById('consentDate').valueAsDate = new Date();
+                formEnhancements = initializeFormEnhancements(form, formId, currentUserId);
+                loadFormProgress();
+
+                // Initialize progress bar with coordinator mode enabled (no event listeners)
+                progressBarManager = new ProgressBarManager(form, 'progressBar', 'progressText', true);
+                
+                // Initialize unified event coordinator (attaches all listeners)
+                formCoordinator = new FormEventCoordinator(form, saveFormProgress, progressBarManager, formEnhancements);
+                
+                console.log('Volunteer form: Unified event coordination initialized');
+            } else { /* Handled by auth-guard.js */ }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'SUBMITTING...';
+
+            if (!currentUserId) {
+                alert('Authentication error. Please sign in again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'BECOME A RARE DISEASE CHAMPION';
+                return;
+            }
+
+            try {
+                const formData = new FormData(form);
+                const data = { uid: currentUserId, createdAt: new Date().toISOString() };
+                const checkboxGroups = {};
+
+                formData.forEach((value, key) => {
+                    const element = form.elements[key];
+                    if (element && element.type === 'checkbox') {
+                        if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                        checkboxGroups[key].push(value);
+                    } else { data[key] = value; }
+                });
+                Object.assign(data, checkboxGroups);
+
+                console.log('Saving Volunteer data:', data);
+                console.log('Using appId:', appId);
+
+                await setDoc(doc(db, `artifacts/${appId}/volunteers`, currentUserId), data);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUserId);
+                await updateDoc(userDocRef, { 
+                    profileComplete: true, 
+                    status: 'pending_approval',
+                    role: 'volunteer' // Explicitly set the role to 'volunteer'
+                });
+
+                clearFormProgress();
+                alert('Form submitted successfully! Your profile is now under review.');
+                window.location.href = '/index.html'; // Redirect to homepage
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+                alert('An error occurred. Please check the console and try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'BECOME A RARE DISEASE CHAMPION';
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

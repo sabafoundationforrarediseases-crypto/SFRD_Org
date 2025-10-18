@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Onboarding | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/validation-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-left: 3px solid #10B981; /* Emerald-500 */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="inline-block mx-auto">
+                 <svg class="h-16 w-16 text-emerald-600" role="img" aria-label="Saba Foundation for Rare Diseases Logo"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22V12" /></svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">SFRD Patient Onboarding Form</h1>
+            <p class="text-gray-600 mt-2">Your first step towards finding answers. You are not alone.</p>
+        </header>
+
+        <!-- Main Form -->
+        <form id="patient-onboarding-form" class="space-y-12">
+
+            <!-- Section A: Referee Details -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section A: Referee Details</h2>
+                <p class="text-gray-500 mb-6">This section helps us understand who has referred the patient to SFRD. This information will be kept confidential.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="referredBy" class="block text-sm font-medium text-gray-700">Referred by <span class="text-red-500">*</span></label>
+                        <select id="referredBy" name="referredBy" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="">Select...</option>
+                            <option value="Self">Self</option>
+                            <option value="Volunteer">Volunteer</option>
+                            <option value="NGO">NGO</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Genetic Counsellor">Genetic Counsellor</option>
+                            <option value="Diagnostics Lab">Diagnostics Lab</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="refereeId" class="block text-sm font-medium text-gray-700">Unique ID of Referee (if known)</label>
+                        <input type="text" id="refereeId" name="refereeId" placeholder="e.g., SFRD-VOL-12345" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="refereeDetails" class="block text-sm font-medium text-gray-700">Details of Referee (Name, Profession, City)</label>
+                        <input type="text" id="refereeDetails" name="refereeDetails" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section B: Patient's Basic Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section B: Patient's Basic Information</h2>
+                <p class="text-gray-500 mb-6">This helps us understand who the patient is. Your contact information will be kept strictly confidential.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-gray-700">First Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth <span class="text-red-500">*</span></label>
+                        <input type="date" id="dob" name="dob" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="">Select...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="0">Not Known</option>
+                            <option value="9">Not Applicable</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="state" class="block text-sm font-medium text-gray-700">State <span class="text-red-500">*</span></label>
+                        <input type="text" id="state" name="state" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-700">City/Town/Village <span class="text-red-500">*</span></label>
+                        <input type="text" id="city" name="city" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="contactEmail" class="block text-sm font-medium text-gray-700">Contact Email</label>
+                        <input type="email" id="contactEmail" name="contactEmail" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="contactPhone" class="block text-sm font-medium text-gray-700">Contact Phone/WhatsApp <span class="text-red-500">*</span></label>
+                        <input type="tel" id="contactPhone" name="contactPhone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="socialMedia" class="block text-sm font-medium text-gray-700">Social Media Handles (Optional)</label>
+                        <input type="text" id="socialMedia" name="socialMedia" placeholder="e.g., Facebook, Instagram, Twitter links" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section C: Parental / Caregiver Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section C: Parent / Caregiver Information</h2>
+                <p class="text-gray-500 mb-6">Details of the primary person we can contact regarding the patient's case.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="parentFirstName" class="block text-sm font-medium text-gray-700">First Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="parentFirstName" name="parentFirstName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="parentLastName" class="block text-sm font-medium text-gray-700">Last Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="parentLastName" name="parentLastName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="parentRelation" class="block text-sm font-medium text-gray-700">Relation to Patient <span class="text-red-500">*</span></label>
+                        <input type="text" id="parentRelation" name="parentRelation" required placeholder="e.g., Mother, Father, Guardian" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="parentPhone" class="block text-sm font-medium text-gray-700">Contact Phone/WhatsApp <span class="text-red-500">*</span></label>
+                        <input type="tel" id="parentPhone" name="parentPhone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Section D: Symptoms & Clinical Features -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section D: Symptoms & Clinical Features</h2>
+                <p class="text-gray-500 mb-6">Please describe the patient's health challenges. This helps our specialists understand the situation better.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="symptoms-growth" class="block text-sm font-medium text-gray-700">Overall Growth & Development</label>
+                        <textarea id="symptoms-growth" name="symptomsGrowth" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm" placeholder="e.g., Issues with height, weight, head size, or delays in milestones like walking or talking."></textarea>
+                    </div>
+                    <div>
+                        <label for="symptoms-neuro" class="block text-sm font-medium text-gray-700">Neurological (Brain & Nerves)</label>
+                        <textarea id="symptoms-neuro" name="symptomsNeuro" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm" placeholder="e.g., Seizures, muscle weakness, difficulty with balance/coordination, learning difficulties."></textarea>
+                    </div>
+                    <div>
+                        <label for="symptoms-other" class="block text-sm font-medium text-gray-700">Other Major Symptoms (add as tags)</label>
+                        <input type="text" id="symptoms-other" name="symptomsOther" placeholder="Type a symptom to search..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                     <div>
+                        <label for="symptoms-physical" class="block text-sm font-medium text-gray-700">Physical Functioning</label>
+                        <textarea id="symptoms-physical" name="symptomsPhysical" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm" placeholder="Describe physical mobility, daily activity support needed, school/work participation."></textarea>
+                    </div>
+                </div>
+            </section>
+
+             <!-- Section E: Diagnosis Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section E: Diagnosis Information</h2>
+                <p class="text-gray-500 mb-6">Please provide as much detail as you can. If you are unsure, please write 'Don't Know' or upload a doctor's report.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="diagnosisStatus" class="block text-sm font-medium text-gray-700">Diagnosis Status</label>
+                        <select id="diagnosisStatus" name="diagnosisStatus" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="Suspected">Suspected</option>
+                            <option value="Confirmed">Confirmed</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="diseaseName" class="block text-sm font-medium text-gray-700">Name of the Disease/Condition</label>
+                        <input type="text" id="diseaseName" name="diseaseName" placeholder="Start typing if you know it..." class="awesomplete mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm" data-list="#disease-list">
+                        <datalist id="disease-list">
+                            <!-- Options will be populated by JavaScript -->
+                        </datalist>
+                    </div>
+                    <div>
+                        <label for="dateFirstSymptoms" class="block text-sm font-medium text-gray-700">Date of First Symptoms</label>
+                        <input type="date" id="dateFirstSymptoms" name="dateFirstSymptoms" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="dateFirstDiagnosis" class="block text-sm font-medium text-gray-700">Date of First Diagnosis</label>
+                        <input type="date" id="dateFirstDiagnosis" name="dateFirstDiagnosis" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">How was the diagnosis made?</label>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="diag-clinical" name="diagnosisMethod" type="checkbox" value="Clinical Examination" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="diag-clinical" class="font-medium text-gray-700">Clinical Examination</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="diag-genetic" name="diagnosisMethod" type="checkbox" value="Genetic Testing" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="diag-genetic" class="font-medium text-gray-700">Genetic Testing</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="diag-biochemical" name="diagnosisMethod" type="checkbox" value="Biochemical Testing" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="diag-biochemical" class="font-medium text-gray-700">Biochemical Testing</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="diag-imaging" name="diagnosisMethod" type="checkbox" value="Imaging (MRI, X-Ray)" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="diag-imaging" class="font-medium text-gray-700">Imaging (MRI, X-Ray)</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="diag-family" name="diagnosisMethod" type="checkbox" value="Family History" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="diag-family" class="font-medium text-gray-700">Family History</label></div></div>
+                        </div>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="medicalReports" class="block text-sm font-medium text-gray-700">Upload Medical Reports (Prescriptions, Genetic Reports, etc.)</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="medicalReports" class="relative cursor-pointer bg-white rounded-md font-medium text-emerald-600 hover:text-emerald-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-emerald-500">
+                                        <span>Upload a file</span>
+                                        <input id="medicalReports" name="medicalReports" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PDF, JPG, PNG, DICOM up to 10MB</p>
+                                <p id="file-upload-name" class="text-xs text-emerald-700 font-semibold"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section F: Medical History -->
+             <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section F: Medical History</h2>
+                <p class="text-gray-500 mb-6">Provide a brief overview of the patient's current medical situation.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="currentDiseaseStatus" class="block text-sm font-medium text-gray-700">Current Disease Status</label>
+                        <select id="currentDiseaseStatus" name="currentDiseaseStatus" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="Stable">Stable</option>
+                            <option value="Progressive">Progressive</option>
+                            <option value="Remission">Remission</option>
+                             <option value="Not Known">Not Known</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="managingHospital" class="block text-sm font-medium text-gray-700">Doctor/Hospital Managing Treatment</label>
+                        <input type="text" id="managingHospital" name="managingHospital" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="currentMedications" class="block text-sm font-medium text-gray-700">Current Medications</label>
+                        <textarea id="currentMedications" name="currentMedications" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm" placeholder="List all medications, dosage, and start date."></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                         <label class="block text-sm font-medium text-gray-700">Medical Devices Used</label>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-2 gap-4">
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="device-mobility" name="medicalDevice" type="checkbox" value="Wheelchair/Mobility Aid" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="device-mobility" class="font-medium text-gray-700">Wheelchair/Mobility Aid</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="device-breathing" name="medicalDevice" type="checkbox" value="Ventilator/Breathing Support" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="device-breathing" class="font-medium text-gray-700">Ventilator/Breathing Support</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="device-hearing" name="medicalDevice" type="checkbox" value="Hearing Aid" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="device-hearing" class="font-medium text-gray-700">Hearing Aid</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="device-feeding" name="medicalDevice" type="checkbox" value="Feeding Tube" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="device-feeding" class="font-medium text-gray-700">Feeding Tube</label></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section G: Social & Support Functions -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section G: Support Needs</h2>
+                <p class="text-gray-500 mb-6">Please tell us what kind of support you need from SFRD.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="support-counselling" class="block text-sm font-medium text-gray-700">Need for Counselling</label>
+                        <select id="support-counselling" name="supportCounselling" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="support-financial" class="block text-sm font-medium text-gray-700">Need for Financial Support Navigation</label>
+                        <select id="support-financial" name="supportFinancial" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="preferredLanguage" class="block text-sm font-medium text-gray-700">Preferred Language for Communication</label>
+                        <input type="text" id="preferredLanguage" name="preferredLanguage" placeholder="e.g., Hindi, Tamil, English" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="patientOrg" class="block text-sm font-medium text-gray-700">Existing Patient Organization Membership</label>
+                        <input type="text" id="patientOrg" name="patientOrg" placeholder="Name of organization, if any" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section H: Consent -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section H: Consent for Data Use & Sharing</h2>
+                <p class="text-gray-500 mb-6">Your privacy is our highest priority. You own your data. Please provide your permission for us to help you and the wider rare disease community.</p>
+                <div class="space-y-5">
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-support" name="consentSupport" type="checkbox" required class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm">
+                            <label for="consent-support" class="font-medium text-gray-700">Consent for Direct Support <span class="text-red-500">*</span></label>
+                            <p class="text-gray-500">I agree that SFRD can securely store this information and use it to contact me, provide guidance, and connect me with relevant resources.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-review" name="consentReview" type="checkbox" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm">
+                            <label for="consent-review" class="font-medium text-gray-700">Consent for Expert Opinion</label>
+                            <p class="text-gray-500">I agree that an anonymized summary of this health information can be shared with verified medical experts in the SFRD network to get a clinical opinion.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-registry" name="consentRegistry" type="checkbox" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm">
+                            <label for="consent-registry" class="font-medium text-gray-700">Consent for National Research Registry</label>
+                            <p class="text-gray-500">I agree that anonymized health data can be included in a National Rare Disease Registry to help researchers and policymakers.</p>
+                        </div>
+                    </div>
+                     <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-trials" name="consentTrials" type="checkbox" class="focus:ring-emerald-500 h-4 w-4 text-emerald-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm">
+                            <label for="consent-trials" class="font-medium text-gray-700">Consent for Clinical Trial Information</label>
+                            <p class="text-gray-500">I agree to be contacted by SFRD if a relevant clinical trial or research study becomes available in India.</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                             <label for="consentName" class="block text-sm font-medium text-gray-700">Full Name of Person Giving Consent <span class="text-red-500">*</span></label>
+                            <input type="text" id="consentName" name="consentName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                        </div>
+                         <div>
+                             <label for="consentRelation" class="block text-sm font-medium text-gray-700">Relationship to Patient <span class="text-red-500">*</span></label>
+                            <input type="text" id="consentRelation" name="consentRelation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submission Button -->
+            <div class="pt-5">
+                <div class="flex justify-end">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto ml-3 inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+                        Submit Information
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script src="../js/common-form-logic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        let app, db, storage, auth, currentUser;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (error) {
+            console.error("Firebase initialization failed:", error);
+            showMessage('Error', 'Could not connect to the database. Please try again later.', 'error');
+        }
+
+        const form = document.getElementById('patient-onboarding-form');
+        const submitButton = document.getElementById('submit-button');
+        const medicalReportsInput = document.getElementById('medicalReports');
+        const fileUploadName = document.getElementById('file-upload-name');
+        const localStorageKey = 'patientOnboardingForm';
+
+        // Form fields for validation
+        const contactEmailInput = document.getElementById('contactEmail');
+        const contactPhoneInput = document.getElementById('contactPhone');
+        const parentPhoneInput = document.getElementById('parentPhone');
+
+        // --- Authentication Guard ---
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                console.log("User authenticated, proceeding with form.");
+                // Pre-fill email if available
+                const contactEmailInput = document.getElementById('contactEmail');
+                if (!contactEmailInput.value && currentUser.email) {
+                    contactEmailInput.value = currentUser.email;
+                }
+            } else {
+                console.log("No user logged in, redirecting to login page.");
+                window.location.href = `../00 GLOBAL/00-8 Login.html?redirect=${encodeURIComponent(window.location.href)}`;
+            }
+        });
+
+        // --- Autocomplete Logic ---
+        const diseaseNameInput = document.getElementById('diseaseName');
+        let allDiseases = [];
+        const awesomplete = new Awesomplete(diseaseNameInput, { minChars: 1 });
+
+        // Fetch all diseases on page load for client-side autocomplete
+        fetch('https://api.orphadata.com/rd-cross-referencing/orphacodes?lang=en')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.data && data.data.results) {
+                    allDiseases = data.data.results.map(item => `${item['Preferred term']} (ORPHA:${item.ORPHAcode})`);
+                    awesomplete.list = allDiseases;
+                    console.log(`Successfully loaded ${allDiseases.length} diseases for autocomplete.`);
+                } else {
+                    console.error('Failed to load diseases, response format is incorrect:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching all Orphanet diseases:', error));
+
+        // --- HPO Symptoms Tagging with Orphadata API ---
+        const symptomsInput = document.getElementById('symptoms-other');
+        const symptomsChoices = new Choices(symptomsInput, {
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'Type to search for symptoms...',
+            allowHTML: false,
+            editItems: true,
+            maxItemCount: 20,
+            addItemFilter: function(value) {
+                if (!value) return false;
+                const exists = this.store.values.some(item => item.value.toLowerCase() === value.toLowerCase());
+                return !exists;
+            },
+        });
+
+        // Fetch all HPO terms on page load and provide them to Choices.js
+        fetch('https://api.orphadata.com/rd-phenotypes/hpoids?lang=en')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.data && data.data.results) {
+                    const allSymptoms = data.data.results.map(item => ({
+                        value: `${item.HPOTerm} (${item.HPOId})`,
+                        label: `${item.HPOTerm} (${item.HPOId})`,
+                    }));
+                    symptomsChoices.setChoices(allSymptoms, 'value', 'label', false);
+                    console.log(`Successfully loaded ${allSymptoms.length} HPO terms for tagging.`);
+                } else {
+                     console.error('Failed to load HPO terms, response format is incorrect:', data);
+                }
+            })
+            .catch(error => console.error('Error fetching all HPO terms:', error));
+
+        // --- Auto-Save Logic ---
+        const saveFormProgress = () => {
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (form.elements[key].type !== 'file') {
+                    data[key] = value;
+                }
+            });
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+        };
+
+        const loadFormProgress = () => {
+            const savedData = localStorage.getItem(localStorageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    if (form.elements[key]) {
+                        const element = form.elements[key];
+                        if (element.type === 'checkbox') {
+                            // This handles multiple checkboxes with the same name
+                            document.querySelectorAll(`input[name="${key}"]`).forEach(cb => {
+                                if (Array.isArray(data[key]) && data[key].includes(cb.value)) {
+                                    cb.checked = true;
+                                } else if (cb.value === data[key]) {
+                                    cb.checked = true;
+                                }
+                            });
+                        } else if (element.type === 'radio') {
+                            document.querySelector(`input[name="${key}"][value="${data[key]}"]`).checked = true;
+                        } else {
+                            element.value = data[key];
+                        }
+                    }
+                }
+            }
+        };
+
+        form.addEventListener('input', saveFormProgress);
+        window.addEventListener('load', () => {
+            loadFormProgress();
+
+            // --- Real-time Validation Listeners ---
+            contactEmailInput.addEventListener('input', () => {
+                if (!isValidEmail(contactEmailInput.value)) {
+                    showValidationError(contactEmailInput, 'Please enter a valid email address.');
+                } else {
+                    clearValidationError(contactEmailInput);
+                }
+            });
+
+            contactPhoneInput.addEventListener('input', () => {
+                if (!isValidPhone(contactPhoneInput.value)) {
+                    showValidationError(contactPhoneInput, 'Please enter a valid 10-digit phone number.');
+                } else {
+                    clearValidationError(contactPhoneInput);
+                }
+            });
+
+            parentPhoneInput.addEventListener('input', () => {
+                if (!isValidPhone(parentPhoneInput.value)) {
+                    showValidationError(parentPhoneInput, 'Please enter a valid 10-digit phone number.');
+                } else {
+                    clearValidationError(parentPhoneInput);
+                }
+            });
+        });
+        // --- End Auto-Save Logic ---
+
+        medicalReportsInput.addEventListener('change', () => {
+            updateFileInputLabel(medicalReportsInput, fileUploadName);
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!currentUser) {
+                showMessage('Error', 'You must be logged in to submit this form. Please refresh and try again.', 'error');
+                return;
+            }
+
+            setSubmitButtonState(submitButton, true, 'Submitting...');
+
+            // --- Final Validation Check ---
+            let isFormValid = true;
+            if (!isValidEmail(contactEmailInput.value) && contactEmailInput.value) { // only validate if not empty
+                showValidationError(contactEmailInput, 'Please enter a valid email address.');
+                isFormValid = false;
+            }
+            if (!isValidPhone(contactPhoneInput.value)) {
+                showValidationError(contactPhoneInput, 'Please enter a valid 10-digit phone number.');
+                isFormValid = false;
+            }
+            if (!isValidPhone(parentPhoneInput.value)) {
+                showValidationError(parentPhoneInput, 'Please enter a valid 10-digit phone number.');
+                isFormValid = false;
+            }
+
+            if (!isFormValid) {
+                showMessage('Error', 'Please fix the errors before submitting.', 'error');
+                setSubmitButtonState(submitButton, false, 'Submit Information');
+                return;
+            }
+
+            try {
+                // 1. Handle File Upload
+                let medicalReportUrl = '';
+                const file = medicalReportsInput.files[0];
+                if (file) {
+                    const storageRef = ref(storage, `artifacts/${appId}/medical-reports/${currentUser.uid}/${Date.now()}_${file.name}`);
+                    const snapshot = await uploadBytes(storageRef, file);
+                    medicalReportUrl = await getDownloadURL(snapshot.ref);
+                }
+
+                // 2. Gather Form Data
+                const formData = new FormData(form);
+                const patientData = {};
+                const multiSelects = ['diagnosisMethod', 'medicalDevice'];
+                const checkboxData = {};
+                multiSelects.forEach(name => checkboxData[name] = []);
+
+                formData.forEach((value, key) => {
+                    if (multiSelects.includes(key)) {
+                        checkboxData[key].push(value);
+                    } else if (form.elements[key].type !== 'checkbox') {
+                        patientData[key] = value;
+                    }
+                });
+
+                const consentKeys = ['consentSupport', 'consentReview', 'consentRegistry', 'consentTrials'];
+                consentKeys.forEach(key => {
+                    patientData[key] = form.elements[key].checked;
+                });
+
+                // 3. Combine and Add Metadata
+                const finalData = {
+                    ...patientData,
+                    ...checkboxData,
+                    guardianUid: currentUser.uid, // Link to the logged-in user
+                    medicalReportUrl,
+                    createdAt: serverTimestamp(),
+                    status: 'pending_review',
+                    sfrdPatientId: `SFRD-PAT-${Date.now()}`
+                };
+
+                // 4. Save to Firestore
+                const docRef = await addDoc(collection(db, `artifacts/${appId}/patients`), finalData);
+
+                showMessage('Success!', `Patient profile created successfully. You will be redirected to your dashboard shortly.`, 'success');
+                
+                // Clear form and local storage
+                localStorage.removeItem(localStorageKey);
+                form.reset();
+                fileUploadName.textContent = '';
+
+                // 5. Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = './01G Patient Dashboard.html';
+                }, 3000);
+
+            } catch (error) {
+                console.error("Error submitting form: ", error);
+                showMessage('Submission Error', `There was an error processing your request: ${error.message}`, 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Information';
+            }
+        });
+
+        function showMessage(title, message, type = 'success') {
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modal = document.getElementById('message-modal');
+            const modalCloseButton = document.getElementById('modal-close-button');
+            const iconContainer = document.getElementById('modal-icon-container');
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            if (type === 'success') {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-emerald-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else { // error
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        modalCloseButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+    </script>

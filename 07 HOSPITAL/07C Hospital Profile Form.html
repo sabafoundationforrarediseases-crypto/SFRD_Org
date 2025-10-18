@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Profile | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .form-section {
+            border-left: 3px solid #4F46E5; /* Indigo-600 for Hospitals */
+            transition: all 0.3s ease-in-out;
+        }
+        .form-section h2 {
+            color: #111827; /* gray-900 */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Dashboard Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD Portal</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span id="user-display-name" class="font-medium hidden sm:block">Welcome!</span>
+                    <button id="logout-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Tertiary Care Hospital Profile</h1>
+                <p class="text-gray-600 mt-2">Complete your institution's profile to activate your partnership in the SFRD National Care Alliance.</p>
+                <div class="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progress-text" class="text-sm text-right text-gray-600 mt-1">Profile 0% Complete</p>
+            </div>
+            
+            <form id="hospital-profile-form" class="space-y-10">
+                
+                <!-- Section A: Institutional Identity -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section A: Institutional Identity & Contact</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="md:col-span-2"><label for="hospitalName" class="block text-sm font-medium">Full Legal Name of Hospital <span class="text-red-500">*</span></label><input type="text" id="hospitalName" name="hospitalName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="institutionType" class="block text-sm font-medium">Type of Institution</label><select id="institutionType" name="institutionType" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>Private</option><option>Government</option><option>Trust-run</option><option>Public-Private Partnership</option></select></div>
+                        <div><label for="inceptionDate" class="block text-sm font-medium">Date of Inception</label><input type="date" id="inceptionDate" name="inceptionDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label for="websiteUrl" class="block text-sm font-medium">Official Website URL</label><input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://www.yourhospital.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label for="socialHandles" class="block text-sm font-medium">Social Media Handles</label><textarea id="socialHandles" name="socialHandles" rows="2" placeholder="One link per line" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div class="md:col-span-2"><label for="hqAddress" class="block text-sm font-medium">Headquarters Address</label><textarea id="hqAddress" name="hqAddress" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div><label for="nodalOfficerName" class="block text-sm font-medium">Nodal Officer for SFRD Partnership <span class="text-red-500">*</span></label><input type="text" id="nodalOfficerName" name="nodalOfficerName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="nodalOfficerDesignation" class="block text-sm font-medium">Nodal Officer's Designation <span class="text-red-500">*</span></label><input type="text" id="nodalOfficerDesignation" name="nodalOfficerDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="officialEmail" class="block text-sm font-medium">Official Contact Email <span class="text-red-500">*</span></label><input type="email" id="officialEmail" name="officialEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100" readonly></div>
+                        <div><label for="officialPhone" class="block text-sm font-medium">Official Contact Phone</label><input type="tel" id="officialPhone" name="officialPhone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+
+                <!-- Section B: Legal, Structural & Accreditations -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section B: Legal, Structural & Accreditations</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div><label class="block text-sm font-medium">Accreditations</label><div class="mt-2 space-y-2"><div class="flex items-start"><input name="accreditations" type="checkbox" value="NABH" class="h-4 w-4 rounded"><label class="ml-3 text-sm">NABH</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="NABL" class="h-4 w-4 rounded"><label class="ml-3 text-sm">NABL</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="JCI" class="h-4 w-4 rounded"><label class="ml-3 text-sm">JCI</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="ISO Certified" class="h-4 w-4 rounded"><label class="ml-3 text-sm">ISO Certified</label></div></div></div>
+                        <div><label class="block text-sm font-medium">Tax Exemption Status</label><div class="mt-2 space-y-2"><div class="flex items-start"><input name="taxStatus" type="checkbox" value="12A" class="h-4 w-4 rounded"><label class="ml-3 text-sm">12A</label></div><div class="flex items-start"><input name="taxStatus" type="checkbox" value="80G" class="h-4 w-4 rounded"><label class="ml-3 text-sm">80G</label></div><div class="flex items-start"><input name="taxStatus" type="checkbox" value="FCRA" class="h-4 w-4 rounded"><label class="ml-3 text-sm">FCRA</label></div></div></div>
+                        <div class="md:col-span-2"><label for="legalDocs" class="block text-sm font-medium">Upload Key Documents (By-laws, MoA, etc.)</label><input type="file" id="legalDocs" name="legalDocs" multiple class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/></div>
+                        <div class="md:col-span-2">
+                            <h3 class="text-lg font-medium text-gray-900">Key Office Bearers</h3>
+                            <div id="office-bearers-container" class="mt-4 space-y-4"></div>
+                            <button type="button" id="add-office-bearer" class="mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-500">+ Add Office Bearer</button>
+                        </div>
+                        <div class="md:col-span-2"><label for="geographicalPresence" class="block text-sm font-medium">Geographical Presence</label><textarea id="geographicalPresence" name="geographicalPresence" rows="2" placeholder="If you have multiple branches, please list the cities/states." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                    </div>
+                </section>
+
+                <!-- Section C: Operational Capacity & Expertise -->
+                 <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section C: Operational Capacity & Expertise</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                         <div><label for="bedCapacity" class="block text-sm font-medium">Total Bed Capacity</label><input type="number" id="bedCapacity" name="bedCapacity" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div><label for="staffCount" class="block text-sm font-medium">Number of Full-Time Staff</label><input type="number" id="staffCount" name="staffCount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div class="md:col-span-2"><label for="medicalSpecialities" class="block text-sm font-medium">List of Medical Specialities</label><textarea id="medicalSpecialities" name="medicalSpecialities" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="e.g., Neurology, Pediatrics, Cardiology, Genetics..."></textarea></div>
+                         <div class="md:col-span-2"><label for="advancedEquipment" class="block text-sm font-medium">Advanced Equipment & Facilities</label><textarea id="advancedEquipment" name="advancedEquipment" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Mention key equipment relevant to complex diseases."></textarea></div>
+                         <div class="md:col-span-2"><label for="futurePlans" class="block text-sm font-medium">Future Plans / Expansions</label><textarea id="futurePlans" name="futurePlans" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                    </div>
+                </section>
+
+                <!-- Section D: Partnership Commitments -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section D: The SFRD Partnership</h2>
+                    <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input name="commitments" type="checkbox" value="Capacity Building" class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">**Capacity Building:** We agree to partner with SFRD on training programs for our staff. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="commitments" type="checkbox" value="Priority Care" class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">**Priority Care:** We agree to establish a protocol to treat SFRD-referred patients on a priority basis. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="commitments" type="checkbox" value="Digital Integration" class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">**Digital Integration:** We agree to assign a nodal officer to coordinate via the SFRD Network. <span class="text-red-500">*</span></label></div>
+                        <div class="pt-2"><div class="relative flex items-start"><input id="concessional-commitment" name="commitments" type="checkbox" value="Concessional Services" class="h-4 w-4 rounded"><label for="concessional-commitment" class="ml-3 text-sm font-medium">**Concessional Services:** We agree to offer a preferential discounted rate for SFRD-referred patients. <span class="text-red-500">*</span></label></div>
+                            <div class="mt-2 ml-8">
+                                 <label for="rateCard" class="block text-sm font-medium text-gray-700">Upload Rate Card or Specify Discount</label>
+                                 <input type="file" id="rateCard" name="rateCard" class="mt-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/>
+                                 <input type="text" id="discountDetails" name="discountDetails" placeholder="Or specify discount e.g., 25% on all services" class="mt-2 block w-full md:w-2/3 rounded-md border-gray-300 shadow-sm sm:text-sm">
+                            </div>
+                        </div>
+                        <div class="pt-4"><label class="block text-sm font-medium">How else can we collaborate?</label><div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start"><input name="collaborations" type="checkbox" value="Joint Health Camps" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Joint Diagnostic & Health Camps</label></div>
+                            <div class="flex items-start"><input name="collaborations" type="checkbox" value="Research & Clinical Trials" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Research & Clinical Trials</label></div>
+                            <div class="flex items-start"><input name="collaborations" type="checkbox" value="Policy Advocacy" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Policy Advocacy</label></div>
+                            <div class="flex items-start"><input name="collaborations" type="checkbox" value="Patient Education" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Patient Education</label></div>
+                        </div></div>
+                    </div>
+                </section>
+                
+                <!-- Section E: Consent & Agreement -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                     <h2 class="text-2xl font-semibold mb-1">Section E: Consent & Formal Agreement</h2>
+                     <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input name="consentAuth" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I confirm I am an authorized representative of this hospital. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentVoluntary" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I understand this partnership is voluntary and can be ended with 60 days' written notice. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentListing" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I consent to SFRD storing our information and listing us as a trusted Care Partner. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentConfidentiality" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">We agree to handle all patient data with the strictest confidentiality. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentFinal" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I confirm all information is accurate and we agree to the partnership terms. <span class="text-red-500">*</span></label></div>
+                        <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label for="authRepName" class="block text-sm font-medium">Full Name of Authorized Representative <span class="text-red-500">*</span></label><input type="text" id="authRepName" name="authRepName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                            <div><label for="authRepDesignation" class="block text-sm font-medium">Designation <span class="text-red-500">*</span></label><input type="text" id="authRepDesignation" name="authRepDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flex justify-end pt-8">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto">
+        <!-- ... modal html ... -->
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        
+        let app, auth, db, storage;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (e) { console.error("Firebase init error", e); }
+
+        const userDisplayName = document.getElementById('user-display-name');
+        const logoutButton = document.getElementById('logout-button');
+        const form = document.getElementById('hospital-profile-form');
+        const submitButton = document.getElementById('submit-button');
+        const officeBearersContainer = document.getElementById('office-bearers-container');
+        const addOfficeBearerButton = document.getElementById('add-office-bearer');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        let currentUser = null;
+        let bearerCount = 0;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists() && userSnap.data().role === 'hospital') {
+                    currentUser = user;
+                    loadProfileData(user.uid, userSnap.data());
+                } else {
+                    console.warn('User is not a Hospital partner or has no profile. Redirecting...');
+                    signOut(auth);
+                    window.location.href = '../00 GLOBAL/00-8 Login.html';
+                }
+            } else {
+                console.log("User not logged in. Redirecting to login.");
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        logoutButton.addEventListener('click', () => signOut(auth).catch(console.error));
+        
+        const addBearerFields = () => {
+            bearerCount++;
+            const bearerDiv = document.createElement('div');
+            bearerDiv.className = 'grid grid-cols-1 md:grid-cols-4 gap-3 p-3 border rounded-md relative';
+            bearerDiv.innerHTML = `
+                <input type="text" name="bearerName_${bearerCount}" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="text" name="bearerDesignation_${bearerCount}" placeholder="Designation" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="email" name="bearerEmail_${bearerCount}" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="tel" name="bearerPhone_${bearerCount}" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <button type="button" class="remove-bearer absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">&times;</button>
+            `;
+            officeBearersContainer.appendChild(bearerDiv);
+        };
+        
+        officeBearersContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-bearer')) { e.target.parentElement.remove(); }
+        });
+        
+        addOfficeBearerButton.addEventListener('click', addBearerFields);
+
+        async function loadProfileData(userId, userData) {
+            userDisplayName.textContent = `Welcome, ${userData.instName || userData.displayName}`;
+            userDisplayName.classList.remove('hidden');
+            form.elements.officialEmail.value = userData.email;
+            form.elements.hospitalName.value = userData.instName || '';
+            const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/hospitals`, userId);
+            const docSnap = await getDoc(profileRef);
+            if (docSnap.exists()) {
+                populateForm(docSnap.data());
+            } else {
+                addBearerFields(); 
+            }
+            updateProgress();
+        }
+
+        function populateForm(data) {
+             for (const sectionKey in data) {
+                for (const fieldKey in data[sectionKey]) {
+                    const value = data[sectionKey][fieldKey];
+                    const field = form.elements[fieldKey];
+                     if (field) {
+                         if (Array.isArray(value) && field.length > 1 && field[0].type === 'checkbox') {
+                             value.forEach(v => {
+                                const checkbox = document.querySelector(`input[name="${fieldKey}"][value="${v}"]`);
+                                if (checkbox) checkbox.checked = true;
+                            });
+                        } else if(field.type === 'checkbox') {
+                            field.checked = value;
+                        } else {
+                           field.value = value;
+                        }
+                    }
+                }
+            }
+            if (data.legal?.officeBearers?.length > 0) {
+                officeBearersContainer.innerHTML = '';
+                data.legal.officeBearers.forEach(bearer => {
+                    bearerCount++;
+                    const bearerDiv = document.createElement('div');
+                    bearerDiv.className = 'grid grid-cols-1 md:grid-cols-4 gap-3 p-3 border rounded-md relative';
+                    bearerDiv.innerHTML = `<input type="text" name="bearerName_${bearerCount}" value="${bearer.name || ''}" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"><input type="text" name="bearerDesignation_${bearerCount}" value="${bearer.designation || ''}" placeholder="Designation" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"><input type="email" name="bearerEmail_${bearerCount}" value="${bearer.email || ''}" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"><input type="tel" name="bearerPhone_${bearerCount}" value="${bearer.phone || ''}" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"><button type="button" class="remove-bearer absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">&times;</button>`;
+                    officeBearersContainer.appendChild(bearerDiv);
+                });
+            } else {
+                 addBearerFields();
+            }
+        }
+
+        function updateProgress() {
+            const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            let completed = 0;
+            requiredInputs.forEach(input => {
+                if ( (input.type === 'checkbox' && input.checked) || (input.type !== 'checkbox' && input.value.trim() !== '') ) {
+                    completed++;
+                }
+            });
+            const percentage = Math.round((completed / requiredInputs.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `Profile ${percentage}% Complete`;
+        }
+        form.addEventListener('input', updateProgress);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) { alert('You must be logged in.'); return; }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Saving...';
+            
+            try {
+                const formData = new FormData(form);
+                const fileUpload = async (file, path) => {
+                    if (!file || file.size === 0) return null;
+                    const storageRef = ref(storage, `artifacts/${appId}/partnerProfiles/hospitals/${currentUser.uid}/${path}/${Date.now()}_${file.name}`);
+                    const snapshot = await uploadBytes(storageRef, file);
+                    return await getDownloadURL(snapshot.ref);
+                };
+                
+                const legalDocUrls = [];
+                for(const file of formData.getAll('legalDocs')) {
+                    const url = await fileUpload(file, 'legalDocs');
+                    if(url) legalDocUrls.push({name: file.name, url});
+                }
+                const rateCardUrl = await fileUpload(formData.get('rateCard'), 'rateCards');
+
+                const officeBearers = [];
+                for (let i = 1; i <= bearerCount; i++) {
+                    const name = formData.get(`bearerName_${i}`);
+                    if (name) {
+                        officeBearers.push({ name, designation: formData.get(`bearerDesignation_${i}`), email: formData.get(`bearerEmail_${i}`), phone: formData.get(`bearerPhone_${i}`) });
+                    }
+                }
+
+                const profileData = {
+                    identity: { hospitalName: formData.get('hospitalName'), institutionType: formData.get('institutionType'), inceptionDate: formData.get('inceptionDate'), websiteUrl: formData.get('websiteUrl'), socialHandles: formData.get('socialHandles'), hqAddress: formData.get('hqAddress'), nodalOfficerName: formData.get('nodalOfficerName'), nodalOfficerDesignation: formData.get('nodalOfficerDesignation'), officialEmail: formData.get('officialEmail'), officialPhone: formData.get('officialPhone') },
+                    legal: { taxStatus: formData.getAll('taxStatus'), accreditations: formData.getAll('accreditations'), officeBearers: officeBearers, geographicalPresence: formData.get('geographicalPresence') },
+                    capacity: { bedCapacity: Number(formData.get('bedCapacity')), staffCount: Number(formData.get('staffCount')), medicalSpecialities: formData.get('medicalSpecialities').split(',').map(s => s.trim()), advancedEquipment: formData.get('advancedEquipment'), futurePlans: formData.get('futurePlans') },
+                    partnership: { commitments: formData.getAll('commitments'), discountDetails: formData.get('discountDetails'), collaborationInterests: formData.getAll('collaborations') },
+                    consent: { isAuthorized: formData.get('consentAuth') === 'on', isVoluntary: formData.get('consentVoluntary') === 'on', allowListing: formData.get('consentListing') === 'on', agreesToConfidentiality: formData.get('consentConfidentiality') === 'on', confirmsAccuracy: formData.get('consentFinal') === 'on', representativeName: formData.get('authRepName'), representativeDesignation: formData.get('authRepDesignation') },
+                    lastUpdatedAt: serverTimestamp(),
+                };
+                if (legalDocUrls.length > 0) profileData.legal.legalDocUrls = legalDocUrls;
+                if (rateCardUrl) profileData.partnership.rateCardUrl = rateCardUrl;
+
+                const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/hospitals`, currentUser.uid);
+                await setDoc(profileRef, profileData, { merge: true });
+                
+                alert('Profile saved successfully!');
+            } catch (error) {
+                console.error("Error saving profile:", error);
+                alert('Error saving profile.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Save Profile';
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

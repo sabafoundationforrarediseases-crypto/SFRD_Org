@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Lab Profile | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .form-section {
+            border-left: 3px solid #3B82F6; /* Blue-500 for diagnostic partners */
+            transition: all 0.3s ease-in-out;
+        }
+        .form-section h2 {
+            color: #111827; /* gray-900 */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Dashboard Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD Portal</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span id="user-display-name" class="font-medium hidden sm:block">Welcome!</span>
+                    <button id="logout-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Diagnostic Laboratory Profile</h1>
+                <p class="text-gray-600 mt-2">Complete your laboratory's profile to activate your partnership in the SFRD National Diagnostic Alliance.</p>
+                <div class="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progress-text" class="text-sm text-right text-gray-600 mt-1">Profile 0% Complete</p>
+            </div>
+            
+            <form id="lab-profile-form" class="space-y-10">
+                
+                <!-- Section A: Laboratory Identity & Contact -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section A: Laboratory Identity & Contact</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div><label for="labName" class="block text-sm font-medium">Full Legal Name of Laboratory <span class="text-red-500">*</span></label><input type="text" id="labName" name="labName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="brandName" class="block text-sm font-medium">Brand Name (if different)</label><input type="text" id="brandName" name="brandName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label for="websiteUrl" class="block text-sm font-medium">Official Website URL</label><input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://www.yourlab.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label for="hqAddress" class="block text-sm font-medium">Headquarters Address</label><textarea id="hqAddress" name="hqAddress" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div><label for="nodalOfficerName" class="block text-sm font-medium">Nodal Officer for SFRD Partnership <span class="text-red-500">*</span></label><input type="text" id="nodalOfficerName" name="nodalOfficerName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="nodalOfficerDesignation" class="block text-sm font-medium">Nodal Officer's Designation <span class="text-red-500">*</span></label><input type="text" id="nodalOfficerDesignation" name="nodalOfficerDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="officialEmail" class="block text-sm font-medium">Official Contact Email <span class="text-red-500">*</span></label><input type="email" id="officialEmail" name="officialEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100" readonly></div>
+                        <div><label for="officialPhone" class="block text-sm font-medium">Official Contact Phone</label><input type="tel" id="officialPhone" name="officialPhone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+
+                <!-- Section B: Accreditations & Service Portfolio -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section B: Accreditations & Service Portfolio</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="md:col-span-2"><label class="block text-sm font-medium">Accreditations</label><div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-4"><div class="flex items-start"><input name="accreditations" type="checkbox" value="NABL" class="h-4 w-4 rounded"><label class="ml-3 text-sm">NABL</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="CAP" class="h-4 w-4 rounded"><label class="ml-3 text-sm">CAP</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="ISO 15189" class="h-4 w-4 rounded"><label class="ml-3 text-sm">ISO 15189</label></div><div class="flex items-start"><input name="accreditations" type="checkbox" value="Other" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Other</label></div></div></div>
+                        <div class="md:col-span-2"><label for="accreditationDocs" class="block text-sm font-medium">Upload Accreditation Certificates</label><input type="file" id="accreditationDocs" name="accreditationDocs" multiple class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/></div>
+                        <div class="md:col-span-2"><label class="block text-sm font-medium">Specialized Diagnostic Services</label><div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4"><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Genetic Testing (NGS, WES, WGS)" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Genetic Testing (NGS, WES, WGS)</label></div><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Metabolic Screening" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Metabolic Screening</label></div><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Biochemical Genetics" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Biochemical Genetics</label></div><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Histopathology" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Histopathology</label></div><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Cytogenetics" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Cytogenetics</label></div><div class="flex items-start"><input name="specializedServices" type="checkbox" value="Routine Clinical Pathology" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Routine Clinical Pathology</label></div></div></div>
+                        <div class="md:col-span-2"><label for="keyTests" class="block text-sm font-medium">List of Key Rare Disease Tests</label><textarea id="keyTests" name="keyTests" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="e.g., Lysosomal Storage Disorder Panel, Clinical Exome Sequencing"></textarea></div>
+                        <div class="md:col-span-2"><label for="geographicServiceArea" class="block text-sm font-medium">Geographic Service Area (States you accept samples from)</label><input type="text" id="geographicServiceArea" name="geographicServiceArea" placeholder="e.g., Pan-India, or Telangana, Andhra Pradesh, Karnataka" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+                
+                <!-- Section C: Partnership Framework -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section C: Partnership Framework & Workflow</h2>
+                     <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input id="priorityCommitment" name="priorityCommitment" type="checkbox" required class="h-4 w-4 rounded"><label for="priorityCommitment" class="ml-3 text-sm font-medium">**Priority Service:** We agree to treat all SFRD-referred patients on a priority basis. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="discountCommitment" name="discountCommitment" type="checkbox" required class="h-4 w-4 rounded"><label for="discountCommitment" class="ml-3 text-sm font-medium">**Special Discount:** We agree to offer a preferential discount to SFRD-referred patients. <span class="text-red-500">*</span></label></div>
+                        <div><label for="discountOffered" class="block text-sm font-medium">Discount Details <span class="text-red-500">*</span></label><input type="text" id="discountOffered" name="discountOffered" required placeholder="e.g., 30% off standard rates" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="relative flex items-start"><input id="digitalWorkflowCommitment" name="digitalWorkflowCommitment" type="checkbox" required class="h-4 w-4 rounded"><label for="digitalWorkflowCommitment" class="ml-3 text-sm font-medium">**Digital Workflow:** We agree to integrate with the SFRD platform for referrals and updates. <span class="text-red-500">*</span></label></div>
+                    </div>
+                </section>
+
+                <!-- Section D: Operational & Financial Details -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section D: Operational & Financial Details</h2>
+                    <div class="grid grid-cols-1 gap-6 mt-6">
+                        <div>
+                            <label class="block text-sm font-medium">Patient Coordinator Contact <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <input type="text" name="patientCoordName" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="email" name="patientCoordEmail" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="tel" name="patientCoordPhone" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium">Technical Integration Contact <span class="text-red-500">*</span></label>
+                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <input type="text" name="techCoordName" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="email" name="techCoordEmail" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="tel" name="techCoordPhone" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                            </div>
+                        </div>
+                         <div>
+                            <label class="block text-sm font-medium">Bank Account Details (for co-payments) <span class="text-red-500">*</span></label>
+                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <input type="text" name="bankName" placeholder="Bank Name" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="text" name="accountNumber" placeholder="Account Number" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                                <input type="text" name="ifscCode" placeholder="IFSC Code" required class="block w-full rounded-md border-gray-300 shadow-sm">
+                            </div>
+                        </div>
+                        <div class="relative flex items-start"><input id="coPayAgreement" name="coPayAgreement" type="checkbox" required class="h-4 w-4 rounded"><label for="coPayAgreement" class="ml-3 text-sm font-medium">We agree to participate in the SFRD co-payment module for pre-approved cases. <span class="text-red-500">*</span></label></div>
+                    </div>
+                </section>
+                
+                <!-- Section E: Consent & Agreement -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section E: Consent & Formal Agreement</h2>
+                    <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input name="consentAuth" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I confirm I am an authorized representative of this laboratory. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentVoluntary" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I understand this partnership is voluntary and can be ended with 30 days' written notice. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentListing" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I consent to SFRD storing our information and listing us as a trusted diagnostic partner. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentConfidentiality" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">We agree to handle all patient data with the strictest confidentiality. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input name="consentFinal" type="checkbox" required class="h-4 w-4 rounded"><label class="ml-3 text-sm font-medium">I confirm all information provided is accurate and we agree to the partnership terms. <span class="text-red-500">*</span></label></div>
+                        <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label for="authRepName" class="block text-sm font-medium">Full Name of Authorized Representative <span class="text-red-500">*</span></label><input type="text" id="authRepName" name="authRepName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                            <div><label for="authRepDesignation" class="block text-sm font-medium">Designation <span class="text-red-500">*</span></label><input type="text" id="authRepDesignation" name="authRepDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flex justify-end pt-8">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto">
+        <!-- ... modal html ... -->
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        
+        let app, auth, db, storage;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (e) { console.error("Firebase init error", e); }
+
+        const userDisplayName = document.getElementById('user-display-name');
+        const logoutButton = document.getElementById('logout-button');
+        const form = document.getElementById('lab-profile-form');
+        const submitButton = document.getElementById('submit-button');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        let currentUser = null;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists() && userSnap.data().role === 'hospital') {
+                    currentUser = user;
+                    loadProfileData(user.uid, userSnap.data());
+                } else {
+                    console.warn('User is not a Lab partner or has no profile. Redirecting...');
+                    signOut(auth);
+                    window.location.href = '../00 GLOBAL/00-8 Login.html';
+                }
+            } else {
+                console.log("User not logged in. Redirecting to login.");
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        logoutButton.addEventListener('click', () => signOut(auth).catch(console.error));
+        
+        async function loadProfileData(userId, userData) {
+            userDisplayName.textContent = `Welcome, ${userData.instName || userData.displayName}`;
+            userDisplayName.classList.remove('hidden');
+            form.elements.officialEmail.value = userData.email;
+            form.elements.labName.value = userData.instName || '';
+            const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/labs`, userId);
+            const docSnap = await getDoc(profileRef);
+            if (docSnap.exists()) {
+                populateForm(docSnap.data());
+            }
+            updateProgress();
+        }
+
+        function populateForm(data) {
+             for (const sectionKey in data) {
+                for (const fieldKey in data[sectionKey]) {
+                    const value = data[sectionKey][fieldKey];
+                    const field = form.elements[fieldKey];
+                     if (field) {
+                         if (Array.isArray(value) && field.length > 1 && field[0].type === 'checkbox') {
+                             value.forEach(v => {
+                                const checkbox = document.querySelector(`input[name="${fieldKey}"][value="${v}"]`);
+                                if (checkbox) checkbox.checked = true;
+                            });
+                        } else if(field.type === 'checkbox') {
+                            field.checked = value;
+                        } else if(typeof value === 'object' && value !== null) {
+                            // handles nested objects like contact details
+                            for(const subKey in value) {
+                                const subField = form.elements[fieldKey+subKey.charAt(0).toUpperCase()+subKey.slice(1)];
+                                if(subField) subField.value = value[subKey];
+                            }
+                        }
+                         else {
+                           field.value = value;
+                        }
+                    }
+                }
+            }
+        }
+        
+        function updateProgress() {
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let completed = 0;
+            requiredInputs.forEach(input => {
+                if ( (input.type === 'checkbox' && input.checked) || (input.type !== 'checkbox' && input.value.trim() !== '') ) {
+                    completed++;
+                }
+            });
+            const percentage = Math.round((completed / requiredInputs.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `Profile ${percentage}% Complete`;
+        }
+        form.addEventListener('input', updateProgress);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) { alert('You must be logged in.'); return; }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Saving...';
+            
+            try {
+                const formData = new FormData(form);
+                const accreditationDocUrls = [];
+                for (const file of formData.getAll('accreditationDocs')) {
+                     if (file.size > 0) {
+                        const storageRef = ref(storage, `artifacts/${appId}/partnerProfiles/labs/${currentUser.uid}/accreditations/${Date.now()}_${file.name}`);
+                        const snapshot = await uploadBytes(storageRef, file);
+                        const downloadURL = await getDownloadURL(snapshot.ref);
+                        accreditationDocUrls.push({ name: file.name, url: downloadURL });
+                     }
+                }
+
+                const profileData = {
+                    identity: { labName: formData.get('labName'), brandName: formData.get('brandName'), websiteUrl: formData.get('websiteUrl'), hqAddress: formData.get('hqAddress'), nodalOfficerName: formData.get('nodalOfficerName'), nodalOfficerDesignation: formData.get('nodalOfficerDesignation'), officialEmail: formData.get('officialEmail'), officialPhone: formData.get('officialPhone') },
+                    portfolio: { accreditations: formData.getAll('accreditations'), specializedServices: formData.getAll('specializedServices'), keyTests: formData.get('keyTests'), geographicServiceArea: formData.get('geographicServiceArea') },
+                    partnership: { priorityCommitment: formData.get('priorityCommitment') === 'on', discountCommitment: formData.get('discountCommitment') === 'on', discountOffered: formData.get('discountOffered'), digitalWorkflowCommitment: formData.get('digitalWorkflowCommitment') === 'on' },
+                    operational: { 
+                        patientCoordinator: { name: formData.get('patientCoordName'), email: formData.get('patientCoordEmail'), phone: formData.get('patientCoordPhone') },
+                        techCoordinator: { name: formData.get('techCoordName'), email: formData.get('techCoordEmail'), phone: formData.get('techCoordPhone') },
+                        bankDetails: { bankName: formData.get('bankName'), accountNumber: formData.get('accountNumber'), ifscCode: formData.get('ifscCode') },
+                        coPayAgreement: formData.get('coPayAgreement') === 'on' 
+                    },
+                    consent: { isAuthorized: formData.get('consentAuth') === 'on', isVoluntary: formData.get('consentVoluntary') === 'on', allowListing: formData.get('consentListing') === 'on', agreesToConfidentiality: formData.get('consentConfidentiality') === 'on', confirmsAccuracy: formData.get('consentFinal') === 'on', representativeName: formData.get('authRepName'), representativeDesignation: formData.get('authRepDesignation') },
+                    lastUpdatedAt: serverTimestamp(),
+                };
+                if (accreditationDocUrls.length > 0) profileData.portfolio.accreditationDocs = accreditationDocUrls;
+
+                const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/labs`, currentUser.uid);
+                await setDoc(profileRef, profileData, { merge: true });
+                
+                alert('Profile saved successfully!');
+            } catch (error) {
+                console.error("Error saving profile:", error);
+                alert('Error saving profile.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Save Profile';
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

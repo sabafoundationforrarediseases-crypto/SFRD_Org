@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Diagnostic Laboratory - Partnership & Onboarding Form</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .form-section-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+        }
+        .helper-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .submit-button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #4338ca;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background-color: #4f46e5;
+            height: 1rem;
+            border-radius: 9999px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">SFRD Diagnostic Laboratory - Partnership & Onboarding Form</h1>
+            <p class="text-sm text-gray-500 mt-1">Version: 1.0; Dated 07-Sep-2025</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <p id="progressText" class="text-center text-sm text-gray-600 mb-4">0% Complete</p>
+
+        <form id="labOnboardingForm">
+
+            <!-- Section A: Laboratory Identity & Contact Information -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section A: Laboratory Identity & Contact Information</h2>
+                    <p class="text-gray-600 mt-1">Welcome. The Saba Foundation for Rare Diseases invites you to join our national network as a key diagnostic partner. Your expertise is critical to providing timely and accurate diagnoses for patients on a challenging journey. This form is the first step in building a powerful, technology-driven partnership.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="legalName" class="form-label">Full Legal Name of Laboratory <span class="text-red-500">*</span></label>
+                        <input type="text" id="legalName" name="legalName" class="form-input" placeholder="As on registration documents" required>
+                        <p class="helper-text">As it appears on your registration documents.</p>
+                    </div>
+                    <div>
+                        <label for="brandName" class="form-label">Brand Name (if different)</label>
+                        <input type="text" id="brandName" name="brandName" class="form-input">
+                         <p class="helper-text">The name your lab is publicly known by.</p>
+                    </div>
+                    <div>
+                        <label for="websiteUrl" class="form-label">Official Website URL</label>
+                        <input type="url" id="websiteUrl" name="websiteUrl" class="form-input">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="hqAddress" class="form-label">Headquarters Address <span class="text-red-500">*</span></label>
+                        <textarea id="hqAddress" name="hqAddress" rows="3" class="form-textarea" placeholder="Enter full registered address" required></textarea>
+                        <p class="helper-text">Full registered address of your main facility.</p>
+                    </div>
+                    <div>
+                        <label for="nodalOfficerName" class="form-label">Nodal Officer for SFRD Partnership <span class="text-red-500">*</span></label>
+                        <input type="text" id="nodalOfficerName" name="nodalOfficerName" class="form-input" placeholder="Enter name of primary contact" required>
+                        <p class="helper-text">The name of the primary contact person for this partnership.</p>
+                    </div>
+                     <div>
+                        <label for="nodalOfficerDesignation" class="form-label">Nodal Officer's Designation <span class="text-red-500">*</span></label>
+                        <input type="text" id="nodalOfficerDesignation" name="nodalOfficerDesignation" class="form-input" placeholder="e.g., Head of Operations, Lab Director" required>
+                    </div>
+                    <div>
+                        <label for="officialEmail" class="form-label">Official Contact Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="officialEmail" name="officialEmail" class="form-input" placeholder="sfrd@yourlab.com" required>
+                        <p class="helper-text">A dedicated email for all SFRD communication (e.g., sfrd@yourlab.com).</p>
+                    </div>
+                    <div>
+                        <label for="officialPhone" class="form-label">Official Contact Phone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="officialPhone" name="officialPhone" class="form-input" placeholder="+91-1234567890" required>
+                        <p class="helper-text">A dedicated phone number for the SFRD coordinator.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Accreditations & Service Portfolio -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section B: Accreditations & Service Portfolio (All fields are mandatory)</h2>
+                    <p class="text-gray-600 mt-1">This information helps us understand your lab's qualifications and the specific services you offer, ensuring we refer the right patients to you.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="form-label">Accreditations <span class="text-red-500">*</span></label>
+                        <div class="space-y-2">
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="NABL" class="form-checkbox"> <span class="ml-2">NABL</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="CAP" class="form-checkbox"> <span class="ml-2">CAP</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="ISO 15189" class="form-checkbox"> <span class="ml-2">ISO 15189</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="accreditations" value="Other" class="form-checkbox"> <span class="ml-2">Other</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="accreditationCerts" class="form-label">Upload Accreditation Certificates <span class="text-red-500">*</span></label>
+                        <input type="file" id="accreditationCerts" name="accreditationCerts" class="form-input" multiple required>
+                        <p class="helper-text">Please upload PDF copies of your current certificates.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="form-label">Specialized Diagnostic Services <span class="text-red-500">*</span></label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="genetic"><span class="ml-2">Genetic Testing (NGS, WES, WGS)</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="metabolic"><span class="ml-2">Metabolic Screening</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="biochemical"><span class="ml-2">Biochemical Genetics</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="histopathology"><span class="ml-2">Histopathology</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="cytogenetics"><span class="ml-2">Cytogenetics</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="molecular"><span class="ml-2">Molecular Diagnostics</span></label>
+                            <label class="inline-flex items-start"><input type="checkbox" name="services" value="routine"><span class="ml-2">Routine Clinical Pathology</span></label>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="keyTests" class="form-label">List of Key Rare Disease Tests <span class="text-red-500">*</span></label>
+                        <textarea id="keyTests" name="keyTests" rows="4" class="form-textarea" placeholder="e.g., Lysosomal Storage Disorder Panel, Clinical Exome Sequencing" required></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="form-label">Geographic Service Area <span class="text-red-500">*</span></label>
+                         <p class="helper-text">Select all states/regions from where you can accept samples.</p>
+                        <!-- Checkboxes for states can be added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section C: The SFRD Partnership Framework & Workflow -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section C: The SFRD Partnership Framework & Workflow</h2>
+                    <p class="text-gray-600 mt-1">This section outlines the core commitments of our partnership, which is designed to be efficient and impactful for both your lab and our patients.</p>
+                </div>
+                <div class="space-y-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" name="priorityService" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm"><b>1. Priority Service Commitment:</b> "We agree to treat all patients referred through the SFRD Network on a priority basis, aiming to reduce turnaround times for sample processing and reporting." <span class="text-red-500">*</span></span>
+                    </label>
+                     <label class="flex items-start">
+                        <input type="checkbox" name="discountCommitment" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm"><b>2. Special Discount Commitment:</b> "We agree to offer a special, preferential discount to all SFRD-referred patients." <span class="text-red-500">*</span></span>
+                    </label>
+                    <div>
+                        <label for="discountOffered" class="form-label">Discount Offered</label>
+                        <input type="text" id="discountOffered" name="discountOffered" class="form-input">
+                        <p class="helper-text">Please specify the discount (e.g., "30% off our standard rates" or provide a specific price list for key tests).</p>
+                    </div>
+                     <label class="flex items-start">
+                        <input type="checkbox" name="digitalWorkflow" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm"><b>3. Digital Workflow Integration:</b> "We agree to integrate with the SFRD Network platform. We will assign a coordinator to manage referrals, provide real-time status updates, and securely upload final reports to the platform." <span class="text-red-500">*</span></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Section D: Operational & Financial Details -->
+            <div class="form-section">
+                 <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section D: Operational & Financial Details (All are mandatory)</h2>
+                    <p class="text-gray-600 mt-1">This information is necessary to set up your lab on our secure digital platform and enable the payment workflow.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-medium text-gray-900">Patient Coordinator Contact <span class="text-red-500">*</span></h3>
+                        <p class="helper-text">The person responsible for handling SFRD patient samples and inquiries.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+                            <input type="text" name="patientCoordName" placeholder="Name" class="form-input" required>
+                            <input type="email" name="patientCoordEmail" placeholder="Email" class="form-input" required>
+                            <input type="tel" name="patientCoordPhone" placeholder="Phone" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-medium text-gray-900">Technical Integration Contact <span class="text-red-500">*</span></h3>
+                        <p class="helper-text">The IT person we can contact to set up your lab's role-based access to the SFRD portal.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+                            <input type="text" name="techCoordName" placeholder="Name" class="form-input" required>
+                            <input type="email" name="techCoordEmail" placeholder="Email" class="form-input" required>
+                            <input type="tel" name="techCoordPhone" placeholder="Phone" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                         <h3 class="text-lg font-medium text-gray-900">Bank Account Details <span class="text-red-500">*</span></h3>
+                         <p class="helper-text">For receiving payments from patients or co-payments from SFRD.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+                            <input type="text" name="bankName" placeholder="Bank Name" class="form-input" required>
+                            <input type="text" name="accountNumber" placeholder="Account Number" class="form-input" required>
+                            <input type="text" name="ifscCode" placeholder="IFSC Code" class="form-input" required>
+                        </div>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label class="flex items-start">
+                            <input type="checkbox" name="coPayAgreement" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                            <span class="ml-3 text-sm"><b>Agreement to SFRD Co-Pay Model:</b> "We agree to participate in the SFRD co-payment module, where SFRD may pay a portion of the patient's bill directly to the lab for pre-approved, financially needy cases." <span class="text-red-500">*</span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section E: Consent & Formal Agreement -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section E: Consent & Formal Agreement (All are mandatory)</h2>
+                    <p class="text-gray-600 mt-1">This agreement formalizes our partnership. Please have an authorized representative of your laboratory complete this section.</p>
+                </div>
+                 <div class="space-y-5">
+                    <label class="flex items-start"><input type="checkbox" name="consentAuthRep" required class="form-checkbox"><span class="ml-3 text-sm">I confirm that I am an authorized representative of the laboratory named in this form. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentVoluntary" required class="form-checkbox"><span class="ml-3 text-sm">I understand that this partnership is voluntary and collaborative. We can choose to end our association at any time by providing 30 days' written notice. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentStore" required class="form-checkbox"><span class="ml-3 text-sm">I consent to SFRD securely storing our laboratory's information and listing our lab (Name, Logo, Website, Key Services) in its public directory of trusted diagnostic partners. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentConfidentiality" required class="form-checkbox"><span class="ml-3 text-sm"><b>Patient Data Confidentiality:</b> We agree to handle all patient data received through the SFRD Network with the strictest confidentiality, in compliance with all national data privacy and medical information regulations. We will not use or share patient data for any purpose other than the requested diagnostic test. <span class="text-red-500">*</span></span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentAccuracy" required class="form-checkbox"><span class="ml-3 text-sm">By checking this box, I confirm that all the information provided is accurate to the best of my knowledge and our laboratory agrees to the terms of this partnership. <span class="text-red-500">*</span></span></label>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t">
+                        <div>
+                            <label for="authRepName" class="form-label">Full Name of Authorized Representative <span class="text-red-500">*</span></label>
+                           <input type="text" id="authRepName" name="authRepName" class="form-input" placeholder="Enter full name" required>
+                        </div>
+                        <div>
+                            <label for="authRepDesignation" class="form-label">Designation <span class="text-red-500">*</span></label>
+                           <input type="text" id="authRepDesignation" name="authRepDesignation" class="form-input" placeholder="e.g., Director" required>
+                        </div>
+                        <div>
+                            <label for="consentDate" class="form-label">Date</label>
+                            <input type="date" id="consentDate" name="consentDate" class="form-input bg-gray-100" readonly>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="digitalSignature" class="form-label">Digital Signature <span class="text-red-500">*</span></label>
+                       <textarea id="digitalSignature" name="digitalSignature" rows="3" class="form-textarea" placeholder="Type your full name again to sign" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="submit-button">SUBMIT FORM</button>
+            </div>
+        </form>
+    </div>
+
+
+    <script type="module">
+        import { auth, db, storage, appId } from '../js/firebase-config.js';
+        import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+        import { initializeFormEnhancements } from '../js/form-enhancements.js';
+        import { ProgressBarManager } from '../js/progress-bar-utils.js';
+        import { FormEventCoordinator } from '../js/form-coordinator.js';
+
+        const form = document.getElementById('labOnboardingForm');
+        const formId = 'labOnboardingForm';
+        let currentUserId = null;
+        let formEnhancements = null;
+        let progressBarManager = null;
+        let formCoordinator = null;
+
+        // --- Standard Caching, Auth, and Submission Logic ---
+        const saveFormProgress = () => {
+            if (!currentUserId) return;
+            const formData = new FormData(form);
+            const data = {};
+            const checkboxGroups = {};
+            for (let [key, value] of formData.entries()) {
+                const element = form.elements[key];
+                if (element && element.type === 'checkbox') {
+                    if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                    checkboxGroups[key].push(value);
+                } else { data[key] = value; }
+            }
+            Object.assign(data, checkboxGroups);
+            localStorage.setItem(`${formId}_${currentUserId}`, JSON.stringify(data));
+            console.log('Form progress saved.');
+        };
+
+        const loadFormProgress = () => {
+            if (!currentUserId) return;
+            const savedData = localStorage.getItem(`${formId}_${currentUserId}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    const element = form.elements[key];
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = Array.isArray(data[key]) ? data[key].length > 0 : !!data[key];
+                        } else if (element.length && element[0]?.type === 'checkbox') {
+                            const values = Array.isArray(data[key]) ? data[key] : [];
+                            Array.from(element).forEach(cb => { cb.checked = values.includes(cb.value); });
+                        } else { element.value = data[key]; }
+                    }
+                }
+                console.log('Form progress loaded.');
+            }
+        };
+
+        const clearFormProgress = () => {
+            if (!currentUserId) return;
+            localStorage.removeItem(`${formId}_${currentUserId}`);
+            console.log('Cached form data cleared.');
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUserId = user.uid;
+                document.getElementById('officialEmail').value = user.email;
+                // There is no specific ID field for the user's UID in this form's body
+                document.getElementById('consentDate').valueAsDate = new Date();
+                formEnhancements = initializeFormEnhancements(form, formId, currentUserId);
+                loadFormProgress();
+
+                // Initialize progress bar with coordinator mode enabled (no event listeners)
+                progressBarManager = new ProgressBarManager(form, 'progressBar', 'progressText', true);
+                
+                // Initialize unified event coordinator (attaches all listeners)
+                formCoordinator = new FormEventCoordinator(form, saveFormProgress, progressBarManager, formEnhancements);
+                
+                console.log('Lab form: Unified event coordination initialized');
+            } else { /* Handled by auth-guard.js */ }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'SUBMITTING...';
+
+            if (!currentUserId) {
+                alert('Authentication error. Please sign in again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT FORM';
+                return;
+            }
+
+            try {
+                const formData = new FormData(form);
+                const data = { uid: currentUserId, createdAt: new Date().toISOString() };
+                const checkboxGroups = {};
+
+                formData.forEach((value, key) => {
+                    const element = form.elements[key];
+                    if (element && element.type === 'checkbox') {
+                        if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                        checkboxGroups[key].push(value);
+                    } else { data[key] = value; }
+                });
+                Object.assign(data, checkboxGroups);
+
+                // Exclude the raw file input from the data to be saved in Firestore
+                delete data.accreditationCerts;
+
+                const accreditationCertsInput = document.getElementById('accreditationCerts');
+                if (accreditationCertsInput.files.length > 0) {
+                    const uploadPromises = Array.from(accreditationCertsInput.files).map(file => {
+                        const filePath = `artifacts/lab-accreditations/${currentUserId}/${file.name}`;
+                        const fileRef = ref(storage, filePath);
+                        return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
+                    });
+                    data.accreditationCertUrls = await Promise.all(uploadPromises);
+                }
+
+                console.log('Saving Lab data:', data);
+                console.log('Using appId:', appId);
+
+                await setDoc(doc(db, `artifacts/${appId}/labs`, currentUserId), data);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUserId);
+                await updateDoc(userDocRef, { 
+                    profileComplete: true, 
+                    status: 'pending_approval',
+                    role: 'lab' // Explicitly set the role to 'lab'
+                });
+
+                clearFormProgress();
+                alert('Form submitted successfully! Your profile is now under review.');
+                window.location.href = '/index.html'; // Redirect to homepage
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+                alert('An error occurred. Please check the console and try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT FORM';
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

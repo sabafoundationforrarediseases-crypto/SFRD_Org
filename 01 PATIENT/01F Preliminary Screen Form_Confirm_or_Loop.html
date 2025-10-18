@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD - Patient Diagnostic Pathway</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .details-grid dt {
+            font-weight: 500;
+            color: #4b5563;
+        }
+        .details-grid dd {
+            color: #1f2937;
+        }
+        .select2-container--default .select2-selection--multiple {
+            border: 1px solid #D1D5DB;
+            border-radius: 0.375rem;
+            padding: 0.25rem;
+        }
+        .select2-container .select2-search--inline .select2-search__field {
+            margin-top: 0.5rem;
+        }
+        /* Timeline styles */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-left: 2px solid #e5e7eb;
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+             padding-bottom: 0;
+        }
+        .timeline-marker {
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            background-color: #fff;
+            border: 2px solid #6366f1;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+         <header class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Patient Diagnostic Pathway</h1>
+            <p class="text-gray-600 mt-2 text-lg">A collaborative workspace for the SFRD Medical Panel.</p>
+        </header>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl">
+            <!-- Patient Onboarding Information Section -->
+            <div class="form-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-indigo-700">Patient Profile (Read-Only)</h2>
+                    <span class="text-sm font-medium text-gray-500">Patient UID: <span id="patientUID" class="text-gray-900 font-semibold">SFRDPAT12345</span></span>
+                </div>
+                <div id="patient-data-container" class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                     <dl class="details-grid">
+                        <div><dt>Full Name:</dt><dd id="p-name">Aarav Sharma</dd></div>
+                        <div><dt>Date of Birth:</dt><dd id="p-dob">2018-05-15</dd></div>
+                        <div><dt>Gender:</dt><dd id="p-gender">Male</dd></div>
+                        <div><dt>Parent/Guardian:</dt><dd id="p-guardian">Priya Sharma</dd></div>
+                        <div><dt>Contact Phone:</dt><dd id="p-phone">+91-9876543210</dd></div>
+                        <div class="col-span-full"><dt>Address:</dt><dd id="p-address">Flat 101, Green Meadows, Gachibowli, Hyderabad, Telangana</dd></div>
+                        <div class="col-span-full"><dt>Key Symptoms (from caregiver):</dt><dd id="p-symptoms" class="prose prose-sm max-w-none">Failure to thrive, global developmental delay, seizures, ataxia, brachydactyly.</dd></div>
+                        <div class="col-span-full"><dt>Diagnosis Information (from caregiver):</dt><dd id="p-diagnosis" class="prose prose-sm max-w-none">Status: Suspected. No confirmed diagnosis yet. Multiple doctor visits without a clear answer.</dd></div>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Medical Panel Screening Section -->
+            <div class="form-section">
+                 <h2 class="text-2xl font-bold text-indigo-700 mb-6">Medical Panel Screening</h2>
+                 <div class="mb-8 p-6 border border-gray-200 rounded-lg"><h3 class="text-xl font-semibold text-gray-800 mb-4">Pediatrician's Notes</h3><label for="pediatricianNotes" class="sr-only">Pediatrician's Notes</label><textarea id="pediatricianNotes" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Enter clinical observations, patient history review, and initial assessment..."></textarea></div>
+                 <div class="mb-8 p-6 border border-gray-200 rounded-lg"><h3 class="text-xl font-semibold text-gray-800 mb-4">Differential Diagnosis (Based on Orphanet Data)</h3><label for="differentialDiagnosis" class="block text-sm font-medium text-gray-700 mb-2">Select possible and probable diagnoses:</label><select id="differentialDiagnosis" class="w-full" multiple="multiple"><option value="ORPHA:529">Angelman syndrome</option><option value="ORPHA:758">Rett syndrome</option><option value="ORPHA:3085">Prader-Willi syndrome</option><option value="ORPHA:2029">Lysosomal storage diseases</option><option value="ORPHA:98293">Mitochondrial disorders</option></select></div>
+                 <div class="mb-8 p-6 border border-gray-200 rounded-lg"><h3 class="text-xl font-semibold text-gray-800 mb-4">Genetic Counselor's Notes</h3><label for="counselorNotes" class="sr-only">Genetic Counselor's Notes</label><textarea id="counselorNotes" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="Enter notes on family history, pedigree analysis, counseling provided to the family, and recommended way forward..."></textarea></div>
+                 <div class="p-6 border border-gray-200 rounded-lg"><h3 class="text-xl font-semibold text-gray-800 mb-4">Geneticist's Recommendations for Testing</h3><label for="geneticTests" class="sr-only">Geneticist's Recommendations</label><textarea id="geneticTests" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="e.g., Clinical Exome Sequencing, Karyotyping, specific gene panel for suspected condition..."></textarea></div>
+            </div>
+            
+            <div class="form-section">
+                 <h2 class="text-2xl font-bold text-indigo-700 mb-6">Initial Prescription & Referral</h2>
+                 <div class="flex justify-center"><button id="generatePrescriptionBtn" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition shadow-lg text-lg">Generate Initial Prescription</button></div>
+            </div>
+
+            <!--  -->
+            <!-- Diagnostic Results & Analysis Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-6">Diagnostic Results & Analysis</h2>
+                <div class="p-6 border border-gray-200 rounded-lg">
+                    <div class="mb-6"><label for="reportUpload" class="block text-sm font-medium text-gray-700">Upload Diagnostic Report (PDF, JPG)</label><input type="file" id="reportUpload" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/></div>
+                    <div class="mb-6"><label for="labFindings" class="block text-sm font-medium text-gray-700">Summary of Key Findings from Lab Report</label><textarea id="labFindings" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="e.g., Variant found in XYZ gene (c.123A>G), confirmed via Sanger sequencing..."></textarea></div>
+                    <div><label for="panelAnalysis" class="block text-sm font-medium text-gray-700">Medical Panel Analysis (Comparison with Orphanet)</label><textarea id="panelAnalysis" rows="4" class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="e.g., The findings are consistent with the clinical presentation and match the diagnostic criteria for Rett Syndrome (ORPHA:758)..."></textarea></div>
+                </div>
+            </div>
+
+            <!-- Final Diagnosis & Action Plan Section -->
+            <div class="form-section">
+                <h2 class="text-2xl font-bold text-indigo-700 mb-6">Final Diagnosis & Action Plan</h2>
+                <div class="p-6 border border-gray-200 rounded-lg">
+                    <fieldset class="space-y-4">
+                        <legend class="text-lg font-medium text-gray-900">Select Diagnosis Status:</legend>
+                        <div class="flex items-center"><input id="statusConfirmed" name="diagnosisStatus" type="radio" value="confirmed" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="statusConfirmed" class="ml-3 block text-sm font-medium text-gray-700">Diagnosis Confirmed</label></div>
+                        <div class="flex items-center"><input id="statusFurtherTests" name="diagnosisStatus" type="radio" value="further_tests" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="statusFurtherTests" class="ml-3 block text-sm font-medium text-gray-700">Inconclusive - Further Tests Required</label></div>
+                        <div class="flex items-center"><input id="statusRuledOut" name="diagnosisStatus" type="radio" value="ruled_out" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"><label for="statusRuledOut" class="ml-3 block text-sm font-medium text-gray-700">Diagnosis Ruled Out / Other</label></div>
+                    </fieldset>
+                    
+                    <div id="confirmationSection" class="hidden mt-6">
+                        <label for="confirmationNotes" class="block text-sm font-medium text-gray-700">Confirmation Summary Note (to be added to patient profile)</label>
+                        <textarea id="confirmationNotes" rows="4" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="A confirmed diagnosis of Rett Syndrome was made based on clinical findings and genetic testing..."></textarea>
+                        <button class="mt-4 w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-700">Add Patient to Rett Syndrome Group</button>
+                    </div>
+
+                    <div id="furtherTestsSection" class="hidden mt-6">
+                        <label for="additionalGeneticTests" class="block text-sm font-medium text-gray-700">Prescribe Additional Diagnostic Tests</label>
+                        <textarea id="additionalGeneticTests" rows="4" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="e.g., Whole Genome Sequencing to investigate further, specific metabolic panel..."></textarea>
+                        <button id="generateAdditionalPrescriptionBtn" class="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700">Generate New Prescription for Additional Tests</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generated Prescription Modal -->
+            <div id="prescriptionModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+                <div class="relative top-20 mx-auto p-5 border w-full max-w-4xl shadow-lg rounded-md bg-white">
+                    <div class="mt-3"><div id="prescriptionContent" class="p-8 border-2 border-gray-300 rounded-lg bg-white relative"><div class="absolute top-4 right-4 text-gray-400 text-xs">SFRD OFFICIAL DOCUMENT</div><header class="text-center mb-8 border-b pb-4"><h2 class="text-2xl font-bold text-gray-800">Saba Foundation for Rare Diseases (SFRD)</h2><p class="text-sm text-gray-500">123, Rare Disease Lane, Health City, Hyderabad, Telangana, 500081</p><p class="text-sm text-gray-500">Helpline: +91-99999 99999 | Email: contact@sfrdindia.org</p></header><div class="grid grid-cols-2 gap-x-12 mb-6"><div><span class="font-semibold">Patient Name:</span> <span id="rx-patient-name"></span></div><div><span class="font-semibold">Patient UID:</span> <span id="rx-patient-uid"></span></div><div><span class="font-semibold">Age/Sex:</span> <span id="rx-patient-age-sex"></span></div><div><span class="font-semibold">Date:</span> <span id="rx-date"></span></div></div><div class="mt-8"><h3 class="text-lg font-bold border-b-2 border-black inline-block mb-4">Rx (Recommended Genetic Tests)</h3><p id="rx-tests" class="whitespace-pre-wrap font-mono text-sm bg-gray-50 p-4 rounded"></p></div><div class="mt-8 border-t pt-6"><p class="text-sm">This prescription is addressed to the designated SFRD-partnered Diagnostic Laboratory / Centre of Excellence (CoE).</p></div><div class="mt-10 text-right"><p class="font-semibold">Dr. [Geneticist Name]</p><p class="text-sm text-gray-600">Geneticist, SFRD Medical Panel</p><p class="text-sm text-gray-600">Reg. No: [Medical Council No.]</p></div></div><div id="coupon-section" class="mt-6 p-6 bg-indigo-50 border-t-4 border-indigo-500 rounded-b-lg text-center"><h3 class="text-lg font-semibold text-indigo-800">Special Discount Coupon</h3><p class="text-gray-700 mt-1">Present this code at the diagnostic lab to avail a special discount for SFRD-referred patients.</p><div class="my-4 p-3 bg-white border-2 border-dashed border-indigo-400 rounded-md inline-block"><strong id="discountCode" class="text-2xl font-bold text-indigo-600 tracking-widest"></strong></div></div><div class="items-center px-4 py-3 mt-6"><button id="printBtn" class="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-auto shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">Print</button><button id="closeModal" class="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md w-auto shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 ml-4">Close</button></div></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#differentialDiagnosis').select2({
+                placeholder: "Search for a disease by name or ORPHA code...",
+            });
+
+            const generatePrescriptionBtn = document.getElementById('generatePrescriptionBtn');
+            const generateAdditionalPrescriptionBtn = document.getElementById('generateAdditionalPrescriptionBtn');
+            const prescriptionModal = document.getElementById('prescriptionModal');
+            const closeModal = document.getElementById('closeModal');
+            const printBtn = document.getElementById('printBtn');
+            const diagnosisStatusRadios = document.querySelectorAll('input[name="diagnosisStatus"]');
+            const confirmationSection = document.getElementById('confirmationSection');
+            const furtherTestsSection = document.getElementById('furtherTestsSection');
+
+            const openPrescriptionModal = (testNotes) => {
+                if (!testNotes.trim()) {
+                    alert("Please enter recommended genetic tests before generating a prescription.");
+                    return;
+                }
+                document.getElementById('rx-patient-name').textContent = document.getElementById('p-name').textContent;
+                document.getElementById('rx-patient-uid').textContent = document.getElementById('patientUID').textContent;
+                const dob = new Date(document.getElementById('p-dob').textContent);
+                const age = new Date().getFullYear() - dob.getFullYear();
+                const gender = document.getElementById('p-gender').textContent;
+                document.getElementById('rx-patient-age-sex').textContent = `${age} Years / ${gender}`;
+                document.getElementById('rx-date').textContent = new Date().toLocaleDateString('en-IN');
+                document.getElementById('rx-tests').textContent = testNotes;
+                const patientUID = document.getElementById('patientUID').textContent;
+                const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
+                document.getElementById('discountCode').textContent = `SFRD-${patientUID.slice(-5)}-${randomPart}`;
+                prescriptionModal.classList.remove('hidden');
+            };
+            
+            generatePrescriptionBtn.addEventListener('click', () => {
+                const tests = document.getElementById('geneticTests').value;
+                openPrescriptionModal(tests);
+            });
+
+            generateAdditionalPrescriptionBtn.addEventListener('click', () => {
+                const additionalTests = document.getElementById('additionalGeneticTests').value;
+                openPrescriptionModal(additionalTests);
+            });
+
+            closeModal.addEventListener('click', () => {
+                prescriptionModal.classList.add('hidden');
+            });
+
+            diagnosisStatusRadios.forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    confirmationSection.classList.add('hidden');
+                    furtherTestsSection.classList.add('hidden');
+                    if (event.target.value === 'confirmed') {
+                        confirmationSection.classList.remove('hidden');
+                    } else if (event.target.value === 'further_tests') {
+                        furtherTestsSection.classList.remove('hidden');
+                    }
+                });
+            });
+            
+            printBtn.addEventListener('click', () => {
+                 const content = document.getElementById('prescriptionContent').innerHTML;
+                 const coupon = document.getElementById('coupon-section').innerHTML;
+                 const printWindow = window.open('', '', 'height=800,width=800');
+                 printWindow.document.write(`<html><head><title>Print Prescription</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>body{font-family: Inter, sans-serif; padding: 20px;} .grid{display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;} h2,h3{margin-bottom: 1rem;} #coupon-section{margin-top:2rem; border-top: 2px solid #ccc; padding-top: 1rem; text-align:center;} strong{font-weight:bold;}</style></head><body>`);
+                 printWindow.document.write(content);
+                 printWindow.document.write('<div id="coupon-section">' + coupon + '</div>');
+                 printWindow.document.write('</body></html>');
+                 printWindow.document.close();
+                 printWindow.focus();
+                 setTimeout(() => { printWindow.print(); }, 500);
+            });
+        });
+    </script>
+
+</body>
+</html>
+

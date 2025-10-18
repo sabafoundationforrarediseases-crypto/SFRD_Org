@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD - Rare Disease Initial Screening Questionnaire</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+         .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .question-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-3xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <header class="text-center mb-8 form-section">
+                <!--  -->
+                <h1 class="text-3xl font-bold text-gray-900">Rare Disease Initial Screening Questionnaire</h1>
+                <p class="text-gray-600 mt-2">To be used by trained SFRD Volunteers</p>
+                <p class="text-sm text-gray-500 mt-1">Version: 1.1; Dated: 07-Sep-2025</p>
+            </header>
+
+            <div class="form-section">
+                <h2 class="text-xl font-semibold text-indigo-700 mb-4">Instructions for the Volunteer</h2>
+                <p class="text-gray-700">This form is a guide to help you identify children who may need further medical evaluation for a rare disease. Please ask the questions gently and empathetically. You are not diagnosing a disease; you are simply gathering information to see if a referral to a doctor is needed. Fill this form out with the child's parent or primary caregiver.</p>
+            </div>
+
+            <form id="screeningForm">
+                <div class="form-section">
+                    <h2 class="text-xl font-semibold text-indigo-700 mb-6">Section 1: Basic Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="childName" class="block text-sm font-medium text-gray-700">Child's Full Name</label>
+                            <input type="text" id="childName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label for="childDob" class="block text-sm font-medium text-gray-700">Child's Date of Birth</label>
+                            <input type="date" id="childDob" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label for="parentName" class="block text-sm font-medium text-gray-700">Parent/Guardian's Name</label>
+                            <input type="text" id="parentName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        </div>
+                        <div>
+                            <label for="contactPhone" class="block text-sm font-medium text-gray-700">Contact Phone Number</label>
+                            <input type="tel" id="contactPhone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="address" class="block text-sm font-medium text-gray-700">Full Address</label>
+                            <textarea id="address" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="text-xl font-semibold text-indigo-700 mb-6">Section 2: Health & Development Questions</h2>
+
+                    <div class="question-group">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">A. Growth & Development Milestones</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700">1. Compared to other children of the same age, is the child's growth (height or weight) much slower or faster?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">2. Did the child have significant delays in learning to hold their head up, sit, crawl, or walk?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-gray-700">3. Does the child have difficulty with learning, understanding things, or speaking compared to other children their age?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="question-group">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">B. Physical Signs & Features</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700">4. Does the child have any unusual facial features? (e.g., widely spaced eyes, very small jaw, unusually shaped ears)</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">5. Are there any differences in the child's hands, feet, fingers or toes? (e.g., extra fingers, webbed fingers, very short fingers)</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-gray-700">6. Has the child had frequent, unexplained broken bones?</label>
+                                 <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">C. Medical History & Symptoms</h3>
+                        <div class="space-y-4">
+                             <div>
+                                <label class="block text-gray-700">7. Has the child ever had seizures, fits, or fainting spells?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700">8. Does the child have very weak or very stiff muscles? Any trouble with balance or coordination?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-gray-700">9. Has a doctor ever mentioned a problem with the child's heart, like a hole in the heart or a murmur?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-gray-700">10. Does the child have any ongoing problems with breathing, vision, or hearing?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                             <div>
+                                <label class="block text-gray-700">11. Does the child have persistent skin rashes, unusual birthmarks, or sores that don't heal?</label>
+                                <textarea rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-group">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">D. General Health Journey (Please check all that apply)</h3>
+                        <div class="space-y-3">
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q12" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q12" class="font-medium text-gray-700">The child has been to a doctor or hospital more than 6 times in the past 6 months for similar, recurring symptoms.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q13" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q13" class="font-medium text-gray-700">The child's symptoms do not clearly fit within any common diagnosis.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q14" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q14" class="font-medium text-gray-700">The child has been referred to two or more other specialists.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q15" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q15" class="font-medium text-gray-700">The child has tried several recommended treatments (including surgeries) that have not worked as predicted.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q16" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q16" class="font-medium text-gray-700">There are other family members with similar uncommon symptoms.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q17" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q17" class="font-medium text-gray-700">The child has stopped growing or developing as expected.</label>
+                                </div>
+                            </div>
+                             <div class="relative flex items-start">
+                                <div class="flex h-5 items-center">
+                                    <input id="q18" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="q18" class="font-medium text-gray-700">The parent feels that the child ‘just does not feel right’.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="text-xl font-semibold text-indigo-700 mb-6">Section 3: Volunteer's Summary</h2>
+                    <div>
+                        <label for="summary" class="block text-sm font-medium text-gray-700">Based on the conversation, what are the top 3 most concerning signs or symptoms that make you think this child might have a rare disease?</label>
+                        <textarea id="summary" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2 class="text-xl font-semibold text-indigo-700 mb-4">Next Steps: For Volunteer's Action</h2>
+                     <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                        <li>**Inform the Family:** Gently explain that you will connect them with a support organization that can help them find the right doctors.</li>
+                        <li>**Contact SFRD:** Share the details you have collected by contacting us through one of the methods below.</li>
+                    </ol>
+                </div>
+                
+                <div class="text-center p-6 bg-indigo-50 rounded-lg">
+                     <h3 class="text-xl font-bold text-indigo-800">Saba Foundation for Rare Diseases (SFRD)</h3>
+                     <p class="mt-2 text-gray-700">
+                        <strong>Helpline:</strong> +91-99999 99999 <br>
+                        <strong>Email:</strong> contact@sfrdindia.org <br>
+                        <strong>Address:</strong> 123, Rare Disease Lane, Health City, Hyderabad, Telangana, 500081, India
+                     </p>
+                </div>
+
+                <div class="mt-8">
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-semibold py-3 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition shadow-lg">
+                        Submit & Flag for Review
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+

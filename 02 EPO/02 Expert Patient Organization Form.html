@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPO Partnership Onboarding | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/validation-styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-left: 3px solid #3B82F6; /* Blue-500 for professional partners */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="inline-block mx-auto">
+                 <svg class="h-16 w-16 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.928A3 3 0 017.5 12.5a3 3 0 013-3m3 3a3 3 0 01-3 3a3 3 0 01-3-3m.25 1.5a7.5 7.5 0 1114.5-5.004a7.5 7.5 0 01-14.5 5.004z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Expert Patient Organization (EPO) Partnership Form</h1>
+            <p class="text-gray-600 mt-2">Building a national alliance for a stronger voice and greater impact.</p>
+        </header>
+
+        <!-- Main Form -->
+        <form id="epo-onboarding-form" class="space-y-12">
+
+            <!-- Section A: Organizational Identity & Contact Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section A: Organizational Identity</h2>
+                <p class="text-gray-500 mb-6">Please provide your organization's official details. This helps us create your profile in our national alliance directory.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="orgName" class="block text-sm font-medium text-gray-700">Full Legal Name of Organization <span class="text-red-500">*</span></label>
+                        <input type="text" id="orgName" name="orgName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="inceptionDate" class="block text-sm font-medium text-gray-700">Date of Inception <span class="text-red-500">*</span></label>
+                        <input type="date" id="inceptionDate" name="inceptionDate" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="websiteUrl" class="block text-sm font-medium text-gray-700">Official Website URL</label>
+                        <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://www.yourorganization.org" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="annualEventDate" class="block text-sm font-medium text-gray-700">Annual Event / Observance Day</label>
+                        <input type="date" id="annualEventDate" name="annualEventDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="socialHandles" class="block text-sm font-medium text-gray-700">Social Media Handles</label>
+                        <textarea id="socialHandles" name="socialHandles" rows="2" placeholder="One link per line (e.g., https://facebook.com/yourorg)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="hqAddress" class="block text-sm font-medium text-gray-700">Headquarters Address <span class="text-red-500">*</span></label>
+                        <textarea id="hqAddress" name="hqAddress" rows="3" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div>
+                        <label for="officialEmail" class="block text-sm font-medium text-gray-700">Official Contact Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="officialEmail" name="officialEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="officialPhone" class="block text-sm font-medium text-gray-700">Official Contact Phone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="officialPhone" name="officialPhone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section B: Legal & Structural Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                 <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section B: Legal & Structural Information</h2>
+                <p class="text-gray-500 mb-6">This information helps us understand your organization's legal structure and ensures compliance.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                        <label for="orgType" class="block text-sm font-medium text-gray-700">Type of Organization</label>
+                        <select id="orgType" name="orgType" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                            <option value="Registered Trust">Registered Trust</option>
+                            <option value="Registered Society">Registered Society</option>
+                            <option value="Section 8 Company">Section 8 Company</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label class="block text-sm font-medium text-gray-700">Tax Exemption Status</label>
+                        <div class="mt-2 space-y-2">
+                             <div class="flex items-start"><div class="flex items-center h-5"><input id="tax-12a" name="taxStatus" type="checkbox" value="12A" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="tax-12a" class="font-medium text-gray-700">12A</label></div></div>
+                             <div class="flex items-start"><div class="flex items-center h-5"><input id="tax-80g" name="taxStatus" type="checkbox" value="80G" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="tax-80g" class="font-medium text-gray-700">80G</label></div></div>
+                             <div class="flex items-start"><div class="flex items-center h-5"><input id="tax-fcra" name="taxStatus" type="checkbox" value="FCRA" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="tax-fcra" class="font-medium text-gray-700">FCRA</label></div></div>
+                        </div>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="missionStatement" class="block text-sm font-medium text-gray-700">Mission Statement <span class="text-red-500">*</span></label>
+                        <textarea id="missionStatement" name="missionStatement" rows="3" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="visionStatement" class="block text-sm font-medium text-gray-700">Vision Statement</label>
+                        <textarea id="visionStatement" name="visionStatement" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="legalDocs" class="block text-sm font-medium text-gray-700">Upload Key Documents (e.g., By-laws, MoA, AoA)</label>
+                        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true"><path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 015.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="legalDocs" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none">
+                                        <span>Upload files</span>
+                                        <input id="legalDocs" name="legalDocs" type="file" class="sr-only" multiple>
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500">PDF up to 5MB each</p>
+                                <p id="file-upload-names" class="text-xs text-blue-700 font-semibold"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-medium text-gray-900">Key Office Bearers</h3>
+                        <div id="office-bearers-container" class="mt-4 space-y-4">
+                            <!-- JS will insert repeatable fields here -->
+                        </div>
+                        <button type="button" id="add-office-bearer" class="mt-2 text-sm font-medium text-blue-600 hover:text-blue-500">+ Add another Office Bearer</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section C: Scope of Work & Expertise -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section C: Scope of Work & Expertise</h2>
+                <p class="text-gray-500 mb-6">Help us understand your specific focus and impact. This is crucial for us to map the national ecosystem.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label for="diseaseFocus" class="block text-sm font-medium text-gray-700">Primary Disease(s) of Focus <span class="text-red-500">*</span></label>
+                        <input type="text" id="diseaseFocus" name="diseaseFocus" required placeholder="e.g., Duchenne Muscular Dystrophy, Cystic Fibrosis" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                    </div>
+                     <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">Primary Activities <span class="text-red-500">*</span></label>
+                         <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="act-support" name="primaryActivities" type="checkbox" value="Patient Support Groups" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="act-support" class="font-medium text-gray-700">Patient Support</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="act-awareness" name="primaryActivities" type="checkbox" value="Creating Awareness" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="act-awareness" class="font-medium text-gray-700">Awareness</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="act-advocacy" name="primaryActivities" type="checkbox" value="Advocacy & Policy" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="act-advocacy" class="font-medium text-gray-700">Advocacy/Policy</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="act-research" name="primaryActivities" type="checkbox" value="Funding Research" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="act-research" class="font-medium text-gray-700">Research Funding</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="act-aid" name="primaryActivities" type="checkbox" value="Financial Aid to Patients" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="act-aid" class="font-medium text-gray-700">Financial Aid</label></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="prevalenceData" class="block text-sm font-medium text-gray-700">Prevalence Data (if available)</label>
+                        <textarea id="prevalenceData" name="prevalenceData" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="Brief summary of prevalence for each disease you focus on in India."></textarea>
+                    </div>
+                     <div>
+                        <label for="patientCount" class="block text-sm font-medium text-gray-700">Number of Patients on Board</label>
+                        <textarea id="patientCount" name="patientCount" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="No. of patients for each disease you currently support."></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="workSummary" class="block text-sm font-medium text-gray-700">Describe Your Work in Rare Diseases</label>
+                        <textarea id="workSummary" name="workSummary" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="e.g., Key programs, achievements, research initiatives, collaborations."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section D: Partnership with SFRD -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section D: Partnership with SFRD</h2>
+                <p class="text-gray-500 mb-6">SFRD aims to be a force multiplier for your efforts. Please select the ways you would like to partner with us.</p>
+                <div class="space-y-4">
+                    <label class="block text-sm font-medium text-gray-700">We are interested in collaborating with SFRD on the following:</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-referral" name="collaboration" type="checkbox" value="Patient Referral" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-referral" class="font-medium text-gray-700">Two-way Patient Referral</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-amplify" name="collaboration" type="checkbox" value="Amplify Voice" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-amplify" class="font-medium text-gray-700">Amplify Your Voice (Co-hosting campaigns)</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-data" name="collaboration" type="checkbox" value="Patient Data Management" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-data" class="font-medium text-gray-700">Utilize SFRD's Data Framework</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-policy" name="collaboration" type="checkbox" value="Policy & Advocacy" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-policy" class="font-medium text-gray-700">Join Policy Advocacy Council</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-international" name="collaboration" type="checkbox" value="International Collaboration" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-international" class="font-medium text-gray-700">Access International Networks</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="collab-trials" name="collaboration" type="checkbox" value="Clinical Trial Access" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="collab-trials" class="font-medium text-gray-700">Access to Clinical Trials Information</label></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section E: Consent & Formal Agreement -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section E: Partnership Consent & Agreement</h2>
+                <p class="text-gray-500 mb-6">This agreement formalizes our partnership. Please have an authorized representative complete this section.</p>
+                <div class="space-y-5">
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-auth" name="consentAuth" type="checkbox" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm"><label for="consent-auth" class="font-medium text-gray-700">I confirm that I am an authorized representative of the organization named in this form. <span class="text-red-500">*</span></label></div>
+                    </div>
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-voluntary" name="consentVoluntary" type="checkbox" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm"><label for="consent-voluntary" class="font-medium text-gray-700">I understand that this partnership is voluntary and collaborative. <span class="text-red-500">*</span></label></div>
+                    </div>
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-listing" name="consentListing" type="checkbox" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm"><label for="consent-listing" class="font-medium text-gray-700">I consent to SFRD listing our organization (Name, Logo, Website, Disease Focus) in its public directory of trusted EPO partners. <span class="text-red-500">*</span></label></div>
+                    </div>
+                    <div class="relative flex items-start">
+                        <div class="flex items-center h-5"><input id="consent-confidentiality" name="consentConfidentiality" type="checkbox" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"></div>
+                        <div class="ml-3 text-sm"><label for="consent-confidentiality" class="font-medium text-gray-700">We agree to handle all shared patient data with the strictest confidentiality and adhere to a mutual referral protocol. <span class="text-red-500">*</span></label></div>
+                    </div>
+                    <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="authRepName" class="block text-sm font-medium text-gray-700">Full Name of Authorized Representative <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepName" name="authRepName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="authRepDesignation" class="block text-sm font-medium text-gray-700">Designation <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepDesignation" name="authRepDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submission Button -->
+            <div class="pt-5">
+                <div class="flex justify-end">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto ml-3 inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Submit Partnership Form
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div id="modal-icon-container" class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10"></div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500" id="modal-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="modal-close-button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script src="../js/common-form-logic.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        let app, auth, db, storage, currentUser;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+            showMessage('Error', 'Could not connect to services. Please try again later.', 'error');
+        }
+
+        const form = document.getElementById('epo-onboarding-form');
+        const submitButton = document.getElementById('submit-button');
+        const legalDocsInput = document.getElementById('legalDocs');
+        const fileUploadNames = document.getElementById('file-upload-names');
+        const localStorageKey = 'epoOnboardingForm';
+
+        // Form fields for validation
+        const officialEmailInput = document.getElementById('officialEmail');
+        const officialPhoneInput = document.getElementById('officialPhone');
+
+        // --- Auto-Save Logic ---
+        const saveFormProgress = () => {
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (form.elements[key] && form.elements[key].type !== 'file') {
+                    if(data[key]){
+                        if(!Array.isArray(data[key])) data[key] = [data[key]];
+                        data[key].push(value);
+                    } else {
+                        data[key] = value;
+                    }
+                }
+            });
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+        };
+
+        const loadFormProgress = () => {
+            const savedData = localStorage.getItem(localStorageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    if (form.elements[key]) {
+                        const elements = form.elements[key];
+                        if (elements.type === 'checkbox') {
+                            document.querySelectorAll(`input[name="${key}"]`).forEach(cb => {
+                                if (Array.isArray(data[key]) && data[key].includes(cb.value)) {
+                                    cb.checked = true;
+                                } else if (data[key] === true) {
+                                    cb.checked = true;
+                                }
+                            });
+                        } else if (elements.type === 'radio') {
+                            if(data[key]) document.querySelector(`input[name="${key}"][value="${data[key]}"]`).checked = true;
+                        } else if (elements.length > 1) { 
+                            continue;
+                        } else {
+                            elements.value = data[key];
+                        }
+                    }
+                }
+            }
+        };
+
+        form.addEventListener('input', saveFormProgress);
+        window.addEventListener('load', () => {
+            loadFormProgress();
+
+            // --- Real-time Validation ---
+            officialEmailInput.addEventListener('input', () => {
+                if (officialEmailInput.readOnly) return;
+                if (!isValidEmail(officialEmailInput.value)) {
+                    showValidationError(officialEmailInput, 'Please enter a valid email address.');
+                } else {
+                    clearValidationError(officialEmailInput);
+                }
+            });
+
+            officialPhoneInput.addEventListener('input', () => {
+                if (!isValidPhone(officialPhoneInput.value)) {
+                    showValidationError(officialPhoneInput, 'Please enter a valid 10-digit phone number.');
+                } else {
+                    clearValidationError(officialPhoneInput);
+                }
+            });
+
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    currentUser = user;
+                    const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                    const docSnap = await getDoc(userRef);
+                    if (docSnap.exists()) {
+                        const userData = docSnap.data();
+                        if (!document.getElementById('orgName').value) {
+                            document.getElementById('orgName').value = userData.displayName || userData.orgName || '';
+                        }
+                        if (!document.getElementById('officialEmail').value) {
+                            document.getElementById('officialEmail').value = userData.email || '';
+                        }
+                        document.getElementById('officialEmail').readOnly = true;
+                        clearValidationError(officialEmailInput);
+                    } else {
+                        showMessage('Error', 'Could not find your user profile. Please contact support.', 'error');
+                        submitButton.disabled = true;
+                    }
+                } else {
+                    window.location.href = '../00 GLOBAL/00-8 Login.html';
+                }
+            });
+        });
+
+        legalDocsInput.addEventListener('change', () => {
+            updateFileInputLabel(legalDocsInput, fileUploadNames);
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) {
+                showMessage('Error', 'Not authenticated. Please wait or refresh.', 'error');
+                return;
+            }
+
+            setSubmitButtonState(submitButton, true, 'Processing...');
+
+            // --- Final Validation Check ---
+            let isFormValid = true;
+            if (!officialEmailInput.readOnly && !isValidEmail(officialEmailInput.value)) {
+                showValidationError(officialEmailInput, 'Please enter a valid email address.');
+                isFormValid = false;
+            }
+            if (!isValidPhone(officialPhoneInput.value)) {
+                showValidationError(officialPhoneInput, 'Please enter a valid 10-digit phone number.');
+                isFormValid = false;
+            }
+
+            if (!isFormValid) {
+                showMessage('Error', 'Please fix the errors before submitting.', 'error');
+                setSubmitButtonState(submitButton, false, 'Submit Partnership Form');
+                return;
+            }
+
+            try {
+                const uploadFile = async (file, path) => {
+                    if (!file) return null;
+                    const storageRef = ref(storage, `artifacts/${appId}/users/${currentUser.uid}/${path}/${Date.now()}_${file.name}`);
+                    const snapshot = await uploadBytes(storageRef, file);
+                    return { name: file.name, url: await getDownloadURL(snapshot.ref) };
+                };
+
+                const legalDocUrls = [];
+                for (const file of legalDocsInput.files) {
+                    const uploadedFile = await uploadFile(file, 'legal-documents');
+                    if (uploadedFile) legalDocUrls.push(uploadedFile);
+                }
+
+                const formData = new FormData(form);
+                const epoData = {};
+                const multiSelects = ['taxStatus', 'primaryActivities', 'collaboration'];
+                const checkboxData = {};
+                multiSelects.forEach(name => checkboxData[name] = formData.getAll(name));
+
+                formData.forEach((value, key) => {
+                    if (!multiSelects.includes(key) && form.elements[key].type !== 'checkbox' && !key.includes('legalDocs')) {
+                        epoData[key] = value;
+                    }
+                });
+
+                const consentKeys = ['consentAuth', 'consentVoluntary', 'consentListing', 'consentConfidentiality'];
+                consentKeys.forEach(key => {
+                    checkboxData[key] = formData.getAll(key);
+                });
+
+                const finalData = {
+                    ...epoData,
+                    ...checkboxData,
+                    profileComplete: true,
+                    profileCompletedAt: serverTimestamp(),
+                };
+
+                if (legalDocUrls.length > 0) {
+                    finalData.legalDocUrls = legalDocUrls;
+                }
+
+                const userRef = doc(db, `artifacts/${appId}/users`, currentUser.uid);
+                await updateDoc(userRef, finalData);
+
+                showMessage('Success!', 'Your partnership form has been submitted. Redirecting to your dashboard...', 'success');
+                
+                localStorage.removeItem(localStorageKey);
+
+                setTimeout(() => {
+                    window.location.href = './02E EPO Dashboard.html';
+                }, 2000);
+
+            } catch (error) {
+                console.error("Error submitting form: ", error);
+                showMessage('Submission Error', `There was an error processing your request: ${error.message}`, 'error');
+            } finally {
+                setSubmitButtonState(submitButton, false, 'Submit Partnership Form');
+            }
+        });
+
+        function showMessage(title, message, type = 'success') {
+            const modal = document.getElementById('message-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const iconContainer = document.getElementById('modal-icon-container');
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            // Set icon and color based on message type
+            if (type === 'success') {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else { // error
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        document.getElementById('modal-close-button').addEventListener('click', () => {
+            document.getElementById('message-modal').classList.add('hidden');
+        });
+
+    </script>
+</body>
+</html>

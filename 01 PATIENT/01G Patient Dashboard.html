@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Patient Dashboard</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .stat-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .action-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .action-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.2), 0 10px 10px -5px rgba(99, 102, 241, 0.1);
+        }
+        .nav-link.active {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            color: #374151; /* text-gray-700 */
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <div class="hidden md:flex flex-col w-64 bg-white shadow-lg">
+            <div class="flex items-center justify-center h-20 border-b">
+                <h1 class="text-2xl font-bold text-indigo-600">SFRD</h1>
+            </div>
+            <div class="flex-grow">
+                <nav id="sidebar-nav" class="mt-5">
+                    <a href="#dashboard" class="nav-link flex items-center mt-4 py-2 px-6 active">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        <span class="mx-3">Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+                        <span class="mx-3">My EMR & Scheduler</span>
+                    </a>
+                    <a href="#" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="mx-3">My Patient Registry</span>
+                    </a>
+                    <a href="#alerts" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="mx-3">Alerts & Reminders</span>
+                    </a>
+                    <a href="#support" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="mx-3">Support / Help</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex flex-col flex-1 overflow-y-auto">
+            <div class="flex items-center justify-between h-20 px-6 bg-white border-b">
+                <div class="flex items-center">
+                    <button class="md:hidden text-gray-600 focus:outline-none">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H11V16H4V18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </button>
+                    <div class="relative mx-4 lg:mx-0">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3"><svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <input class="w-32 sm:w-64 form-input pl-10 pr-4 rounded-full" type="text" placeholder="Search Resources">
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative">
+                        <button class="flex mx-4 text-gray-600 focus:outline-none">
+                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <a href="./1D Patient_Parent Profile Page.html">
+                            <button class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
+                                <img class="h-full w-full object-cover" src="https://placehold.co/100x100/6366f1/FFFFFF?text=A" alt="Your avatar">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <main class="p-6 sm:p-10 space-y-10">
+                <!-- This alert was confusing and has been removed. The dashboard is now intended for patients/parents. -->
+                <!-- Dashboard View -->
+                <div id="dashboard" class="page-content">
+                    <section>
+                        <div class="flex flex-col md:flex-row justify-between items-start">
+                            <div>
+                                <h2 class="text-4xl font-extrabold text-gray-800" id="dashboard-title">Welcome, Loading...</h2>
+                                <p class="mt-1 text-lg text-indigo-600 font-semibold" id="dashboard-subtitle"></p>
+                            </div>
+                            <div class="mt-4 md:mt-0 text-sm text-gray-500">
+                               <p>Last login: 6-Sep-2025, 06:22 PM</p>
+                               <p>Patient UID: SFRDPAT12345</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <a href="#peers" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><div><span class="block text-2xl font-bold" id="peers-count">0</span><span class="block text-gray-500">Peers</span></div></div></a>
+                        <a href="#doctors" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><div><span class="block text-2xl font-bold" id="doctors-count">0</span><span class="block text-gray-500">Expert Doctors</span></div></div></a>
+                        <a href="#hospitals" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h5m-5 4h5"></path></svg></div><div><span class="block text-2xl font-bold" id="hospitals-count">0</span><span class="block text-gray-500">Specialized Hospitals</span></div></div></a>
+                        <a href="#labs" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-yellow-100 rounded-full mr-6"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-9.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 14.75L2 9l10-5 10 5-10 5.75z"></path></svg></div><div><span class="block text-2xl font-bold" id="labs-count">0</span><span class="block text-gray-500">Specialty Labs</span></div></div></a>
+                        <a href="#volunteers" class="stat-card-link"><div class="stat-card flex items-center p-5 bg-white shadow rounded-lg h-full"><div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6"><svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21a6 6 0 00-9-5.197"></path></svg></div><div><span class="block text-2xl font-bold" id="volunteers-count">0</span><span class="block text-gray-500">Volunteers</span></div></div></a>
+                    </section>
+                    <section class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        <a href="#" class="action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-indigo-500"><div class="inline-block p-4 bg-indigo-100 rounded-full mb-4"><svg class="h-10 w-10 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg></div><h3 class="text-2xl font-bold text-gray-800">My EMR & Scheduler</h3><p class="text-gray-500 mt-2">Access your medical records and manage appointments.</p></a>
+                        <a href="#" class="action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-purple-500"><div class="inline-block p-4 bg-purple-100 rounded-full mb-4"><svg class="h-10 w-10 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><h3 class="text-2xl font-bold text-gray-800">My Patient Registry</h3><p class="text-gray-500 mt-2">Manage your data and contribute to research.</p></a>
+                        <a href="#alerts" class="action-card block p-8 bg-white shadow-lg rounded-lg text-center border-t-4 border-teal-500 nav-link"><div class="inline-block p-4 bg-teal-100 rounded-full mb-4"><svg class="h-10 w-10 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg></div><h3 class="text-2xl font-bold text-gray-800">Alerts & Reminders</h3><p class="text-gray-500 mt-2">Get notifications for appointments and medications.</p></a>
+                    </section>
+                    <section class="bg-indigo-600 text-white rounded-lg shadow-xl"><div class="p-8 flex flex-col md:flex-row justify-between items-center"><div class="text-center md:text-left"><h3 class="text-3xl font-bold">Flag a New Patient</h3><p class="mt-2 text-indigo-200 text-lg">"Each One, Refer Ten." Help someone start their journey to diagnosis.</p></div><a href="../00 GLOBAL/10 Probable RarePatient Identification_Flag.html" class="nav-link mt-6 md:mt-0 flex-shrink-0 inline-block px-8 py-4 bg-white text-indigo-600 font-bold rounded-lg text-lg hover:bg-indigo-50 transition">Flag a Patient</a></div></section>
+                </div>
+
+
+                <!-- Alerts & Reminders View -->
+                <div id="alerts" class="page-content hidden">
+                    <section>
+                        <h2 class="text-4xl font-extrabold text-gray-800">Alerts & Reminders</h2>
+                        <p class="mt-1 text-lg text-gray-600">Stay on top of your health journey.</p>
+                    </section>
+                    <section class="mt-8">
+                        <div class="bg-white p-6 rounded-lg shadow">
+                            <div class="flex justify-between items-center border-b pb-4 mb-4">
+                                <h3 class="text-xl font-bold">Your Active Reminders</h3>
+                                <button id="add-reminder-btn" class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">Add New Reminder</button>
+                            </div>
+                            <div id="active-reminders-list" class="space-y-4">
+                                <!-- Sample Alert: Appointment -->
+                                <div class="reminder-item flex items-start p-4 bg-blue-50 rounded-lg">
+                                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-200 flex items-center justify-center"><svg class="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
+                                    <div class="ml-4 flex-grow">
+                                        <p class="font-semibold text-gray-800">Upcoming Appointment</p>
+                                        <p class="text-gray-600">Your appointment with Dr. Mehta (Geneticist) is scheduled for Sep 7, 2025 at 11:00 AM.</p>
+                                        <p class="text-sm text-gray-400 mt-1">Due: Tomorrow</p>
+                                    </div>
+                                    <button class="dismiss-reminder-btn ml-4 text-gray-400 hover:text-gray-600">&times;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-lg shadow mt-8">
+                             <h3 class="text-xl font-bold border-b pb-4 mb-4">Reminder Logs</h3>
+                             <div id="reminder-logs-list" class="space-y-4">
+                                <p class="text-gray-500 italic">No reminders dismissed yet.</p>
+                             </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Support/Help View -->
+                <div id="support" class="page-content hidden">
+                    <section>
+                        <h2 class="text-4xl font-extrabold text-gray-800">Support & Help Center</h2>
+                        <p class="mt-1 text-lg text-gray-600">We're here to help you on your journey.</p>
+                    </section>
+                    <section class="mt-8 grid md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2">
+                             <div class="bg-white p-6 rounded-lg shadow">
+                                <h3 class="text-xl font-bold mb-4">Frequently Asked Questions (FAQ)</h3>
+                                <div class="space-y-4" id="faq-accordion">
+                                    <!-- Populated by JS -->
+                                </div>
+                             </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow">
+                                <h3 class="text-xl font-bold mb-4">Contact Support</h3>
+                                <form action="#" method="POST">
+                                    <div class="space-y-4">
+                                        <div><label for="help-subject" class="sr-only">Subject</label><input type="text" id="help-subject" placeholder="Subject" class="w-full rounded-md border-gray-300"></div>
+                                        <div><label for="help-message" class="sr-only">Message</label><textarea id="help-message" rows="4" placeholder="Your message..." class="w-full rounded-md border-gray-300"></textarea></div>
+                                        <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                             <div class="bg-white p-6 rounded-lg shadow">
+                                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="text-indigo-600 hover:underline">Government Schemes for Rare Diseases</a></li>
+                                    <li><a href="#" class="text-indigo-600 hover:underline">Mental Health Resources</a></li>
+                                    <li><a href="#" class="text-indigo-600 hover:underline">Connect with other SMA Families</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Grid Views -->
+                <div id="peers" class="page-content hidden"></div>
+                <div id="doctors" class="page-content hidden"></div>
+                <div id="hospitals" class="page-content hidden"></div>
+                <div id="labs" class="page-content hidden"></div>
+                <div id="volunteers" class="page-content hidden"></div>
+                
+                <footer class="text-center text-sm text-gray-500 pt-6">
+                    <p><strong>Spinal Muscular Atrophy Society of India</strong></p>
+                    <p>#121, 4th Block, Springdale Apartments, Somajiguda, Hyderabad-500001, Telangana, India</p>
+                    <p>Contact: 040-22992299 | Email: reachout@smaindia.org</p>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Reminder Modal -->
+    <div id="reminder-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center p-4 hidden pointer-events-none opacity-0">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Add New Reminder</h2>
+            <form id="reminder-form">
+                <div class="space-y-4">
+                    <div>
+                        <label for="reminder-title" class="block text-sm font-medium text-gray-700">Title</label>
+                        <input type="text" id="reminder-title" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" required>
+                    </div>
+                    <div>
+                        <label for="reminder-date" class="block text-sm font-medium text-gray-700">Date</label>
+                        <input type="date" id="reminder-date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" required>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button type="button" id="cancel-reminder-btn" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Cancel</button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Save Reminder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tutorial Modal -->
+    <div id="tutorial-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden pointer-events-none opacity-0 z-50">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 transform scale-95">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h2 class="text-2xl font-bold text-gray-800">How to Use Your Dashboard</h2>
+                <button id="close-tutorial-btn-icon" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+            </div>
+            <div class="mt-4">
+                <p class="text-gray-600 mb-4">Watch this short video to learn how to navigate your dashboard and make the most of its features.</p>
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                    <!-- Replace with your actual video embed code -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col sm:flex-row justify-between items-center">
+                <div class="flex items-center">
+                    <input id="dont-show-again-checkbox" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                    <label for="dont-show-again-checkbox" class="ml-2 block text-sm text-gray-900">Don't show this again</label>
+                </div>
+                <button id="close-tutorial-btn" class="mt-4 sm:mt-0 w-full sm:w-auto px-6 py-2 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, doc, getDoc, collection, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+            alert("Could not connect to services. Please check your connection and try again.");
+            window.location.href = '../00 GLOBAL/00-8 Login.html';
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                console.log('No user signed in. Redirecting to login.');
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+                return;
+            }
+
+            // Check the user's own profile first
+            const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+            const userDoc = await getDoc(userRef);
+
+            if (!userDoc.exists()) {
+                 // This could happen if registration failed. Guide them to re-register.
+                alert('Your user account is not fully set up. Please register again.');
+                await signOut(auth);
+                window.location.href = '../00 GLOBAL/00-7 Register.html';
+                return;
+            }
+
+            const userData = userDoc.data();
+
+            if (userData.status === 'pending') {
+                window.location.href = '../00 GLOBAL/00-9 Pending Approval.html';
+                return;
+            }
+
+            if (userData.status !== 'approved') {
+                alert('Your account is not active. Please contact support.');
+                await signOut(auth);
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+                return;
+            }
+
+            // Now, find the patient data linked to this user account
+            const patientQuery = query(collection(db, `artifacts/${appId}/patients`), where('guardianUid', '==', user.uid));
+            const patientSnapshot = await getDocs(patientQuery);
+
+            if (patientSnapshot.empty) {
+                // User is approved but has NOT filled the onboarding form yet.
+                // Redirect them to the onboarding form.
+                console.log('User approved, but no patient profile found. Redirecting to onboarding.');
+                window.location.href = './01 SFRD Patient Onboarding Form.html';
+            } else {
+                // User and patient data found, load the dashboard.
+                const patientDoc = patientSnapshot.docs[0];
+                console.log('Patient authenticated and approved. Loading dashboard...');
+                loadDashboard(user, userData, patientDoc.data());
+            }
+        });
+
+        async function loadDashboard(user, userData, patientData) {
+            document.body.style.display = 'block'; // Show body only after auth check
+
+            // --- Populate User-Specific Data ---
+            document.getElementById('dashboard-title').textContent = `Welcome, ${patientData.parentFirstName || userData.displayName}`;
+            document.getElementById('dashboard-subtitle').textContent = `Managing profile for ${patientData.firstName} ${patientData.lastName}`;
+            
+            const patientUID = document.querySelector('.text-sm.text-gray-500 p:last-child');
+            if (patientUID) {
+                patientUID.textContent = `Patient ID: ${patientData.patientId || 'N/A'}`;
+            }
+            const avatar = document.querySelector('.relative.block.h-8.w-8.rounded-full.overflow-hidden.shadow img');
+            if (avatar) {
+                avatar.src = patientData.photoUrl || `https://placehold.co/100x100/6366f1/FFFFFF?text=${(patientData.parentFirstName || 'P').charAt(0).toUpperCase()}`;
+            }
+
+            // --- Fetch and Populate Counts ---
+            const collections = ['patients', 'doctors', 'hospitals', 'labs', 'volunteers'];
+            for (const coll of collections) {
+                const q = query(collection(db, `artifacts/${appId}/${coll}`));
+                const snapshot = await getDocs(q);
+                const countEl = document.getElementById(`${coll}-count`);
+                if(countEl) countEl.textContent = snapshot.size;
+            }
+            // Special case for peers (other patients)
+            const peersCountEl = document.getElementById('peers-count');
+            if(peersCountEl) peersCountEl.textContent = Math.max(0, parseInt(document.getElementById('patients-count').textContent) - 1);
+
+
+            // --- UI LOGIC (Navigation, Modals, etc.) ---
+            const pageContents = document.querySelectorAll('.page-content');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const statCardLinks = document.querySelectorAll('.stat-card-link');
+
+            function showPage(targetId) {
+                pageContents.forEach(content => content.classList.add('hidden'));
+                const targetPage = document.getElementById(targetId);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                }
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.getAttribute('href').substring(1);
+                    showPage(targetId);
+                });
+            });
+            statCardLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.getAttribute('href').substring(1);
+                    showPage(targetId);
+                });
+            });
+
+            // --- Accordion --- 
+            const faqContainer = document.getElementById('faq-accordion');
+            if(faqContainer) {
+                faqContainer.addEventListener('click', e => {
+                    const header = e.target.closest('.accordion-header');
+                    if (header) {
+                        const content = header.nextElementSibling;
+                        const icon = header.querySelector('svg');
+                        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            }
+
+            // --- Reminder Modal --- 
+            const reminderModal = document.getElementById('reminder-modal');
+            const addReminderBtn = document.getElementById('add-reminder-btn');
+            const cancelReminderBtn = document.getElementById('cancel-reminder-btn');
+            if(reminderModal && addReminderBtn && cancelReminderBtn) {
+                addReminderBtn.addEventListener('click', () => {
+                    reminderModal.classList.remove('hidden', 'pointer-events-none', 'opacity-0');
+                });
+                cancelReminderBtn.addEventListener('click', () => {
+                    reminderModal.classList.add('hidden', 'pointer-events-none', 'opacity-0');
+                });
+            }
+
+            // --- Tutorial Modal ---
+            const tutorialModal = document.getElementById('tutorial-modal');
+            const closeTutorialBtn = document.getElementById('close-tutorial-btn');
+            const closeTutorialBtnIcon = document.getElementById('close-tutorial-btn-icon');
+            const dontShowAgainCheckbox = document.getElementById('dont-show-again-checkbox');
+
+            if (tutorialModal && !localStorage.getItem('tutorialDismissed')) {
+                setTimeout(() => {
+                    tutorialModal.classList.remove('hidden', 'pointer-events-none', 'opacity-0');
+                }, 1000);
+            }
+
+            function closeTutorial() {
+                if (dontShowAgainCheckbox.checked) {
+                    localStorage.setItem('tutorialDismissed', 'true');
+                }
+                tutorialModal.classList.add('hidden', 'pointer-events-none', 'opacity-0');
+            }
+
+            if(closeTutorialBtn) closeTutorialBtn.addEventListener('click', closeTutorial);
+            if(closeTutorialBtnIcon) closeTutorialBtnIcon.addEventListener('click', closeTutorial);
+        }
+    </script>
+
+</body>
+</html>

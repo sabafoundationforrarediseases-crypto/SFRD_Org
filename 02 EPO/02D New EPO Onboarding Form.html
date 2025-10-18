@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Expert Patient Organization (EPO) - Partnership & Onboarding Form</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .form-section-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+        }
+        .helper-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .submit-button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #4338ca;
+        }
+        .repeatable-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background-color: #4f46e5;
+            height: 1rem;
+            border-radius: 9999px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">SFRD Expert Patient Organization (EPO) - Partnership & Onboarding Form</h1>
+            <p class="text-sm text-gray-500 mt-1">Version: 1.0; Dated 07-Sep-2025</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <p id="progressText" class="text-center text-sm text-gray-600 mb-4">0% Complete</p>
+
+        <form id="epoOnboardingForm">
+
+            <!-- Section A: Organizational Identity & Contact Information -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section A: Organizational Identity & Contact Information</h2>
+                    <p class="text-gray-600 mt-1">"Welcome to the SFRD National Alliance. We believe that collaboration is the key to transforming the rare disease landscape in India. This form is the first step in forging a powerful partnership between our organizations. Thank you for joining us."</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="orgName" class="form-label">Full Name of Organization <span class="text-red-500">*</span></label>
+                        <input type="text" id="orgName" name="orgName" class="form-input" placeholder="Enter the full name of your organization" required>
+                        <p class="helper-text">As it appears on your legal registration documents.</p>
+                    </div>
+                    <div>
+                        <label for="inceptionDate" class="form-label">Date of Inception <span class="text-red-500">*</span></label>
+                        <input type="date" id="inceptionDate" name="inceptionDate" class="form-input" required>
+                        <p class="helper-text">The date your organization was officially founded.</p>
+                    </div>
+                    <div>
+                        <label for="websiteUrl" class="form-label">Official Website URL</label>
+                        <input type="url" id="websiteUrl" name="websiteUrl" class="form-input">
+                    </div>
+                     <div>
+                        <label for="annualEventDate" class="form-label">Annual Event / Observance Day <span class="text-red-500">*</span></label>
+                        <input type="date" id="annualEventDate" name="annualEventDate" class="form-input" required>
+                        <p class="helper-text">The date your organization celebrates as annual event /observance officially.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="socialMedia" class="form-label">Social Media Handles <span class="text-red-500">*</span></label>
+                        <textarea id="socialMedia" name="socialMedia" rows="3" class="form-textarea" placeholder="e.g., https://twitter.com/YourOrg" required></textarea>
+                        <p class="helper-text">Please provide links to your primary channels (Facebook, Twitter, Instagram, LinkedIn, etc.), one per line.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="hqAddress" class="form-label">Headquarters Address <span class="text-red-500">*</span></label>
+                        <textarea id="hqAddress" name="hqAddress" rows="3" class="form-textarea" placeholder="Enter your full registered address" required></textarea>
+                        <p class="helper-text">Full registered address of your main office.</p>
+                    </div>
+                    <div>
+                        <label for="officialEmail" class="form-label">Official Contact Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="officialEmail" name="officialEmail" class="form-input" placeholder="e.g., info@yourorg.org" required>
+                        <p class="helper-text">A general-purpose email for official communication (e.g., info@yourorg.org).</p>
+                    </div>
+                    <div>
+                        <label for="officialPhone" class="form-label">Official Contact Phone <span class="text-red-500">*</span></label>
+                        <input type="tel" id="officialPhone" name="officialPhone" class="form-input" placeholder="e.g., +91-1234567890" required>
+                        <p class="helper-text">A general-purpose phone number for your organization.</p>
+                    </div>
+                    <div>
+                        <label for="expertId" class="form-label">Unique Expert Identifier</label>
+                        <input type="text" id="expertId" name="expertId" class="form-input bg-gray-100" readonly>
+                        <p class="helper-text">Your permanent identification no in SFRD. Helps you login into SFRD Framework.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Legal & Structural Information -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section B: Legal & Structural Information</h2>
+                    <p class="text-gray-600 mt-1">This information helps us understand your organization's legal structure and ensures compliance for our partnership records.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="orgType" class="form-label">Type of Organization <span class="text-red-500">*</span></label>
+                        <select id="orgType" name="orgType" class="form-select" required>
+                            <option>Registered Trust</option>
+                            <option>Registered Society</option>
+                            <option>Section 8 Company</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="missionStatement" class="form-label">Mission Statement <span class="text-red-500">*</span></label>
+                        <textarea id="missionStatement" name="missionStatement" rows="3" class="form-textarea" placeholder="Describe your organization's core purpose" required></textarea>
+                        <p class="helper-text">Your organization's core purpose.</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="visionStatement" class="form-label">Vision Statement <span class="text-red-500">*</span></label>
+                        <textarea id="visionStatement" name="visionStatement" rows="3" class="form-textarea" placeholder="Describe the long-term change you aim to create" required></textarea>
+                        <p class="helper-text">The long-term change your organization aims to create.</p>
+                    </div>
+                    <div>
+                        <label class="form-label">Tax Exemption Status</label>
+                        <div class="flex flex-col space-y-2">
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="12A" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">12A</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="80G" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">80G</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="FCRA" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">FCRA</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="Not Applicable" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Not Applicable</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="keyDocuments" class="form-label">Upload Key Documents <span class="text-red-500">*</span></label>
+                        <input type="file" id="keyDocuments" name="keyDocuments" class="form-input" multiple required>
+                        <p class="helper-text">Please upload PDF copies of your organization's By-laws, MoA, and AoA. (Max 5MB per file)</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                     <h3 class="text-lg font-medium text-gray-900 mb-2">Key Office Bearers <span class="text-red-500">*</span></h3>
+                     <p class="helper-text mb-4">Please provide details for at least three main contact persons (e.g., President, Secretary, Founder).</p>
+                     <div id="officeBearersContainer">
+                        <!-- Repeatable fields will be added here by JS -->
+                     </div>
+                     <button type="button" id="addOfficeBearer" class="mt-2 text-sm font-medium text-indigo-600 hover:text-indigo-500">+ Add another person</button>
+                </div>
+            </div>
+
+            <!-- Section C: Scope of Work & Expertise -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section C: Scope of Work & Expertise</h2>
+                    <p class="text-gray-600 mt-1">Help us understand your specific focus and the incredible work you do. This is crucial for us to map the national ecosystem and direct the right resources.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="diseaseFocus" class="form-label">Primary Disease(s) of Focus <span class="text-red-500">*</span></label>
+                        <input type="text" id="diseaseFocus" name="diseaseFocus" class="form-input" placeholder="e.g., Duchenne Muscular Dystrophy" required>
+                        <p class="helper-text">E.g., "Duchenne Muscular Dystrophy", "Cystic Fibrosis", "Gaucher Disease".</p>
+                    </div>
+                    <div>
+                        <label class="form-label">Geographical Presence <span class="text-red-500">*</span></label>
+                        <p class="helper-text">Select all states/UTs where your organization has an active presence or provides support.</p>
+                        <!-- Add checkboxes for all states/UTs -->
+                    </div>
+                    <div>
+                        <label class="form-label">Primary Activities <span class="text-red-500">*</span></label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="support" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Patient Support Groups</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="awareness" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Creating Awareness</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="education" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Education Support</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="advocacy" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Advocacy & Policy</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="research" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Funding Research</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="financial" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Financial Aid to Patients</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="primaryActivities" value="livelihood" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">Livelihood Support</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="prevalenceData" class="form-label">Prevalence Data of each Rare Disease(s) of Focus in India</label>
+                        <textarea id="prevalenceData" name="prevalenceData" rows="4" class="form-textarea"></textarea>
+                        <p class="helper-text">Please provide a brief summary by each RD you are focussing upon in India.</p>
+                    </div>
+                    <div>
+                        <label for="patientCount" class="form-label">No of patients currently on board <span class="text-red-500">*</span></label>
+                        <textarea id="patientCount" name="patientCount" rows="4" class="form-textarea" placeholder="Enter the number of patients you support" required></textarea>
+                        <p class="helper-text">Please provide a brief summary of no. of RD patients against each disease you currently support.</p>
+                    </div>
+                    <div>
+                        <label for="workDescription" class="form-label">Describe your work in Rare Diseases <span class="text-red-500">*</span></label>
+                        <textarea id="workDescription" name="workDescription" rows="5" class="form-textarea" placeholder="Provide a summary of your key programs and achievements" required></textarea>
+                        <p class="helper-text">Please provide a brief summary of your key programs like Education / Awareness / Academic Conferences, Patient Services – Value & Volume Impact, Research Initiatives / Clinical Trail Participation / Collaboration with organizations etc. Please include each of the achievements separately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section D: Partnership with SFRD -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section D: Partnership with SFRD - How We Can Collaborate</h2>
+                    <p class="text-gray-600 mt-1">SFRD aims to be a force multiplier for your efforts. Please select the ways you would like to partner with us to achieve our shared goals.</p>
+                </div>
+                <label class="form-label">We are interested in collaborating with SFRD on the following: <span class="text-red-500">*</span></label>
+                <div class="space-y-4">
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="referral" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Patient Identification & Referral:</b> Establishing a two-way referral system for newly identified patients.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="amplify" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Amplifying Your Voice:</b> Co-hosting awareness campaigns and having SFRD amplify your organization's events and stories on our national platform.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="data" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Patient Data Management:</b> Utilizing the SFRD framework (secure EMR/Registry) to manage your patient cohort's data, with your organization retaining ownership and control.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="policy" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Policy & Advocacy:</b> Joining the SFRD Policy Advocacy Council to contribute to joint submissions and represent your patient community in national forums.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="international" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>International Collaboration:</b> Gaining access to SFRD's network of international rare disease alliances and research consortia.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="trials" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Clinical Trial Access:</b> Receiving information and facilitating access for your patient cohort to relevant clinical trials within the SFRD network.</span></label>
+                    <label class="inline-flex items-start"><input type="checkbox" name="collaboration" value="resources" class="form-checkbox h-5 w-5 text-indigo-600 mt-1"><span class="ml-3"><b>Resource Co-Creation:</b> Working together to create and distribute multilingual educational materials for patients and doctors.</span></label>
+                </div>
+            </div>
+
+            <!-- Section E: Partnership Consent & Agreement -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section E: Partnership Consent & Agreement (ALL MANDATORY)</h2>
+                     <p class="text-gray-600 mt-1">This agreement formalizes our partnership, built on mutual trust and a shared commitment to the rare disease community. Please have an authorized representative of your organization complete this section.</p>
+                </div>
+                <div class="space-y-6">
+                    <label class="flex items-start">
+                        <input type="checkbox" name="consentAuthRep" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm">I confirm that I am an authorized representative of the organization named in this form.</span>
+                    </label>
+                     <label class="flex items-start">
+                        <input type="checkbox" name="consentVoluntary" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm">I understand that this partnership is voluntary and collaborative. We can choose to end our association at any time by providing written notice.</span>
+                    </label>
+                     <label class="flex items-start">
+                        <input type="checkbox" name="consentStore" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm">I consent to SFRD securely storing our organization's information and listing our organization (Name, Logo, Website, Disease Focus) in its public directory of trusted EPO partners.</span>
+                    </label>
+                    <label class="flex items-start">
+                        <input type="checkbox" name="consentReferral" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm"><b>Mutual Patient Referral & Confidentiality:</b> We agree to adhere to a mutually agreed-upon protocol for patient referrals, ensuring that patient consent is always obtained and that all shared patient data is handled with the strictest confidentiality.</span>
+                    </label>
+                    <label class="flex items-start">
+                        <input type="checkbox" name="consentAccuracy" required class="form-checkbox h-5 w-5 text-indigo-600 mt-1">
+                        <span class="ml-3 text-sm">By checking this box, I confirm that all the information provided is accurate to the best of my knowledge and our organization agrees to the terms of this partnership.</span>
+                    </label>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t">
+                        <div>
+                            <label for="authRepName" class="form-label">Full Name of Authorized Representative <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepName" name="authRepName" class="form-input" placeholder="Enter full name" required>
+                        </div>
+                        <div>
+                            <label for="authRepDesignation" class="form-label">Designation <span class="text-red-500">*</span></label>
+                            <input type="text" id="authRepDesignation" name="authRepDesignation" class="form-input" placeholder="e.g., President, Founder" required>
+                        </div>
+                         <div>
+                            <label for="consentDate" class="form-label">Date</label>
+                            <input type="date" id="consentDate" name="consentDate" class="form-input bg-gray-100" readonly>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="digitalSignature" class="form-label">Digital Signature <span class="text-red-500">*</span></label>
+                        <textarea id="digitalSignature" name="digitalSignature" rows="3" class="form-textarea" placeholder="Please type your full name again to digitally sign" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="submit-button">SUBMIT PARTNERSHIP FORM</button>
+            </div>
+        </form>
+
+         <!-- SFRD Official Use Section -->
+        <div class="form-section mt-12 border-t-4 border-indigo-500">
+             <h2 class="text-xl font-semibold text-gray-800 mb-4">SFRD Official Use Only</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="onboardingDate" class="form-label">Date of Onboarding</label>
+                    <input type="date" id="onboardingDate" name="onboardingDate" class="form-input">
+                </div>
+                 <div>
+                    <label for="staffResponsible" class="form-label">Staff Responsible</label>
+                    <input type="text" id="staffResponsible" name="staffResponsible" class="form-input">
+                </div>
+                 <div class="md:col-span-2">
+                    <label class="form-label">Verified Document Checklist</label>
+                    <div class="flex flex-wrap gap-4">
+                       <label class="inline-flex items-center"><input type="checkbox" name="docCheck" value="by_laws" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">By-laws</span></label>
+                        <label class="inline-flex items-center"><input type="checkbox" name="docCheck" value="moa" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">MoA</span></label>
+                        <label class="inline-flex items-center"><input type="checkbox" name="docCheck" value="aoa" class="form-checkbox h-5 w-5 text-indigo-600"> <span class="ml-2">AoA</span></label>
+                    </div>
+                </div>
+                <div>
+                    <label for="remarks" class="form-label">Remarks</label>
+                    <textarea id="remarks" name="remarks" rows="4" class="form-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { auth, db, storage, appId } from '../js/firebase-config.js';
+        import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+        import { initializeFormEnhancements } from '../js/form-enhancements.js';
+        import { ProgressBarManager } from '../js/progress-bar-utils.js';
+        import { FormEventCoordinator } from '../js/form-coordinator.js';
+
+        const form = document.getElementById('epoOnboardingForm');
+        const formId = 'epoOnboardingForm';
+        let currentUserId = null;
+        let formEnhancements = null;
+        let progressBarManager = null;
+        let formCoordinator = null;
+
+        // --- Office Bearer Logic (Specific to this form) ---
+        const officeBearersContainer = document.getElementById('officeBearersContainer');
+        const addOfficeBearerButton = document.getElementById('addOfficeBearer');
+        let bearerCount = 0;
+
+        function addBearerFields() {
+            bearerCount = officeBearersContainer.children.length;
+            const div = document.createElement('div');
+            div.className = 'grid grid-cols-1 md:grid-cols-4 gap-4 repeatable-section mb-4';
+            div.innerHTML = `
+                <div class="md:col-span-4 flex justify-between items-center">
+                    <p class="font-semibold">Office Bearer ${bearerCount + 1}</p>
+                    <button type="button" class="remove-bearer text-sm font-medium text-red-600 hover:text-red-500">&times; Remove</button>
+                </div>
+                <div><label class="form-label text-sm">Name</label><input type="text" name="bearerName_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Designation</label><input type="text" name="bearerDesignation_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Email</label><input type="email" name="bearerEmail_${bearerCount}" class="form-input"></div>
+                <div><label class="form-label text-sm">Phone</label><input type="tel" name="bearerPhone_${bearerCount}" class="form-input"></div>
+            `;
+            officeBearersContainer.appendChild(div);
+        }
+        if (officeBearersContainer.children.length < 3) { addBearerFields(); addBearerFields(); addBearerFields(); }
+        addOfficeBearerButton.addEventListener('click', addBearerFields);
+        officeBearersContainer.addEventListener('click', e => {
+            if (e.target.classList.contains('remove-bearer')) {
+                e.target.closest('.repeatable-section').remove();
+            }
+        });
+
+        // --- Standard Caching, Auth, and Submission Logic ---
+        const saveFormProgress = () => {
+            if (!currentUserId) return;
+            const formData = new FormData(form);
+            const data = {};
+            const checkboxGroups = {};
+            for (let [key, value] of formData.entries()) {
+                const element = form.elements[key];
+                if (element && element.type === 'checkbox') {
+                    if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                    checkboxGroups[key].push(value);
+                } else { data[key] = value; }
+            }
+            Object.assign(data, checkboxGroups);
+            localStorage.setItem(`${formId}_${currentUserId}`, JSON.stringify(data));
+            console.log('Form progress saved.');
+        };
+
+        const loadFormProgress = () => {
+            if (!currentUserId) return;
+            const savedData = localStorage.getItem(`${formId}_${currentUserId}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    const element = form.elements[key];
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = Array.isArray(data[key]) ? data[key].length > 0 : !!data[key];
+                        } else if (element.length && element[0]?.type === 'checkbox') {
+                            const values = Array.isArray(data[key]) ? data[key] : [];
+                            Array.from(element).forEach(cb => { cb.checked = values.includes(cb.value); });
+                        } else { element.value = data[key]; }
+                    }
+                }
+                console.log('Form progress loaded.');
+            }
+        };
+
+        const clearFormProgress = () => {
+            if (!currentUserId) return;
+            localStorage.removeItem(`${formId}_${currentUserId}`);
+            console.log('Cached form data cleared.');
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUserId = user.uid;
+                document.getElementById('officialEmail').value = user.email;
+                document.getElementById('expertId').value = user.uid;
+                document.getElementById('consentDate').valueAsDate = new Date();
+                formEnhancements = initializeFormEnhancements(form, formId, currentUserId);
+                loadFormProgress();
+
+                // Initialize progress bar with coordinator mode enabled (no event listeners)
+                progressBarManager = new ProgressBarManager(form, 'progressBar', 'progressText', true);
+                
+                // Initialize unified event coordinator (attaches all listeners)
+                formCoordinator = new FormEventCoordinator(form, saveFormProgress, progressBarManager, formEnhancements);
+                
+                console.log('EPO form: Unified event coordination initialized');
+            } else { /* Handled by auth-guard.js */ }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'SUBMITTING...';
+
+            if (!currentUserId) {
+                alert('Authentication error. Please sign in again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT PARTNERSHIP FORM';
+                return;
+            }
+
+            try {
+                const formData = new FormData(form);
+                const data = { uid: currentUserId, createdAt: new Date().toISOString() };
+                const checkboxGroups = {};
+                const officeBearers = [];
+
+                document.querySelectorAll('#officeBearersContainer .repeatable-section').forEach((section, index) => {
+                    const bearer = {
+                        name: section.querySelector(`[name=bearerName_${index}]`).value,
+                        designation: section.querySelector(`[name=bearerDesignation_${index}]`).value,
+                        email: section.querySelector(`[name=bearerEmail_${index}]`).value,
+                        phone: section.querySelector(`[name=bearerPhone_${index}]`).value,
+                    };
+                    if(bearer.name) officeBearers.push(bearer);
+                });
+                data.officeBearers = officeBearers;
+
+                formData.forEach((value, key) => {
+                    const element = form.elements[key];
+                    if (key.startsWith('bearer')) return; // Skip bearer fields as they are handled above
+                    if (element && element.type === 'checkbox') {
+                        if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                        checkboxGroups[key].push(value);
+                    } else { data[key] = value; }
+                });
+                Object.assign(data, checkboxGroups);
+
+                // Exclude the raw file input from the data to be saved in Firestore
+                delete data.keyDocuments;
+
+                const keyDocumentsInput = document.getElementById('keyDocuments');
+                if (keyDocumentsInput.files.length > 0) {
+                    const uploadPromises = Array.from(keyDocumentsInput.files).map(file => {
+                        const filePath = `artifacts/epo-documents/${currentUserId}/${file.name}`;
+                        const fileRef = ref(storage, filePath);
+                        return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
+                    });
+                    data.keyDocumentUrls = await Promise.all(uploadPromises);
+                }
+
+                console.log('Saving EPO data:', data);
+                console.log('Using appId:', appId);
+
+                await setDoc(doc(db, `artifacts/${appId}/epos`, currentUserId), data);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUserId);
+                await updateDoc(userDocRef, { 
+                    profileComplete: true, 
+                    status: 'pending_approval',
+                    role: 'epo' // Explicitly set the role to 'epo'
+                });
+
+                clearFormProgress();
+                alert('Form submitted successfully! Your profile is now under review.');
+                window.location.href = '/index.html'; // Redirect to homepage
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+                alert('An error occurred. Please check the console and try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT PARTNERSHIP FORM';
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

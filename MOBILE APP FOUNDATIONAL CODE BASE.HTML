@@ -1,0 +1,296 @@
+**
+ * Main Activity for the SFRD Network Android Application.
+ *
+ * NOTE TO DEVELOPER:
+ * This file is a self-contained starting point for the SFRD Android App using Jetpack Compose.
+ * To use this, create a new Android Studio project with "Empty Activity" (Compose).
+ * Replace the generated MainActivity.kt with the contents of this file.
+ *
+ * You will need to add the following dependencies to your app-level `build.gradle.kts` file:
+ *
+ * dependencies {
+ * // ... existing dependencies
+ *
+ * // Jetpack Compose Navigation
+ * implementation("androidx.navigation:navigation-compose:2.7.7")
+ *
+ * // Coil for image loading (if you add network images later)
+ * implementation("io.coil-kt:coil-compose:2.6.0")
+ *
+ * // Icons
+ * implementation("androidx.compose.material:material-icons-extended")
+ *
+ * // You will also need to set up Firebase for a real application
+ * // implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+ * // implementation("com.google.firebase:firebase-auth")
+ * // implementation("com.google.firebase:firebase-firestore")
+ * }
+ *
+ */
+package com.sfrd.android
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Dashboard
+import androidx.compose.material.icons.filled.Help
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.outlined.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            SfrdApp()
+        }
+    }
+}
+
+// --- Navigation Setup ---
+sealed class Screen(val route: String) {
+    object Login : Screen("login")
+    object PatientDashboard : Screen("patient_dashboard")
+    // Add other dashboards here
+    object EpoDashboard : Screen("epo_dashboard")
+    object DoctorDashboard : Screen("doctor_dashboard")
+    object VolunteerDashboard : Screen("volunteer_dashboard")
+    object SuperAdminDashboard : Screen("super_admin_dashboard")
+}
+
+@Composable
+fun SfrdApp() {
+    val navController = rememberNavController()
+    MaterialTheme {
+        NavHost(navController = navController, startDestination = Screen.Login.route) {
+            composable(Screen.Login.route) {
+                LoginScreen(navController)
+            }
+            composable(Screen.PatientDashboard.route) {
+                PatientDashboardScreen()
+            }
+            // Add composables for other dashboards
+        }
+    }
+}
+
+// --- Login / Role Selection Screen ---
+@Composable
+fun LoginScreen(navController: NavController) {
+    val roles = listOf(
+        "Patient", "EPO", "Doctor", "Volunteer", "NGO", "Lab", "Hospital", "Super Admin"
+    )
+
+    Surface(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item {
+                Text("SFRD Network", style = MaterialTheme.typography.headlineLarge, fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text("Select Your Role to Login", style = MaterialTheme.typography.bodyLarge, color = Color.Gray)
+                Spacer(modifier = Modifier.height(32.dp))
+            }
+            items(roles.size) { index ->
+                Button(
+                    onClick = {
+                        // In a real app, this would involve authentication.
+                        // Here, we just navigate to the corresponding dashboard.
+                        when (roles[index]) {
+                            "Patient" -> navController.navigate(Screen.PatientDashboard.route)
+                            // Add navigation for other roles
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(roles[index], modifier = Modifier.padding(8.dp))
+                }
+            }
+        }
+    }
+}
+
+
+// --- Patient Dashboard Screen ---
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PatientDashboardScreen() {
+    // Dummy data for the patient dashboard
+    val dashboardData = remember {
+        mapOf(
+            "Peers" to (2479 to Icons.Outlined.People),
+            "Expert Doctors" to (52 to Icons.Outlined.MedicalServices),
+            "Specialized Hospitals" to (8 to Icons.Outlined.LocalHospital),
+            "Specialty Labs" to (3 to Icons.Outlined.Science),
+            "Volunteers" to (324 to Icons.Outlined.VolunteerActivism)
+        )
+    }
+    
+    var selectedTab by remember { mutableStateOf("Dashboard") }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { 
+                    <title>SFRD Mobile Interface</title>
+                    <link rel="icon" href="public/Logo_SFRD.jpg" type="image/jpeg">
+                    Text("Patient Dashboard") 
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            )
+        },
+        bottomBar = {
+            NavigationBar {
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Dashboard, contentDescription = "Dashboard") },
+                    label = { Text("Dashboard") },
+                    selected = selectedTab == "Dashboard",
+                    onClick = { selectedTab = "Dashboard" }
+                )
+                 NavigationBarItem(
+                    icon = { Icon(Icons.Default.Notifications, contentDescription = "Alerts") },
+                    label = { Text("Alerts") },
+                    selected = selectedTab == "Alerts",
+                    onClick = { selectedTab = "Alerts" }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Help, contentDescription = "Help") },
+                    label = { Text("Help") },
+                    selected = selectedTab == "Help",
+                    onClick = { selectedTab = "Help" }
+                )
+            }
+        }
+    ) { paddingValues ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item {
+                // Header
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text("Welcome Back,", style = MaterialTheme.typography.bodyLarge, color = Color.Gray)
+                    Text("Aarav Sharma", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+                     Text("Spinal Muscular Atrophy (SMA)", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.primary)
+                }
+                Spacer(modifier = Modifier.height(24.dp))
+            }
+
+            // Stat Cards
+            item {
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
+                    modifier = Modifier.height(350.dp), // Provide a fixed height to the grid
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    items(dashboardData.toList()) { (title, data) ->
+                        StatCard(title = title, count = data.first, icon = data.second)
+                    }
+                }
+                 Spacer(modifier = Modifier.height(24.dp))
+            }
+            
+            // Action Card
+            item {
+                 Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(24.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column {
+                            Text("Flag a New Patient", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                            Text("\"Each One, Refer Ten\"", style = MaterialTheme.typography.bodyMedium)
+                        }
+                        Icon(Icons.Outlined.Flag, contentDescription = "Flag Patient", modifier = Modifier.size(32.dp))
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun StatCard(title: String, count: Int, icon: ImageVector) {
+    var startAnimation by remember { mutableStateOf(false) }
+    val animatedCount by animateFloatAsState(
+        targetValue = if (startAnimation) count.toFloat() else 0f,
+        animationSpec = tween(durationMillis = 1500), label = ""
+    )
+    
+    LaunchedEffect(Unit) {
+        startAnimation = true
+    }
+
+    Card(
+        modifier = Modifier.aspectRatio(1f),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Icon(imageVector = icon, contentDescription = title, tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(36.dp))
+            Text(
+                text = "%,.0f".format(animatedCount),
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                 textAlign = TextAlign.Center
+            )
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}

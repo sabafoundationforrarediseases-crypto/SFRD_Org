@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Volunteer | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/validation-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-left: 3px solid #0D9488; /* Teal-600 for volunteers/community */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="inline-block mx-auto">
+                 <svg class="h-16 w-16 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Become a Rare Disease Champion</h1>
+            <p class="text-gray-600 mt-2">Join a national movement of hope and action. Your time and skills can change lives.</p>
+        </header>
+
+        <!-- Main Form -->
+        <form id="volunteer-onboarding-form" class="space-y-12">
+
+            <!-- Section A: Your Basic Information -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section A: Your Basic Information</h2>
+                <p class="text-gray-500 mb-6">Thank you for taking this first step. Your personal information will be kept confidential.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                     <div>
+                        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth <span class="text-red-500">*</span></label>
+                        <input type="date" id="dob" name="dob" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                            <option value="">Select...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="0">Not Known</option>
+                            <option value="9">Not Applicable</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="primaryEmail" class="block text-sm font-medium text-gray-700">Primary Email Address <span class="text-red-500">*</span></label>
+                        <input type="email" id="primaryEmail" name="primaryEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="mobileNumber" class="block text-sm font-medium text-gray-700">Mobile / WhatsApp Number <span class="text-red-500">*</span></label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="cityState" class="block text-sm font-medium text-gray-700">City & State of Residence <span class="text-red-500">*</span></label>
+                        <input type="text" id="cityState" name="cityState" required placeholder="e.g., Hyderabad, Telangana" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="socialMediaProfiles" class="block text-sm font-medium text-gray-700">Social Media Profiles (Optional)</label>
+                        <textarea id="socialMediaProfiles" name="socialMediaProfiles" rows="2" placeholder="One link per line (e.g., LinkedIn, Twitter)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile Picture (Optional)</label>
+                        <div class="mt-1 flex items-center">
+                            <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 20.993V24H0v-2.993A1 1 0 011 18h22a1 1 0 011 2.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </span>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section B: Your Skills & Expertise -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section B: Your Skills & Expertise</h2>
+                <p class="text-gray-500 mb-6">Your unique skills can change lives. Tell us a bit about your background so we can find the most impactful role for you.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                        <label for="qualification" class="block text-sm font-medium text-gray-700">Highest Professional/Academic Qualification</label>
+                        <input type="text" id="qualification" name="qualification" placeholder="e.g., B.Com, MA in Social Work" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                     <div>
+                        <label for="primaryExpertise" class="block text-sm font-medium text-gray-700">Primary Area of Expertise</label>
+                        <select id="primaryExpertise" name="primaryExpertise" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                           <option>Healthcare</option>
+                           <option>Marketing/Communications</option>
+                           <option>IT/Technology</option>
+                           <option>Legal</option>
+                           <option>Finance/Accounting</option>
+                           <option>Counseling/Social Work</option>
+                           <option>Education</option>
+                           <option>Event Management</option>
+                           <option>Administration</option>
+                           <option>Student</option>
+                           <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="employmentStatus" class="block text-sm font-medium text-gray-700">Current Employment Status</label>
+                        <select id="employmentStatus" name="employmentStatus" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                            <option>Public Service (Govt.)</option>
+                            <option>Private Service (Corporate)</option>
+                            <option>Professional Services (e.g., Lawyer, CA)</option>
+                            <option>Self-Employed</option>
+                            <option>Homemaker</option>
+                            <option>Student</option>
+                            <option>Retired</option>
+                            <option>Not Currently Employed</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="skills" class="block text-sm font-medium text-gray-700">Skills & Experience (add as tags)</label>
+                        <input type="text" id="skills" name="skills" placeholder="Type a skill and press enter..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section C: How You Can Contribute -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section C: How You Can Contribute to the Mission</h2>
+                <p class="text-gray-500 mb-6">Here's how you can be a part of the solution. Please select all areas where you feel you can contribute. We will provide training where needed!</p>
+                <div class="space-y-4">
+                     <label class="block text-sm font-medium text-gray-700">I am interested in contributing in the following ways:</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-outreach" name="contribution" type="checkbox" value="Patient Identification & Outreach" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-outreach" class="font-medium text-gray-700">Patient Identification & Outreach</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-support" name="contribution" type="checkbox" value="Patient & Family Support" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-support" class="font-medium text-gray-700">Patient & Family Support</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-edu" name="contribution" type="checkbox" value="Education & Empowerment" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-edu" class="font-medium text-gray-700">Education & Empowerment</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-events" name="contribution" type="checkbox" value="Event Management & Support" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-events" class="font-medium text-gray-700">Event Management & Support</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-content" name="contribution" type="checkbox" value="Content Creation & Social Media" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-content" class="font-medium text-gray-700">Content & Social Media</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-fundraising" name="contribution" type="checkbox" value="Fundraising Support" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-fundraising" class="font-medium text-gray-700">Fundraising Support</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-advocacy" name="contribution" type="checkbox" value="Advocacy & Awareness" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-advocacy" class="font-medium text-gray-700">Advocacy & Awareness</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-probono" name="contribution" type="checkbox" value="Professional Skills Pro-Bono" class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-probono" class="font-medium text-gray-700">Professional Skills Pro-Bono</label></div></div>
+                    </div>
+                    <div class="pt-4">
+                         <label for="otherHelp" class="block text-sm font-medium text-gray-700">Is there any other way you would like to help?</label>
+                        <textarea id="otherHelp" name="otherHelp" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" placeholder="Please share any other ideas or skills you'd like to offer."></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section D: Your Availability -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section D: Your Availability</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                         <label for="weeklyAvailability" class="block text-sm font-medium text-gray-700">How many hours per week can you realistically commit?</label>
+                        <select id="weeklyAvailability" name="weeklyAvailability" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                            <option>1-3 hours</option>
+                            <option>4-6 hours</option>
+                            <option>7+ hours</option>
+                            <option>Flexible (Event-based)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="emergencyContactName" class="block text-sm font-medium text-gray-700">Emergency Contact Person</label>
+                        <input type="text" id="emergencyContactName" name="emergencyContactName" placeholder="In case we can't reach you" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="emergencyContactPhone" class="block text-sm font-medium text-gray-700">Emergency Contact Phone</label>
+                        <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section E: Consent -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section E: Volunteer Consent & Agreement</h2>
+                 <p class="text-gray-500 mb-6">This agreement formalizes your voluntary role and protects you, the foundation, and the families we serve.</p>
+                <div class="space-y-5">
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-probono" name="consentProbono" type="checkbox" required class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-probono" class="font-medium text-gray-700">I understand that my role as a volunteer for SFRD is entirely pro-bono (unpaid). <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-storage" name="consentStorage" type="checkbox" required class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-storage" class="font-medium text-gray-700">I consent to SFRD securely storing my personal information for coordination purposes. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-confidentiality" name="consentConfidentiality" type="checkbox" required class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-confidentiality" class="font-medium text-gray-700">I agree to maintain the strictest confidentiality of all patient and family information. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-coc" name="consentCoc" type="checkbox" required class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-coc" class="font-medium text-gray-700">I agree to represent SFRD positively and adhere to the Volunteer Code of Conduct. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-final" name="consentFinal" type="checkbox" required class="focus:ring-teal-500 h-4 w-4 text-teal-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-final" class="font-medium text-gray-700">I confirm that all information provided is accurate and I agree to this volunteer partnership. <span class="text-red-500">*</span></label></div></div>
+                     <div class="pt-4">
+                         <label for="digitalSignature" class="block text-sm font-medium text-gray-700">Full Name (as digital signature) <span class="text-red-500">*</span></label>
+                        <input type="text" id="digitalSignature" name="digitalSignature" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submission Button -->
+            <div class="pt-5">
+                <div class="flex justify-end">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto ml-3 inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        Become a Rare Disease Champion
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div id="modal-icon-container" class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10"></div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500" id="modal-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="modal-close-button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-teal-600 text-base font-medium text-white hover:bg-teal-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script src="../js/common-form-logic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        let app, auth, db, storage, currentUser;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (error) {
+            console.error("Firebase initialization failed:", error);
+            showMessage('Error', 'Could not connect to services. Please try again later.', 'error');
+        }
+
+        const form = document.getElementById('volunteer-onboarding-form');
+        const submitButton = document.getElementById('submit-button');
+        const profilePictureInput = document.getElementById('profilePicture');
+        const localStorageKey = 'volunteerOnboardingForm';
+
+        // Form fields for validation
+        const primaryEmailInput = document.getElementById('primaryEmail');
+        const mobileNumberInput = document.getElementById('mobileNumber');
+
+        // --- Choices.js for Skills Tagging ---
+        const skillsInput = document.getElementById('skills');
+        const skillsChoices = new Choices(skillsInput, {
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'e.g., Accounting, Graphic Design, Event Planning...',
+            allowHTML: false,
+            editItems: true,
+            maxItemCount: 10,
+            addItemFilter: function(value) {
+                if (!value) {
+                    return false;
+                }
+                const exists = this.store.values.some(item => item.value.toLowerCase() === value.toLowerCase());
+                return !exists;
+            },
+        });
+
+        // --- Auto-Save Logic ---
+        const saveFormProgress = () => {
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                if (form.elements[key].type !== 'file') {
+                    data[key] = value;
+                }
+            });
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+        };
+
+        const loadFormProgress = () => {
+            const savedData = localStorage.getItem(localStorageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    if (form.elements[key]) {
+                        const element = form.elements[key];
+                        if (element.type === 'checkbox') {
+                            document.querySelectorAll(`input[name="${key}"]`).forEach(cb => {
+                                if (Array.isArray(data[key]) && data[key].includes(cb.value)) {
+                                    cb.checked = true;
+                                } else if (cb.value === data[key]) {
+                                    cb.checked = true;
+                                }
+                            });
+                        } else if (element.type === 'radio') {
+                            document.querySelector(`input[name="${key}"][value="${data[key]}"]`).checked = true;
+                        } else {
+                            element.value = data[key];
+                        }
+                    }
+                }
+            }
+        };
+
+        form.addEventListener('input', saveFormProgress);
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                console.log("User authenticated, proceeding with Volunteer form.");
+                if (!primaryEmailInput.value && currentUser.email) {
+                    primaryEmailInput.value = currentUser.email;
+                }
+            } else {
+                console.log("No user logged in, redirecting to login page.");
+                window.location.href = `../00 GLOBAL/00-8 Login.html?redirect=${encodeURIComponent(window.location.href)}`;
+            }
+        });
+
+        window.addEventListener('load', () => {
+            loadFormProgress();
+
+            // --- Real-time Validation ---
+            primaryEmailInput.addEventListener('input', () => {
+                if (primaryEmailInput.readOnly) return;
+                if (!isValidEmail(primaryEmailInput.value)) {
+                    showValidationError(primaryEmailInput, 'Please enter a valid email address.');
+                } else {
+                    clearValidationError(primaryEmailInput);
+                }
+            });
+
+            mobileNumberInput.addEventListener('input', () => {
+                if (!isValidPhone(mobileNumberInput.value)) {
+                    showValidationError(mobileNumberInput, 'Please enter a valid 10-digit phone number.');
+                } else {
+                    clearValidationError(mobileNumberInput);
+                }
+            });
+        });
+        // --- End Auto-Save Logic ---
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) {
+                showMessage('Error', 'You are not logged in. Please log in to submit the form.', 'error');
+                return;
+            }
+
+            setSubmitButtonState(submitButton, true, 'Saving Profile...');
+
+            // --- Final Validation Check ---
+            let isFormValid = true;
+            if (!primaryEmailInput.readOnly && !isValidEmail(primaryEmailInput.value)) {
+                showValidationError(primaryEmailInput, 'Please enter a valid email address.');
+                isFormValid = false;
+            }
+            if (!isValidPhone(mobileNumberInput.value)) {
+                showValidationError(mobileNumberInput, 'Please enter a valid 10-digit phone number.');
+                isFormValid = false;
+            }
+
+            if (!isFormValid) {
+                showMessage('Error', 'Please fix the errors before submitting.', 'error');
+                setSubmitButtonState(submitButton, false, 'Become a Rare Disease Champion');
+                return;
+            }
+
+            try {
+                // 1. Handle File Upload
+                let profilePictureUrl = null;
+                if (profilePictureInput.files.length > 0) {
+                    const file = profilePictureInput.files[0];
+                    const storageRef = ref(storage, `artifacts/${appId}/volunteer-profiles/${currentUser.uid}/${file.name}`);
+                    const snapshot = await uploadBytes(storageRef, file);
+                    profilePictureUrl = await getDownloadURL(snapshot.ref);
+                }
+
+                // 2. Gather Form Data
+                const formData = new FormData(form);
+                const volunteerData = {};
+                const contributions = formData.getAll('contribution');
+
+                formData.forEach((value, key) => {
+                    if (key !== 'contribution' && form.elements[key].type !== 'checkbox' && key !== 'profilePicture') {
+                        volunteerData[key] = value;
+                    }
+                });
+
+                volunteerData.consentProbono = form.elements.consentProbono.checked;
+                volunteerData.consentStorage = form.elements.consentStorage.checked;
+                volunteerData.consentConfidentiality = form.elements.consentConfidentiality.checked;
+                volunteerData.consentCoc = form.elements.consentCoc.checked;
+                volunteerData.consentFinal = form.elements.consentFinal.checked;
+                volunteerData.contribution = contributions;
+                volunteerData.skills = skillsChoices.getValue(true);
+
+                // 3. Add Metadata
+                volunteerData.uid = currentUser.uid;
+                volunteerData.photoURL = profilePictureUrl;
+                volunteerData.createdAt = serverTimestamp();
+                volunteerData.profileStatus = 'pending_review';
+
+                // 4. Save to 'volunteers' collection
+                const volunteerDocRef = doc(db, `artifacts/${appId}/volunteers`, currentUser.uid);
+                await setDoc(volunteerDocRef, volunteerData);
+
+                // 5. Update main user profile
+                const userRef = doc(db, `artifacts/${appId}/users`, currentUser.uid);
+                await updateDoc(userRef, {
+                    profileComplete: true,
+                    status: 'pending_review'
+                });
+
+                showMessage('Success!', 'Your profile has been submitted for review. You will be redirected shortly.');
+                
+                localStorage.removeItem(localStorageKey);
+                form.reset();
+                skillsChoices.clearStore();
+
+                setTimeout(() => {
+                    window.location.href = '../00 GLOBAL/00-9 Pending Approval.html';
+                }, 3000);
+
+            } catch (error) {
+                console.error("Error updating profile: ", error);
+                showMessage('Update Error', `There was an error saving your profile: ${error.message}`, 'error');
+            } finally {
+                setSubmitButtonState(submitButton, false, 'Become a Rare Disease Champion');
+            }
+        });
+
+        function showMessage(title, message, type = 'success') {
+            const modal = document.getElementById('message-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const iconContainer = document.getElementById('modal-icon-container');
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            if (type === 'success') {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-teal-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else { // error
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        document.getElementById('modal-close-button').addEventListener('click', () => {
+            document.getElementById('message-modal').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

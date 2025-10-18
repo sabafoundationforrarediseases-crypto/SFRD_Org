@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCP Profile | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .form-section {
+            border-left: 3px solid #8B5CF6; /* Violet-500 for experts */
+            transition: all 0.3s ease-in-out;
+        }
+        .form-section h2 {
+            color: #111827; /* gray-900 */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .conditional {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Dashboard Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD Portal</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span id="user-display-name" class="font-medium hidden sm:block">Welcome!</span>
+                    <button id="logout-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Healthcare Professional Profile</h1>
+                <p class="text-gray-600 mt-2">Complete your profile to become an active member of our national expert network. Your expertise is invaluable to patients in need.</p>
+                <div class="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progress-text" class="text-sm text-right text-gray-600 mt-1">Profile 0% Complete</p>
+            </div>
+            
+            <form id="hcp-profile-form" class="space-y-10">
+                
+                <!-- Section A: Personal & Professional Identity -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section A: Personal & Professional Identity</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div><label for="fullName" class="block text-sm font-medium">Full Name (with Title) <span class="text-red-500">*</span></label><input type="text" id="fullName" name="fullName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="dob" class="block text-sm font-medium">Date of Birth</label><input type="date" id="dob" name="dob" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="gender" class="block text-sm font-medium">Gender</label><select id="gender" name="gender" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option value="">Select...</option><option value="1">Male</option><option value="2">Female</option><option value="0">Not Known</option><option value="9">Not Applicable</option></select></div>
+                        <div><label for="primaryEmail" class="block text-sm font-medium">Primary Professional Email <span class="text-red-500">*</span></label><input type="email" id="primaryEmail" name="primaryEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100" readonly></div>
+                        <div><label for="mobileNumber" class="block text-sm font-medium">Mobile Number <span class="text-red-500">*</span></label><input type="tel" id="mobileNumber" name="mobileNumber" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="registrationNumber" class="block text-sm font-medium">Medical Council Registration No. <span class="text-red-500">*</span></label><input type="text" id="registrationNumber" name="registrationNumber" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="registrationCouncil" class="block text-sm font-medium">Registering Council <span class="text-red-500">*</span></label><input type="text" id="registrationCouncil" name="registrationCouncil" required placeholder="e.g., Telangana State Medical Council" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="linkedinUrl" class="block text-sm font-medium">LinkedIn Profile URL</label><input type="url" id="linkedinUrl" name="linkedinUrl" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+                
+                <!-- Section B: Specialization & Employment -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section B: Specialization & Employment</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                         <div><label for="primarySpecialization" class="block text-sm font-medium">Primary Specialization</label><select id="primarySpecialization" name="primarySpecialization" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>General Pediatrics</option><option>Clinical Genetics</option><option>Neurology</option><option>Cardiology</option><option>Orthopedics</option><option>Endocrinology</option><option>Other</option></select></div>
+                         <div><label for="subSpecializations" class="block text-sm font-medium">Sub-specialization(s)</label><input type="text" id="subSpecializations" name="subSpecializations" placeholder="e.g., Pediatric Neurology" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div class="md:col-span-2"><label class="block text-sm font-medium">Highest Professional Qualification(s)</label><div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-4"><div class="flex items-start"><input name="qualifications" type="checkbox" value="MBBS" class="h-4 w-4 rounded"><label class="ml-3 text-sm">MBBS</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="MD" class="h-4 w-4 rounded"><label class="ml-3 text-sm">MD</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="MS" class="h-4 w-4 rounded"><label class="ml-3 text-sm">MS</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="DM" class="h-4 w-4 rounded"><label class="ml-3 text-sm">DM</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="MCh" class="h-4 w-4 rounded"><label class="ml-3 text-sm">MCh</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="DNB" class="h-4 w-4 rounded"><label class="ml-3 text-sm">DNB</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="PhD" class="h-4 w-4 rounded"><label class="ml-3 text-sm">PhD</label></div><div class="flex items-start"><input name="qualifications" type="checkbox" value="MSc (Genetic Counseling)" class="h-4 w-4 rounded"><label class="ml-3 text-sm">MSc (Genetic Counseling)</label></div></div></div>
+                         <div><label for="yearsInPractice" class="block text-sm font-medium">Total Years in Practice</label><input type="number" id="yearsInPractice" name="yearsInPractice" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div><label for="employmentStatus" class="block text-sm font-medium">Current Employment Status</label><select id="employmentStatus" name="employmentStatus" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>Government Hospital</option><option>Private Hospital</option><option>Self-Employed (Own Clinic)</option><option>Academic/Research Institution</option><option>Corporate</option><option>Other</option></select></div>
+                         <div class="md:col-span-2"><label for="primaryInstitution" class="block text-sm font-medium">Name of Primary Institution/Hospital</label><input type="text" id="primaryInstitution" name="primaryInstitution" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div class="md:col-span-2"><label for="practiceAddress" class="block text-sm font-medium">Address of Practice (City & State)</label><input type="text" id="practiceAddress" name="practiceAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+
+                <!-- Section C: Rare Disease Experience -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section C: Rare Disease Experience & Expertise</h2>
+                    <div class="mt-6 space-y-6">
+                        <div><label class="text-sm font-medium">Do you have hands-on experience in treating rare diseases?</label><div class="mt-2 flex space-x-10"><label class="inline-flex items-center"><input id="rd-exp-yes" name="hasRareDiseaseExp" type="radio" value="Yes" class="h-4 w-4"> <span class="ml-2">Yes</span></label><label class="inline-flex items-center"><input id="rd-exp-no" name="hasRareDiseaseExp" type="radio" value="No" class="h-4 w-4"> <span class="ml-2">No</span></label></div></div>
+                        <div id="rd-expertise-section" class="conditional space-y-6">
+                            <div><label for="diseaseExpertise" class="block text-sm font-medium">Area(s) of Rare Disease Expertise</label><input type="text" id="diseaseExpertise" name="diseaseExpertise" placeholder="e.g., Lysosomal Storage Disorders, Muscular Dystrophies" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                            <div><label for="experienceDescription" class="block text-sm font-medium">Please briefly describe your experience</label><textarea id="experienceDescription" name="experienceDescription" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="e.g., Have diagnosed and managed over 20 patients with Pompe disease."></textarea></div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section D: Engagement with SFRD -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                     <h2 class="text-2xl font-semibold mb-1">Section D: Your Engagement with SFRD</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="md:col-span-2"><label class="block text-sm font-medium">I am willing to accept SFRD referrals for:</label><div class="mt-2 grid grid-cols-2 gap-4"><div class="flex items-start"><input name="referralAcceptance" type="checkbox" value="Virtual Case Review" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Virtual Case Review</label></div><div class="flex items-start"><input name="referralAcceptance" type="checkbox" value="Virtual Consultation" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Virtual Consultation</label></div><div class="flex items-start"><input name="referralAcceptance" type="checkbox" value="In-Person Consultation" class="h-4 w-4 rounded"><label class="ml-3 text-sm">In-Person Consultation</label></div><div class="flex items-start"><input name="referralAcceptance" type="checkbox" value="Diagnosis Assistance" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Diagnosis Assistance</label></div></div></div>
+                         <div class="md:col-span-2"><label for="inPersonAddress" class="block text-sm font-medium">Institution/Hospital for In-Person Consultation</label><input type="text" id="inPersonAddress" name="inPersonAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div><label for="feeStructure" class="block text-sm font-medium">Consultation Fee for SFRD patients</label><select id="feeStructure" name="feeStructure" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>Pro-bono (Free)</option><option>Concessional Rate</option><option>Standard Fees</option></select></div>
+                         <div id="concessional-details-section" class="conditional"><label for="concessionalDetails" class="block text-sm font-medium">Concessional Fee Details</label><input type="text" id="concessionalDetails" name="concessionalDetails" placeholder="e.g., 50% discount, Flat Rs. 500" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                         <div><label for="weeklyAvailability" class="block text-sm font-medium">Available hours per week for SFRD</label><select id="weeklyAvailability" name="weeklyAvailability" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>1-2 hours</option><option>2-4 hours</option><option>5+ hours</option><option>As needed / Flexible</option></select></div>
+                     </div>
+                </section>
+                
+                <!-- Section E: Contributing to the Mission -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section E: Contributing to the Mission</h2>
+                    <div class="space-y-4 mt-6">
+                         <label class="block text-sm font-medium">I am interested in contributing in the following ways:</label>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start"><input name="contribution" type="checkbox" value="Patient Identification & Diagnosis" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Patient Identification & Diagnosis</label></div>
+                            <div class="flex items-start"><input name="contribution" type="checkbox" value="Education & Empowerment" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Education & Empowerment (CMEs, Webinars)</label></div>
+                            <div class="flex items-start"><input name="contribution" type="checkbox" value="Patient Support" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Patient Support ('Ask the Expert' sessions)</label></div>
+                            <div class="flex items-start"><input name="contribution" type="checkbox" value="Advocacy" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Advocacy (Reviewing policy documents)</label></div>
+                            <div class="flex items-start"><input name="contribution" type="checkbox" value="Mentorship & Teaching" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Mentorship & Teaching</label></div>
+                         </div>
+                    </div>
+                </section>
+
+                <!-- Section F: Consent -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section F: Professional Consent & Agreement</h2>
+                    <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input id="consent-voluntary" name="consentVoluntary" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-voluntary" class="ml-3 text-sm font-medium">I understand my partnership is voluntary. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-storage" name="consentStorage" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-storage" class="ml-3 text-sm font-medium">I consent to SFRD securely storing my professional information. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-sharing" name="consentSharing" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-sharing" class="ml-3 text-sm font-medium">I consent to SFRD sharing my Name, Specialization, and City with screened patients. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-ethics" name="consentEthics" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-ethics" class="ml-3 text-sm font-medium">I agree to uphold the highest standards of medical ethics and patient confidentiality. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-photos" name="consentPhotos" type="checkbox" class="h-4 w-4 rounded"><label for="consent-photos" class="ml-3 text-sm font-medium">I agree to allow SFRD to use my photos/videos for promotional purposes.</label></div>
+                        <div class="relative flex items-start"><input id="consent-waiver" name="consentWaiver" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-waiver" class="ml-3 text-sm font-medium">I waive claims to monetary benefits for voluntary services. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-final" name="consentFinal" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-final" class="ml-3 text-sm font-medium">I confirm that all information provided is accurate. <span class="text-red-500">*</span></label></div>
+                         <div class="pt-4"><label for="digitalSignature" class="block text-sm font-medium">Full Name (as digital signature) <span class="text-red-500">*</span></label><input type="text" id="digitalSignature" name="digitalSignature" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+
+                <div class="flex justify-end pt-8">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal for messages -->
+     <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto">
+        <!-- ... modal html ... -->
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) { console.error("Firebase init error", e); alert("Could not connect to services."); }
+
+        const userDisplayName = document.getElementById('user-display-name');
+        const logoutButton = document.getElementById('logout-button');
+        const form = document.getElementById('hcp-profile-form');
+        const submitButton = document.getElementById('submit-button');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        let currentUser = null;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists() && userSnap.data().role === 'doctor') {
+                    currentUser = user;
+                    loadProfileData(user.uid, userSnap.data());
+                } else {
+                    console.warn('User is not a doctor or has no profile. Redirecting...');
+                    signOut(auth);
+                    window.location.href = '../00 GLOBAL/00-8 Login.html';
+                }
+            } else {
+                console.log("User not logged in. Redirecting to login.");
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        logoutButton.addEventListener('click', () => signOut(auth).catch(console.error));
+
+        const rdExpYes = document.getElementById('rd-exp-yes');
+        const rdExpNo = document.getElementById('rd-exp-no');
+        const rdExpertiseSection = document.getElementById('rd-expertise-section');
+        rdExpYes.addEventListener('change', () => { if(rdExpYes.checked) rdExpertiseSection.style.display = 'block'; });
+        rdExpNo.addEventListener('change', () => { if(rdExpNo.checked) rdExpertiseSection.style.display = 'none'; });
+
+        const feeStructureSelect = document.getElementById('feeStructure');
+        const concessionalDetailsSection = document.getElementById('concessional-details-section');
+        feeStructureSelect.addEventListener('change', (e) => {
+            concessionalDetailsSection.style.display = e.target.value === 'Concessional Rate' ? 'block' : 'none';
+        });
+
+        async function loadProfileData(userId, userData) {
+            userDisplayName.textContent = `Welcome, ${userData.displayName || userData.email}`;
+            userDisplayName.classList.remove('hidden');
+            form.elements.primaryEmail.value = userData.email;
+            form.elements.fullName.value = userData.displayName || '';
+            form.elements.registrationNumber.value = userData.mci || '';
+
+            const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/hcps`, userId);
+            const docSnap = await getDoc(profileRef);
+            if (docSnap.exists()) {
+                populateForm(docSnap.data());
+            }
+            updateProgress();
+        }
+
+        function populateForm(data) {
+            // Simplified populator - a full implementation would be more robust
+            for (const sectionKey in data) {
+                for (const fieldKey in data[sectionKey]) {
+                    const value = data[sectionKey][fieldKey];
+                    const field = form.elements[fieldKey];
+                    if(field) {
+                        if (field.type === 'checkbox' || field.type === 'radio') {
+                             if(Array.isArray(value)) {
+                                value.forEach(v => {
+                                    const checkbox = document.querySelector(`input[name="${fieldKey}"][value="${v}"]`);
+                                    if(checkbox) checkbox.checked = true;
+                                });
+                            } else {
+                                const radio = document.querySelector(`input[name="${fieldKey}"][value="${value}"]`);
+                                if (radio) radio.checked = true;
+                            }
+                        } else {
+                           field.value = value;
+                        }
+                    }
+                }
+            }
+             if(data.rareDiseaseExperience?.hasExperience) rdExpYes.checked = true; else rdExpNo.checked = true;
+             rdExpertiseSection.style.display = data.rareDiseaseExperience?.hasExperience ? 'block' : 'none';
+             concessionalDetailsSection.style.display = data.sfrdEngagement?.feeStructure === 'Concessional Rate' ? 'block' : 'none';
+        }
+
+        function updateProgress() {
+            const requiredInputs = form.querySelectorAll('input[required], select[required]');
+            const total = requiredInputs.length;
+            if (total === 0) return;
+            let completed = 0;
+            requiredInputs.forEach(input => {
+                if (input.value.trim() !== '') completed++;
+            });
+            const percentage = Math.round((completed / total) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `Profile ${percentage}% Complete`;
+        }
+        form.addEventListener('input', updateProgress);
+
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) { alert('You must be logged in.'); return; }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Saving...';
+            
+            try {
+                const formData = new FormData(form);
+                const profileData = {
+                    identity: {
+                        fullName: formData.get('fullName'),
+                        dob: formData.get('dob'),
+                        gender: formData.get('gender'),
+                        primaryEmail: formData.get('primaryEmail'),
+                        mobileNumber: formData.get('mobileNumber'),
+                        registrationNumber: formData.get('registrationNumber'),
+                        registrationCouncil: formData.get('registrationCouncil'),
+                        linkedinUrl: formData.get('linkedinUrl'),
+                    },
+                    specialization: {
+                        primarySpecialization: formData.get('primarySpecialization'),
+                        subSpecializations: formData.get('subSpecializations'),
+                        qualifications: formData.getAll('qualifications'),
+                        yearsInPractice: Number(formData.get('yearsInPractice')),
+                    },
+                    employment: {
+                        employmentStatus: formData.get('employmentStatus'),
+                        primaryInstitution: formData.get('primaryInstitution'),
+                        practiceAddress: formData.get('practiceAddress'),
+                    },
+                    rareDiseaseExperience: {
+                        hasRareDiseaseExp: formData.get('hasRareDiseaseExp') === 'Yes',
+                        diseaseExpertise: formData.get('diseaseExpertise'),
+                        experienceDescription: formData.get('experienceDescription'),
+                    },
+                    sfrdEngagement: {
+                        referralAcceptance: formData.getAll('referralAcceptance'),
+                        inPersonAddress: formData.get('inPersonAddress'),
+                        feeStructure: formData.get('feeStructure'),
+                        concessionalDetails: formData.get('concessionalDetails'),
+                        weeklyAvailability: formData.get('weeklyAvailability'),
+                    },
+                    missionContribution: {
+                         interests: formData.getAll('contribution'),
+                    },
+                    consent: {
+                        isVoluntary: formData.get('consentVoluntary') === 'on',
+                        allowStorage: formData.get('consentStorage') === 'on',
+                        allowSharing: formData.get('consentSharing') === 'on',
+                        agreesToEthics: formData.get('consentEthics') === 'on',
+                        allowPhotos: formData.get('consentPhotos') === 'on',
+                        monetaryWaiver: formData.get('consentWaiver') === 'on',
+                        confirmsAccuracy: formData.get('consentFinal') === 'on',
+                        digitalSignature: formData.get('digitalSignature'),
+                    },
+                    lastUpdatedAt: serverTimestamp(),
+                };
+
+                const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/hcps`, currentUser.uid);
+                await setDoc(profileRef, profileData, { merge: true });
+                
+                alert('Profile saved successfully!');
+            } catch (error) {
+                console.error("Error saving profile:", error);
+                alert('Error saving profile.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Save Profile';
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

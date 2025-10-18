@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCP Onboarding | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/validation-styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            border-left: 3px solid #8B5CF6; /* Violet-500 for experts */
+        }
+        .conditional {
+            display: none;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <div class="inline-block mx-auto">
+                 <svg class="h-16 w-16 text-violet-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Healthcare Professional Network Onboarding</h1>
+            <p class="text-gray-600 mt-2">Thank you for joining our mission to create a national ecosystem of care.</p>
+        </header>
+
+        <!-- Main Form -->
+        <form id="hcp-onboarding-form" class="space-y-12">
+
+            <!-- Section A: Personal & Professional Identity -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section A: Personal & Professional Identity</h2>
+                <p class="text-gray-500 mb-6">This section helps us verify your professional credentials for our secure, internal directory.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name (with Title) <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="e.g., Dr. Priya Sharma" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                     <div>
+                        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth <span class="text-red-500">*</span></label>
+                        <input type="date" id="dob" name="dob" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                            <option value="">Select...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="0">Not Known</option>
+                            <option value="9">Not Applicable</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="primaryEmail" class="block text-sm font-medium text-gray-700">Primary Professional Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="primaryEmail" name="primaryEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="mobileNumber" class="block text-sm font-medium text-gray-700">Mobile Number <span class="text-red-500">*</span></label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="registrationNumber" class="block text-sm font-medium text-gray-700">Medical Council Registration No. <span class="text-red-500">*</span></label>
+                        <input type="text" id="registrationNumber" name="registrationNumber" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="registrationCouncil" class="block text-sm font-medium text-gray-700">Registering Council <span class="text-red-500">*</span></label>
+                        <input type="text" id="registrationCouncil" name="registrationCouncil" placeholder="e.g., Telangana State Medical Council" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="linkedinUrl" class="block text-sm font-medium text-gray-700">LinkedIn Profile URL (Optional)</label>
+                        <input type="url" id="linkedinUrl" name="linkedinUrl" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="profilePicture" class="block text-sm font-medium text-gray-700">Profile Picture (Optional)</label>
+                        <div class="mt-1 flex items-center">
+                            <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 20.993V24H0v-2.993A1 1 0 011 18h22a1 1 0 011 2.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </span>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500">
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="registrationCertificate" class="block text-sm font-medium text-gray-700">Upload Medical Council Registration Certificate <span class="text-red-500">*</span></label>
+                        <input type="file" id="registrationCertificate" name="registrationCertificate" required accept=".pdf,.jpg,.jpeg,.png" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"/>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section B: Specialization & Employment -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section B: Specialization & Employment</h2>
+                <p class="text-gray-500 mb-6">This information is crucial for us to understand your expertise and refer relevant cases to you.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                        <label for="primarySpecialization" class="block text-sm font-medium text-gray-700">Primary Specialization(s)</label>
+                        <select id="primarySpecialization" name="primarySpecialization" multiple class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                     <div>
+                        <label for="subSpecializations" class="block text-sm font-medium text-gray-700">Sub-specialization(s)</label>
+                        <input type="text" id="subSpecializations" name="subSpecializations" placeholder="e.g., Pediatric Neurology, Metabolic Disorders" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">Highest Professional Qualification(s)</label>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-mbbs" name="qualifications" type="checkbox" value="MBBS" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-mbbs" class="font-medium text-gray-700">MBBS</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-md" name="qualifications" type="checkbox" value="MD" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-md" class="font-medium text-gray-700">MD</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-ms" name="qualifications" type="checkbox" value="MS" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-ms" class="font-medium text-gray-700">MS</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-dm" name="qualifications" type="checkbox" value="DM" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-dm" class="font-medium text-gray-700">DM</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-mch" name="qualifications" type="checkbox" value="MCh" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-mch" class="font-medium text-gray-700">MCh</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-dnb" name="qualifications" type="checkbox" value="DNB" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-dnb" class="font-medium text-gray-700">DNB</label></div></div>
+                             <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-phd" name="qualifications" type="checkbox" value="PhD" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-phd" class="font-medium text-gray-700">PhD</label></div></div>
+                            <div class="flex items-start"><div class="flex items-center h-5"><input id="qual-msc" name="qualifications" type="checkbox" value="MSc (Genetic Counseling)" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="qual-msc" class="font-medium text-gray-700">MSc (Genetic Counseling)</label></div></div>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="yearsInPractice" class="block text-sm font-medium text-gray-700">Total Years in Practice</label>
+                        <input type="number" id="yearsInPractice" name="yearsInPractice" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="employmentStatus" class="block text-sm font-medium text-gray-700">Current Employment Status</label>
+                        <select id="employmentStatus" name="employmentStatus" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                            <option>Government Hospital</option>
+                            <option>Private Hospital</option>
+                            <option>Self-Employed (Own Clinic)</option>
+                            <option>Academic/Research Institution</option>
+                            <option>Corporate</option>
+                             <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="primaryInstitution" class="block text-sm font-medium text-gray-700">Name of Primary Institution/Hospital</label>
+                        <input type="text" id="primaryInstitution" name="primaryInstitution" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="practiceAddress" class="block text-sm font-medium text-gray-700">Address of Practice (City & State)</label>
+                        <input type="text" id="practiceAddress" name="practiceAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section C: Rare Disease Experience -->
+             <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section C: Rare Disease Experience & Expertise</h2>
+                <div class="mt-6 space-y-6">
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Do you have hands-on experience in treating rare diseases?</label>
+                        <fieldset class="mt-2">
+                            <div class="space-y-2 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+                                <div class="flex items-center"><input id="rd-exp-yes" name="hasRareDiseaseExp" type="radio" value="Yes" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300"><label for="rd-exp-yes" class="ml-3 block text-sm font-medium text-gray-700">Yes</label></div>
+                                <div class="flex items-center"><input id="rd-exp-no" name="hasRareDiseaseExp" type="radio" value="No" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300"><label for="rd-exp-no" class="ml-3 block text-sm font-medium text-gray-700">No</label></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div id="rd-expertise-section" class="conditional space-y-6">
+                        <div>
+                            <label for="diseaseExpertise" class="block text-sm font-medium text-gray-700">Area(s) of Rare Disease Expertise</label>
+                            <input type="text" id="diseaseExpertise" name="diseaseExpertise" placeholder="e.g., Lysosomal Storage Disorders, Muscular Dystrophies" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="experienceDescription" class="block text-sm font-medium text-gray-700">Please briefly describe your experience</label>
+                            <textarea id="experienceDescription" name="experienceDescription" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm" placeholder="e.g., Have diagnosed and managed over 20 patients with Pompe disease."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section D: Engagement with SFRD -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                 <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section D: Your Engagement with SFRD</h2>
+                <p class="text-gray-500 mb-6">This section defines how you would like to engage with patients referred by SFRD. Your contribution is invaluable.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700">I am willing to accept SFRD referrals for:</label>
+                        <div class="mt-2 grid grid-cols-2 gap-4">
+                           <div class="flex items-start"><div class="flex items-center h-5"><input id="ref-virtual-review" name="referralAcceptance" type="checkbox" value="Virtual Case Review" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="ref-virtual-review" class="font-medium text-gray-700">Virtual Case Review</label></div></div>
+                           <div class="flex items-start"><div class="flex items-center h-5"><input id="ref-virtual-consult" name="referralAcceptance" type="checkbox" value="Virtual Consultation" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="ref-virtual-consult" class="font-medium text-gray-700">Virtual Consultation</label></div></div>
+                           <div class="flex items-start"><div class="flex items-center h-5"><input id="ref-in-person" name="referralAcceptance" type="checkbox" value="In-Person Consultation" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="ref-in-person" class="font-medium text-gray-700">In-Person Consultation</label></div></div>
+                           <div class="flex items-start"><div class="flex items-center h-5"><input id="ref-diagnosis" name="referralAcceptance" type="checkbox" value="Diagnosis Assistance" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="ref-diagnosis" class="font-medium text-gray-700">Diagnosis Assistance</label></div></div>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="feeStructure" class="block text-sm font-medium text-gray-700">Consultation Fee for SFRD patients</label>
+                        <select id="feeStructure" name="feeStructure" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                            <option value="Pro-bono (Free)">Pro-bono (Free)</option>
+                            <option value="Concessional Rate">Concessional Rate</option>
+                            <option value="Standard Fees">Standard Fees</option>
+                        </select>
+                    </div>
+                     <div id="concessional-details-section" class="conditional">
+                        <label for="concessionalDetails" class="block text-sm font-medium text-gray-700">Concessional Fee Details</label>
+                        <input type="text" id="concessionalDetails" name="concessionalDetails" placeholder="e.g., 50% discount, Flat Rs. 500" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                    <div>
+                         <label for="weeklyAvailability" class="block text-sm font-medium text-gray-700">Available hours per week for SFRD</label>
+                        <select id="weeklyAvailability" name="weeklyAvailability" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                            <option>1-2 hours</option>
+                            <option>2-4 hours</option>
+                            <option>5+ hours</option>
+                            <option>As needed / Flexible</option>
+                        </select>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="inPersonAddress" class="block text-sm font-medium text-gray-700">Institution/Hospital for In-Person Consultation</label>
+                        <input type="text" id="inPersonAddress" name="inPersonAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section E: Contributing to Mission -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section E: Contributing to the Mission</h2>
+                <p class="text-gray-500 mb-6">Beyond clinical care, your expertise can strengthen our entire ecosystem.</p>
+                <div class="space-y-4">
+                     <label class="block text-sm font-medium text-gray-700">I am interested in contributing in the following ways:</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-id" name="contribution" type="checkbox" value="Patient Identification & Diagnosis" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-id" class="font-medium text-gray-700">Patient Identification & Diagnosis</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-edu" name="contribution" type="checkbox" value="Education & Empowerment" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-edu" class="font-medium text-gray-700">Education & Empowerment</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-support" name="contribution" type="checkbox" value="Patient Support" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-support" class="font-medium text-gray-700">Patient Support</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-advocacy" name="contribution" type="checkbox" value="Advocacy" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-advocacy" class="font-medium text-gray-700">Advocacy</label></div></div>
+                        <div class="flex items-start"><div class="flex items-center h-5"><input id="contrib-mentor" name="contribution" type="checkbox" value="Mentorship & Teaching" class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="contrib-mentor" class="font-medium text-gray-700">Mentorship & Teaching</label></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section F: Consent -->
+            <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Section F: Professional Consent & Agreement</h2>
+                 <p class="text-gray-500 mb-6">This agreement formalizes your voluntary partnership with SFRD.</p>
+                <div class="space-y-5">
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-voluntary" name="consentVoluntary" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-voluntary" class="font-medium text-gray-700">I understand my partnership is voluntary and can be ended with written notice. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-storage" name="consentStorage" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-storage" class="font-medium text-gray-700">I consent to SFRD securely storing my professional information. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-sharing" name="consentSharing" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-sharing" class="font-medium text-gray-700">I consent to SFRD sharing my Name, Specialization, and City with screened patients. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-ethics" name="consentEthics" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-ethics" class="font-medium text-gray-700">I agree to uphold the highest standards of medical ethics and patient confidentiality. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-photos" name="consentPhotos" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-photos" class="font-medium text-gray-700">I agree to allow SFRD to use photos/videos of me for promotional purposes. <span class="text-red-500">*</span></label></div></div>
+                    <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-waiver" name="consentWaiver" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-waiver" class="font-medium text-gray-700">I waive all claims to monetary benefits for services rendered as a Volunteer. <span class="text-red-500">*</span></label></div></div>
+                     <div class="relative flex items-start"><div class="flex items-center h-5"><input id="consent-final" name="consentFinal" type="checkbox" required class="focus:ring-violet-500 h-4 w-4 text-violet-600 border-gray-300 rounded"></div><div class="ml-3 text-sm"><label for="consent-final" class="font-medium text-gray-700">I confirm that all information provided is accurate and I agree to the partnership terms. <span class="text-red-500">*</span></label></div></div>
+                     <div class="pt-4">
+                         <label for="digitalSignature" class="block text-sm font-medium text-gray-700">Full Name (as digital signature) <span class="text-red-500">*</span></label>
+                        <input type="text" id="digitalSignature" name="digitalSignature" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-violet-500 focus:ring-violet-500 sm:text-sm">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submission Button -->
+            <div class="pt-5">
+                <div class="flex justify-end">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto ml-3 inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500">
+                        Submit Registration
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div id="modal-icon-container" class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10"></div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500" id="modal-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" id="modal-close-button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-violet-600 text-base font-medium text-white hover:bg-violet-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script src="../js/common-form-logic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        let app, auth, db, storage, currentUser;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (error) {
+            console.error("Firebase initialization failed:", error);
+            showMessage('Error', 'Could not connect to services. Please try again later.', 'error');
+        }
+
+        const form = document.getElementById('hcp-onboarding-form');
+        const submitButton = document.getElementById('submit-button');
+        const profilePictureInput = document.getElementById('profilePicture');
+        const registrationCertificateInput = document.getElementById('registrationCertificate');
+        const localStorageKey = 'hcpOnboardingForm';
+
+        const primaryEmailInput = document.getElementById('primaryEmail');
+        const mobileNumberInput = document.getElementById('mobileNumber');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                console.log("User authenticated, proceeding with HCP form.");
+                if (!primaryEmailInput.value && currentUser.email) {
+                    primaryEmailInput.value = currentUser.email;
+                }
+            } else {
+                console.log("No user logged in, redirecting to login page.");
+                window.location.href = `../00 GLOBAL/00-8 Login.html?redirect=${encodeURIComponent(window.location.href)}`;
+            }
+        });
+
+        const specializationSelect = document.getElementById('primarySpecialization');
+        const specializations = [
+            { value: 'Rare abdominal surgical disease', label: 'Rare abdominal surgical disease' },
+            { value: 'Rare bone disease', label: 'Rare bone disease' },
+            { value: 'Rare cardiac disease', label: 'Rare cardiac disease' },
+            { value: 'Rare circulatory system disease', label: 'Rare circulatory system disease' },
+            { value: 'Rare developmental defect during embryogenesis', label: 'Rare developmental defect during embryogenesis' },
+            { value: 'Rare disorder due to toxic effects', label: 'Rare disorder due to toxic effects' },
+            { value: 'Rare disorder with RCH resources uncovered otherwise', label: 'Rare disorder with RCH resources uncovered otherwise' },
+            { value: 'Rare endocrine disease', label: 'Rare endocrine disease' },
+            { value: 'Rare gastroenterologic disease', label: 'Rare gastroenterologic disease' },
+            { value: 'Rare genetic disease', label: 'Rare genetic disease' },
+            { value: 'Rare gynecologic or obstetric disease', label: 'Rare gynecologic or obstetric disease' },
+            { value: 'Rare hematologic disease', label: 'Rare hematologic disease' },
+            { value: 'Rare hepatic disease', label: 'Rare hepatic disease' },
+            { value: 'Rare immune disease', label: 'Rare immune disease' },
+            { value: 'Rare inborn errors of metabolism', label: 'Rare inborn errors of metabolism' },
+            { value: 'Rare infectious disease', label: 'Rare infectious disease' },
+            { value: 'Rare infertility', label: 'Rare infertility' },
+            { value: 'Rare maxillo-facial surgical disease', label: 'Rare maxillo-facial surgical disease' },
+            { value: 'Rare neoplastic disease', label: 'Rare neoplastic disease' },
+            { value: 'Rare neurologic disease', label: 'Rare neurologic disease' },
+            { value: 'Rare neurologic disease with psychiatric involvement', label: 'Rare neurologic disease with psychiatric involvement' },
+            { value: 'Rare odontologic disease', label: 'Rare odontologic disease' },
+            { value: 'Rare ophthalmic disorder', label: 'Rare ophthalmic disorder' },
+            { value: 'Rare otorhinolaryngologic disease', label: 'Rare otorhinolaryngologic disease' },
+            { value: 'Rare renal disease', label: 'Rare renal disease' },
+            { value: 'Rare respiratory disease', label: 'Rare respiratory disease' },
+            { value: 'Rare skin disease', label: 'Rare skin disease' },
+            { value: 'Rare surgical cardiac disease', label: 'Rare surgical cardiac disease' },
+            { value: 'Rare surgical thoracic disease', label: 'Rare surgical thoracic disease' },
+            { value: 'Rare systemic or rheumatologic disease', label: 'Rare systemic or rheumatologic disease' },
+            { value: 'Rare urogenital disease', label: 'Rare urogenital disease' },
+            { value: 'Other', label: 'Other' }
+        ];
+        const specializationChoices = new Choices(specializationSelect, {
+            choices: specializations,
+            removeItemButton: true,
+            placeholder: true,
+            placeholderValue: 'Select one or more specializations...',
+            allowHTML: false,
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadFormProgress(form, localStorageKey);
+            document.querySelectorAll('input[name="hasRareDiseaseExp"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    document.getElementById('rd-expertise-section').style.display = e.target.value === 'Yes' ? 'block' : 'none';
+                });
+            });
+            document.getElementById('feeStructure').addEventListener('change', (e) => {
+                document.getElementById('concessional-details-section').style.display = e.target.value === 'Concessional Rate' ? 'block' : 'none';
+            });
+            form.addEventListener('input', () => saveFormProgress(form, localStorageKey));
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) {
+                showMessage('Error', 'You must be logged in to submit this form. Please refresh the page.', 'error');
+                return;
+            }
+
+            const validateAndCheck = () => {
+                let isValid = true;
+                document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+                if (!isValidEmail(primaryEmailInput.value)) {
+                    showValidationError(primaryEmailInput, 'Please enter a valid email address.');
+                    isValid = false;
+                }
+                if (!isValidPhone(mobileNumberInput.value)) {
+                    showValidationError(mobileNumberInput, 'Please enter a valid 10-digit phone number.');
+                    isValid = false;
+                }
+                if(registrationCertificateInput.files.length === 0){
+                    showValidationError(registrationCertificateInput, 'Registration certificate is a mandatory upload.');
+                    isValid = false;
+                }
+                return isValid;
+            };
+
+            setSubmitButtonState(submitButton, true, 'Submitting...');
+
+            if (!validateAndCheck()) {
+                showMessage('Error', 'Please correct the highlighted errors before submitting.', 'error');
+                setSubmitButtonState(submitButton, false, 'Submit Registration');
+                return;
+            }
+
+            try {
+                const uploadFile = async (file, path) => {
+                    if (!file) return null;
+                    const storageRef = ref(storage, `artifacts/${appId}/${path}/${currentUser.uid}_${file.name}`);
+                    const snapshot = await uploadBytes(storageRef, file);
+                    return await getDownloadURL(snapshot.ref);
+                };
+
+                const profilePicUrl = await uploadFile(profilePictureInput.files[0], 'hcp-profiles');
+                const certificateUrl = await uploadFile(registrationCertificateInput.files[0], 'hcp-certificates');
+
+                const formData = new FormData(form);
+                const hcpData = {};
+                const multiSelects = ['qualifications', 'referralAcceptance', 'contribution'];
+                multiSelects.forEach(name => hcpData[name] = []);
+
+                formData.forEach((value, key) => {
+                    if (multiSelects.includes(key) && form.querySelector(`input[name="${key}"][value="${value}"]`).checked) {
+                        hcpData[key].push(value);
+                    } else if (form.elements[key].type !== 'file' && !key.startsWith('consent')) {
+                        hcpData[key] = value;
+                    }
+                });
+
+                const consentKeys = ['consentVoluntary', 'consentStorage', 'consentSharing', 'consentEthics', 'consentPhotos', 'consentWaiver', 'consentFinal'];
+                consentKeys.forEach(key => {
+                    hcpData[key] = form.elements[key].checked;
+                });
+
+                hcpData.uid = currentUser.uid;
+                hcpData.primarySpecialization = specializationChoices.getValue(true);
+                hcpData.profilePictureUrl = profilePicUrl;
+                hcpData.registrationCertificateUrl = certificateUrl;
+                hcpData.createdAt = serverTimestamp();
+                hcpData.profileStatus = 'pending_review';
+
+                const hcpDocRef = doc(db, `artifacts/${appId}/doctors`, currentUser.uid);
+                await setDoc(hcpDocRef, hcpData);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUser.uid);
+                await updateDoc(userDocRef, {
+                    profileComplete: true,
+                    status: 'pending_review'
+                });
+
+                showMessage('Success!', 'Your profile has been submitted for review. You will be redirected shortly.');
+                localStorage.removeItem(localStorageKey);
+                form.reset();
+                specializationChoices.clearStore();
+                
+                setTimeout(() => {
+                    window.location.href = '../00 GLOBAL/00-9 Pending Approval.html';
+                }, 3000);
+
+            } catch (error) {
+                console.error("Error submitting form: ", error);
+                showMessage('Submission Error', `There was an error: ${error.message}`, 'error');
+            } finally {
+                setSubmitButtonState(submitButton, false, 'Submit Registration');
+            }
+        });
+
+        const modalCloseButton = document.getElementById('modal-close-button');
+        modalCloseButton.addEventListener('click', () => {
+            document.getElementById('message-modal').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

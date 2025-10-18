@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Healthcare Professional Network - Onboarding & Partnership Form</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-section {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .form-section-header {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            border-radius: 0.375rem;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+        }
+        .helper-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        .submit-button {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #4338ca;
+        }
+        .hidden {
+            display: none;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .progress-bar {
+            background-color: #4f46e5;
+            height: 1rem;
+            border-radius: 9999px;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">SFRD Healthcare Professional Network - Onboarding & Partnership Form</h1>
+            <p class="text-sm text-gray-500 mt-1">Version: 1.0; Dated 07-Sep-2025</p>
+        </header>
+
+        <div class="progress-bar-container">
+            <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <p id="progressText" class="text-center text-sm text-gray-600 mb-4">0% Complete</p>
+
+        <form id="hcpOnboardingForm">
+
+            <!-- Section A: Personal & Professional Identity -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section A: Personal & Professional Identity</h2>
+                    <p class="text-gray-600 mt-1">Welcome to the SFRD National Healthcare Professional Network. Thank you for considering this partnership. This section helps us verify your professional credentials and create your profile in our secure, internal directory.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="fullName" class="form-label">Full Name (with Title) <span class="text-red-500">*</span></label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" placeholder="E.g., Dr. Priya Sharma" required>
+                    </div>
+                    <div>
+                        <label for="dob" class="form-label">Date of Birth <span class="text-red-500">*</span></label>
+                        <input type="date" id="dob" name="dob" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="gender" class="form-label">Gender <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" class="form-select" required>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="0">Not Known</option>
+                            <option value="9">Not Applicable</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="primaryEmail" class="form-label">Primary Professional Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="primaryEmail" name="primaryEmail" class="form-input" placeholder="your.email@professional.com" required>
+                        <p class="helper-text">This will be your primary communication ID.</p>
+                    </div>
+                    <div>
+                        <label for="mobileNumber" class="form-label">Mobile Number <span class="text-red-500">*</span></label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" class="form-input" placeholder="+91-9876543210" required>
+                        <p class="helper-text">For communication from the SFRD Secretariat team. This will not be shared with patients.</p>
+                    </div>
+                    <div>
+                        <label for="regNumber" class="form-label">Medical Council Registration Number <span class="text-red-500">*</span></label>
+                        <input type="text" id="regNumber" name="regNumber" class="form-input" placeholder="Enter your registration number" required>
+                    </div>
+                    <div>
+                        <label for="regCouncil" class="form-label">Registering Council <span class="text-red-500">*</span></label>
+                        <input type="text" id="regCouncil" name="regCouncil" class="form-input" placeholder="e.g., National Medical Commission" required>
+                    </div>
+                    <div>
+                        <label for="linkedinUrl" class="form-label">LinkedIn Profile URL (Optional)</label>
+                        <input type="url" id="linkedinUrl" name="linkedinUrl" class="form-input">
+                        <p class="helper-text">Sharing this helps us understand your professional background better.</p>
+                    </div>
+                    <div>
+                        <label for="expertId" class="form-label">Unique Expert Identifier</label>
+                        <input type="text" id="expertId" name="expertId" class="form-input bg-gray-100" readonly>
+                        <p class="helper-text">Your permanent identification no in SFRD. Helps you login into SFRD Framework.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Specialization & Employment -->
+            <div class="form-section">
+                 <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section B: Specialization & Employment</h2>
+                    <p class="text-gray-600 mt-1">This information is crucial for us to understand your expertise and to ensure we refer the most relevant cases to you.</p>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="primarySpecialization" class="form-label">Primary Specialization <span class="text-red-500">*</span></label>
+                        <select id="primarySpecialization" name="primarySpecialization" class="form-select" multiple required>
+                            <option>Allergy and Immunology</option>
+                            <option>Anesthesiology</option>
+                            <option>Cardiology</option>
+                            <option>Clinical Genetics</option>
+                            <option>Dermatology</option>
+                            <option>Emergency Medicine</option>
+                            <option>Endocrinology</option>
+                            <option>Family Medicine</option>
+                            <option>Gastroenterology</option>
+                            <option>General Paediatrics</option>
+                            <option>Geriatrics</option>
+                            <option>Hematology</option>
+                            <option>Infectious Disease</option>
+                            <option>Internal Medicine</option>
+                            <option>Medical Genetics and Genomics</option>
+                            <option>Nephrology</option>
+                            <option>Neurology</option>
+                            <option>Obstetrics and Gynecology</option>
+                            <option>Oncology</option>
+                            <option>Ophthalmology</option>
+                            <option>Orthopaedics</option>
+                            <option>Otolaryngology</option>
+                            <option>Pathology</option>
+                            <option>Pediatrics</option>
+                            <option>Physical Medicine and Rehabilitation</option>
+                            <option>Psychiatry</option>
+                            <option>Pulmonology</option>
+                            <option>Radiology</option>
+                            <option>Rheumatology</option>
+                            <option>Surgery</option>
+                            <option>Urology</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="subSpecialization" class="form-label">Sub-specialization(s) <span class="text-red-500">*</span></label>
+                        <input type="text" id="subSpecialization" name="subSpecialization" class="form-input" placeholder="e.g., Paediatric Neurology, Metabolic Disorders" required>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label class="form-label">Highest Professional Qualification(s) <span class="text-red-500">*</span></label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="MBBS" class="form-checkbox"> <span class="ml-2">MBBS</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="MD" class="form-checkbox"> <span class="ml-2">MD</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="MS" class="form-checkbox"> <span class="ml-2">MS</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="DM" class="form-checkbox"> <span class="ml-2">DM</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="MCh" class="form-checkbox"> <span class="ml-2">MCh</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="DNB" class="form-checkbox"> <span class="ml-2">DNB</span></label>
+                            <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="PhD" class="form-checkbox"> <span class="ml-2">PhD</span></label>
+                             <label class="inline-flex items-center"><input type="checkbox" name="qualifications" value="MSc" class="form-checkbox"> <span class="ml-2">MSc (Genetic Counselling)</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="yearsInPractice" class="form-label">Total Years in Practice <span class="text-red-500">*</span></label>
+                        <input type="number" id="yearsInPractice" name="yearsInPractice" class="form-input" placeholder="e.g., 10" required>
+                    </div>
+                     <div>
+                        <label for="employmentStatus" class="form-label">Current Employment Status</label>
+                        <select id="employmentStatus" name="employmentStatus" class="form-select">
+                            <option>Government Hospital</option>
+                            <option>Private Hospital</option>
+                            <option>Self-Employed (Own Clinic)</option>
+                            <option>Academic/Research Institution</option>
+                            <option>Corporate</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="primaryInstitution" class="form-label">Name of Primary Institution/Hospital</label>
+                        <input type="text" id="primaryInstitution" name="primaryInstitution" class="form-input">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="practiceAddress" class="form-label">Address, City & State of Practice <span class="text-red-500">*</span></label>
+                        <input type="text" id="practiceAddress" name="practiceAddress" class="form-input" placeholder="e.g., 123 Health St, Mumbai, Maharashtra" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section C: Rare Disease Experience & Expertise -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section C: Rare Disease Experience & Expertise</h2>
+                </div>
+                <div>
+                    <label class="form-label">Do you have hands-on experience in treating rare diseases? <span class="text-red-500">*</span></label>
+                    <div class="flex items-center space-x-4">
+                        <label class="inline-flex items-center"><input type="radio" name="hasRareDiseaseExp" value="yes" class="form-radio h-5 w-5 text-indigo-600" required> <span class="ml-2">Yes</span></label>
+                        <label class="inline-flex items-center"><input type="radio" name="hasRareDiseaseExp" value="no" class="form-radio h-5 w-5 text-indigo-600" required> <span class="ml-2">No</span></label>
+                    </div>
+                </div>
+                <div id="rareDiseaseExperienceSection" class="hidden mt-6 space-y-6">
+                    <div>
+                        <label for="rareDiseaseExpertise" class="form-label">Area(s) of Rare Disease Expertise <span class="text-red-500">*</span></label>
+                        <input type="text" id="rareDiseaseExpertise" name="rareDiseaseExpertise" class="form-input" placeholder="e.g., Lysosomal Storage Disorders, Muscular Dystrophies" required>
+                        <p class="helper-text">Please select the disease groups you have the most experience with.</p>
+                    </div>
+                    <div>
+                        <label for="experienceDescription" class="form-label">Please briefly describe your experience <span class="text-red-500">*</span></label>
+                        <textarea id="experienceDescription" name="experienceDescription" rows="4" class="form-textarea" placeholder="e.g., 'Have diagnosed and manage over 20 patients with Pompe disease'" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section D: Your Engagement with SFRD -->
+            <div class="form-section">
+                <div class="form-section-header">
+                    <h2 class="text-xl font-semibold text-gray-800">Section D: Your Engagement with SFRD</h2>
+                    <p class="text-gray-600 mt-1">This section defines how you would like to engage with patients referred by SFRD. Your contribution, in any capacity, is invaluable.</p>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <label class="form-label">I am willing to accept SFRD referrals for: <span class="text-red-500">*</span></label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                             <label class="inline-flex items-center"><input type="checkbox" name="referralAcceptance" value="virtual_review"> <span class="ml-2">Virtual Case Review</span></label>
+                             <label class="inline-flex items-center"><input type="checkbox" name="referralAcceptance" value="virtual_consult"> <span class="ml-2">Virtual Consultation</span></label>
+                             <label class="inline-flex items-center"><input type="checkbox" name="referralAcceptance" value="in_person"> <span class="ml-2">In-Person Consultation</span></label>
+                             <label class="inline-flex items-center"><input type="checkbox" name="referralAcceptance" value="diagnosis"> <span class="ml-2">Diagnosis Assistance</span></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="inPersonAddress" class="form-label">Name of Institution/Hospital & Address where you would consult In-Person <span class="text-red-500">*</span></label>
+                        <input type="text" id="inPersonAddress" name="inPersonAddress" class="form-input" placeholder="e.g., City Hospital, 123 Health St, Mumbai" required>
+                    </div>
+                    <div>
+                         <label for="feeStructure" class="form-label">Consultation Fee for SFRD-referred patients:</label>
+                        <select id="feeStructure" name="feeStructure" class="form-select">
+                            <option value="pro_bono">Pro-bono (Free)</option>
+                            <option value="concessional">Concessional Rate</option>
+                            <option value="standard">Standard Fees</option>
+                        </select>
+                        <div id="concessionalDetails" class="hidden mt-2">
+                             <input type="text" name="concessionalDetailsText" class="form-input" placeholder="Please provide details of the concessional rate">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="weeklyAvailability" class="form-label">Available hours per week for SFRD activities: <span class="text-red-500">*</span></label>
+                        <select id="weeklyAvailability" name="weeklyAvailability" class="form-select" required>
+                            <option>1-2 hours</option>
+                            <option>2-4 hours</option>
+                            <option>5+ hours</option>
+                            <option>As needed / Flexible</option>
+                        </select>
+                    </div>
+                    <div>
+                         <label for="emergencyContactName" class="form-label">Emergency Contact Details <span class="text-red-500">*</span></label>
+                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                             <input type="text" id="emergencyContactName" name="emergencyContactName" class="form-input" placeholder="Contact Name" required>
+                             <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" class="form-input" placeholder="Contact Phone" required>
+                         </div>
+                         <p class="helper-text">This number will be kept confidential and used by the SFRD Secretariat only for urgent, time-sensitive case discussions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section E: Contributing to the Mission -->
+            <div class="form-section">
+                <div class="form-section-header">
+                     <h2 class="text-xl font-semibold text-gray-800">Section E: Contributing to the Mission</h2>
+                    <p class="text-gray-600 mt-1">Beyond clinical care, your expertise can strengthen our entire ecosystem. Please let us know how else you might be interested in contributing.</p>
+                </div>
+                 <div>
+                    <label class="form-label">I am interested in contributing towards SFRD's mission in the following ways:</label>
+                    <div class="space-y-4">
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="diagnosis"><span class="ml-3"><b>Patient Identification & Diagnosis</b> (e.g., Identify /referrals, screening new patients as part of panel of specialist doctors for a group disease, diagnostics)</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="education"><span class="ml-3"><b>Education & Empowerment</b> (e.g., Speaker for CMEs, Webinars, Translation & vetting of medical grade text information, vetting of content / creatives for social, print & electronic mediums, Research in RDs)</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="support"><span class="ml-3"><b>Patient Support</b> (e.g., 'Ask the Expert' sessions for families, Counselling)</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="advocacy"><span class="ml-3"><b>Advocacy</b> (e.g., Reviewing policy documents for medical accuracy)</span></label>
+                        <label class="inline-flex items-start"><input type="checkbox" name="contribution" value="mentorship"><span class="ml-3"><b>Mentorship & Teaching</b> (Guiding junior doctors in the SFRD network)</span></label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section F: Professional Consent & Agreement -->
+            <div class="form-section">
+                <div class="form-section-header">
+                     <h2 class="text-xl font-semibold text-gray-800">Section F: Professional Consent & Agreement (Whole Section was mandatory)</h2>
+                    <p class="text-gray-600 mt-1">Please read the following statements carefully. This agreement formalizes your voluntary partnership with the Saba Foundation for Rare Diseases and clarifies how your professional information will be used.</p>
+                </div>
+                <div class="space-y-5">
+                    <label class="flex items-start"><input type="checkbox" name="consentVoluntary" required class="form-checkbox"><span class="ml-3 text-sm">I understand that my partnership with SFRD is voluntary and I can choose to end my association at any time by providing written notice.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentStoreInfo" required class="form-checkbox"><span class="ml-3 text-sm">I consent to SFRD securely storing my professional information provided in this form in its internal, verified database of healthcare professionals.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentShareInfo" required class="form-checkbox"><span class="ml-3 text-sm">I consent to SFRD sharing my Name, Specialization, and City of Practice with patients/caregivers who are seeking a specialist, only after they have been screened by the SFRD support team. I understand my direct contact details (phone/email) will not be shared without my explicit permission on a case-by-case basis.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentEthics" required class="form-checkbox"><span class="ml-3 text-sm">I agree to uphold the highest standards of medical ethics and maintain strict patient confidentiality for all cases and information shared with me through the SFRD network, in accordance with the guidelines of the National Medical Commission.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentMedia" required class="form-checkbox"><span class="ml-3 text-sm">I agree to share Photographs or videos taken of me on a site may be used by SFRD for promotional purposes.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentWaiver" required class="form-checkbox"><span class="ml-3 text-sm"><b>Monetary Waiver:</b> I hereby waive all claims to monetary benefits for services rendered as a Volunteer on a 'Without Compensation Basis' for an indefinite period.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentCancel" required class="form-checkbox"><span class="ml-3 text-sm">This agreement may be cancelled by either party upon written notice. I understand that failure to comply with any of these conditions may result in my exit from SFRD Network.</span></label>
+                    <label class="flex items-start"><input type="checkbox" name="consentAccuracy" required class="form-checkbox"><span class="ml-3 text-sm">By checking this box, I confirm that all the information provided is accurate to the best of my knowledge and I agree to the terms of this partnership.</span></label>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t">
+                         <div>
+                            <label for="signatureName" class="form-label">Full Name (as a digital signature) <span class="text-red-500">*</span></label>
+                            <input type="text" id="signatureName" name="signatureName" class="form-input" placeholder="Please type your full name" required>
+                        </div>
+                        <div>
+                            <label for="consentDate" class="form-label">Date</label>
+                            <input type="date" id="consentDate" name="consentDate" class="form-input bg-gray-100" readonly>
+                        </div>
+                    </div>
+                     <div>
+                        <label for="digitalSignature" class="form-label">Digital Signature <span class="text-red-500">*</span></label>
+                        <textarea id="digitalSignature" name="digitalSignature" rows="3" class="form-textarea" placeholder="Please type your full name again to digitally sign" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="submit-button">SUBMIT REGISTRATION</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script type="module">
+        import { auth, db, appId } from '../js/firebase-config.js';
+        import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+        import { initializeFormEnhancements } from '../js/form-enhancements.js';
+        import { ProgressBarManager } from '../js/progress-bar-utils.js';
+        import { FormEventCoordinator } from '../js/form-coordinator.js';
+
+        const form = document.getElementById('hcpOnboardingForm');
+        const formId = 'hcpOnboardingForm';
+        let currentUserId = null;
+        let formEnhancements = null;
+        let progressBarManager = null;
+        let formCoordinator = null;
+
+
+
+        // --- UI Logic (Specific to this form) ---
+        const expRadioButtons = document.querySelectorAll('input[name="hasRareDiseaseExp"]');
+        const expSection = document.getElementById('rareDiseaseExperienceSection');
+        expRadioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                expSection.classList.toggle('hidden', this.value !== 'yes');
+            });
+        });
+
+        const feeStructure = document.getElementById('feeStructure');
+        const concessionalDetails = document.getElementById('concessionalDetails');
+        feeStructure.addEventListener('change', function() {
+            concessionalDetails.classList.toggle('hidden', this.value !== 'concessional');
+        });
+
+        // --- Standard Caching, Auth, and Submission Logic ---
+        const saveFormProgress = () => {
+            if (!currentUserId) return;
+            const formData = new FormData(form);
+            const data = {};
+            const checkboxGroups = {};
+            for (let [key, value] of formData.entries()) {
+                const element = form.elements[key];
+                if (element && element.type === 'checkbox') {
+                    if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                    checkboxGroups[key].push(value);
+                } else { data[key] = value; }
+            }
+            Object.assign(data, checkboxGroups);
+            localStorage.setItem(`${formId}_${currentUserId}`, JSON.stringify(data));
+            console.log('Form progress saved.');
+        };
+
+        const loadFormProgress = () => {
+            if (!currentUserId) return;
+            const savedData = localStorage.getItem(`${formId}_${currentUserId}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const key in data) {
+                    const element = form.elements[key];
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = Array.isArray(data[key]) ? data[key].length > 0 : !!data[key];
+                        } else if (element.length && element[0]?.type === 'checkbox') {
+                            const values = Array.isArray(data[key]) ? data[key] : [];
+                            Array.from(element).forEach(cb => { cb.checked = values.includes(cb.value); });
+                        } else { element.value = data[key]; }
+                    }
+                }
+                console.log('Form progress loaded.');
+                // Trigger change events to update UI visibility after loading data
+                document.querySelector('input[name="hasRareDiseaseExp"]:checked')?.dispatchEvent(new Event('change'));
+                document.getElementById('feeStructure').dispatchEvent(new Event('change'));
+            }
+        };
+
+        const clearFormProgress = () => {
+            if (!currentUserId) return;
+            localStorage.removeItem(`${formId}_${currentUserId}`);
+            console.log('Cached form data cleared.');
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUserId = user.uid;
+                document.getElementById('primaryEmail').value = user.email;
+                document.getElementById('expertId').value = user.uid;
+                document.getElementById('consentDate').valueAsDate = new Date();
+                formEnhancements = initializeFormEnhancements(form, formId, currentUserId);
+                loadFormProgress();
+
+                // Initialize progress bar with coordinator mode enabled (no event listeners)
+                progressBarManager = new ProgressBarManager(form, 'progressBar', 'progressText', true);
+                
+                // Initialize unified event coordinator (attaches all listeners)
+                formCoordinator = new FormEventCoordinator(form, saveFormProgress, progressBarManager, formEnhancements);
+                
+                console.log('HCP form: Unified event coordination initialized');
+            } else { /* Handled by auth-guard.js */ }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'SUBMITTING...';
+
+            if (!currentUserId) {
+                alert('Authentication error. Please sign in again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT REGISTRATION';
+                return;
+            }
+
+            try {
+                const formData = new FormData(form);
+                const data = { uid: currentUserId, createdAt: new Date().toISOString() };
+                const checkboxGroups = {};
+
+                formData.forEach((value, key) => {
+                    const element = form.elements[key];
+                    if (element && element.type === 'checkbox') {
+                        if (!checkboxGroups[key]) checkboxGroups[key] = [];
+                        checkboxGroups[key].push(value);
+                    } else { data[key] = value; }
+                });
+                Object.assign(data, checkboxGroups);
+
+                // No file uploads for this form
+
+                console.log('Saving HCP data:', data);
+                console.log('Using appId:', appId);
+
+                await setDoc(doc(db, `artifacts/${appId}/doctors`, currentUserId), data);
+
+                const userDocRef = doc(db, `artifacts/${appId}/users`, currentUserId);
+                await updateDoc(userDocRef, { 
+                    profileComplete: true, 
+                    status: 'pending_approval',
+                    role: 'doctor' // Explicitly set the role to 'doctor'
+                });
+
+                clearFormProgress();
+                alert('Form submitted successfully! Your profile is now under review.');
+                window.location.href = '/index.html'; // Redirect to homepage
+
+            } catch (error) {
+                console.error('Error submitting form: ', error);
+                alert('An error occurred. Please check the console and try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'SUBMIT REGISTRATION';
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const specializationElement = document.getElementById('primarySpecialization');
+            if(specializationElement) {
+                const choices = new Choices(specializationElement, {
+                    removeItemButton: true,
+                    searchEnabled: true,
+                    placeholder: true,
+                    placeholderValue: 'Select one or more specializations',
+                });
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-guard.js"></script>
+</body>
+</html>

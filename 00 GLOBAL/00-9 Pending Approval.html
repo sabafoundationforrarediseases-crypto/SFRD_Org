@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Pending Approval | SFRD</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="text-center p-8 bg-white shadow-xl rounded-2xl max-w-lg mx-auto">
+        <div class="mx-auto flex items-center justify-center h-24 w-24 rounded-full bg-yellow-100">
+            <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-12 w-12">
+        </div>
+        <h1 class="text-3xl font-bold text-gray-900 mt-6">Thank You for Registering!</h1>
+        <p class="text-gray-600 mt-3">Your account has been created successfully and is now awaiting approval from an administrator.</p>
+        <p class="text-gray-600 mt-2">You will be automatically redirected to your dashboard as soon as your account is approved. You can keep this page open.</p>
+        <div class="mt-8">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto"></div>
+            <p class="text-sm text-gray-500 mt-2">Checking status...</p>
+        </div>
+        <button id="logout-btn" class="mt-6 text-sm text-gray-500 hover:text-indigo-600">Logout</button>
+    </div>
+
+    <script src="./firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, doc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+            alert("Could not connect to services.");
+        }
+
+        const dashboardUrls = {
+            patient: '../01 PATIENT/01G Patient Dashboard.html',
+            doctor: '../03 HCP/03E Healthcare Professional Dashboard.html',
+            volunteer: '../04 VOLUNTEER/04E Volunteer Dashboard.html',
+            epo: '../02 EPO/02E EPO Dashboard Code.html',
+            ngo: '../05 NGO/05E NGO Dashboard Code.html',
+            lab: '../06 LAB/06E Lab Dashboard.html',
+            hospital: '../07 HOSPITAL/07E Hospital Dashboard.html',
+            admin: '../SUPER ADMIN DASHBOARD.HTML',
+            default: './00-8 Login.html'
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // If no user is logged in, redirect to login page
+                window.location.href = './00-8 Login.html';
+                return;
+            }
+
+            const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+
+            const unsubscribe = onSnapshot(userRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    if (userData.status === 'approved') {
+                        // User is approved, redirect to their dashboard
+                        unsubscribe(); // Stop listening for changes
+                        window.location.href = dashboardUrls[userData.role] || dashboardUrls.default;
+                    } else if (userData.status === 'rejected') {
+                        // Handle rejection if needed
+                        unsubscribe();
+                        alert('Your registration request has been declined. Please contact support for more information.');
+                        signOut(auth);
+                    }
+                    // If status is 'pending', do nothing and keep listening
+                } else {
+                    // If the user document doesn't exist, something is wrong.
+                    unsubscribe();
+                    alert('Error: Your user profile was not found. Please register again.');
+                    signOut(auth);
+                }
+            });
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            signOut(auth);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRD Volunteer Dashboard</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .stat-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom-width: 4px;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .nav-link.active {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            color: #374151; /* text-gray-700 */
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar Navigation -->
+        <div class="hidden md:flex flex-col w-64 bg-white shadow-lg">
+            <div class="flex items-center justify-center h-20 border-b">
+                <h1 class="text-2xl font-bold text-indigo-600">SFRD</h1>
+            </div>
+            <div class="flex-grow">
+                <nav id="sidebar-nav" class="mt-5">
+                    <a href="#dashboard" class="nav-link flex items-center mt-4 py-2 px-6 active">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        <span class="mx-3">Dashboard</span>
+                    </a>
+                    <a href="../00 GLOBAL/10 Probable RarePatient Identification_Flag.html" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <span class="mx-3">Flag a New Patient</span>
+                    </a>
+                    <a href="#alerts" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="mx-3">Alerts & Reminders</span>
+                    </a>
+                     <a href="#rewards" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"></path></svg>
+                         <span class="mx-3">Rewards & Recognitions</span>
+                    </a>
+                    <a href="#support" class="nav-link flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-200 hover:text-gray-700">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="mx-3">Support / Help</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="flex flex-col flex-1 overflow-y-auto">
+            <div class="flex items-center justify-between h-20 px-6 bg-white border-b">
+                 <div class="flex items-center">
+                    <div class="relative mx-4 lg:mx-0">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3"><svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none"><path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <input class="w-32 sm:w-64 form-input pl-10 pr-4 rounded-full" type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="flex mx-4 text-gray-600 focus:outline-none">
+                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                    </button>
+                    <div class="relative">
+                        <a href="./04C Volunteer Profile Page.html">
+                            <button class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
+                                <img class="h-full w-full object-cover" src="https://placehold.co/100x100/34d399/FFFFFF?text=V" alt="Volunteer's avatar">
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <main class="p-6 sm:p-10 space-y-10">
+                <!-- Dashboard View -->
+                <div id="dashboard" class="page-content">
+                    <section>
+                        <div class="flex flex-col md:flex-row justify-between items-start">
+                            <div>
+                                <h2 class="text-4xl font-extrabold text-gray-800">Volunteer Dashboard</h2>
+                                <p class="mt-1 text-lg text-indigo-600 font-semibold">Sunita Rao - Counselling Expert</p>
+                            </div>
+                             <div class="mt-4 md:mt-0 text-sm text-gray-500">
+                               <p>Last login: 6-Sep-2025, 08:00 AM</p>
+                               <p>Volunteer UID: SFRDVOL98765</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                        <a href="#patients-flagged-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-blue-500"><span class="block text-3xl font-bold" id="patients-flagged">0</span><span class="block text-gray-500 mt-1 text-sm">Patients Flagged / Referred</span></a>
+                        <a href="#patients-vicinity-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-green-500"><span class="block text-3xl font-bold" id="patients-vicinity">0</span><span class="block text-gray-500 mt-1 text-sm">RD Patients in my Vicinity</span></a>
+                        <a href="#patients-mapped-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-yellow-500"><span class="block text-3xl font-bold" id="patients-mapped">0</span><span class="block text-gray-500 mt-1 text-sm">RD Patients Mapped to me</span></a>
+                        <a href="#man-hours-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-purple-500"><span class="block text-3xl font-bold" id="man-hours">0</span><span class="block text-gray-500 mt-1 text-sm">Voluntary Man-hours Logged</span></a>
+                        <a href="#advocacy-inputs-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-pink-500"><span class="block text-3xl font-bold" id="advocacy-inputs">0</span><span class="block text-gray-500 mt-1 text-sm">Advocacy Inputs</span></a>
+                        <a href="#tickets-raised-details" class="nav-link stat-card p-5 bg-white shadow rounded-lg text-center border-red-500"><span class="block text-3xl font-bold" id="tickets-raised">0</span><span class="block text-gray-500 mt-1 text-sm">Tickets Raised</span></a>
+                    </section>
+                    
+                    <section class="bg-indigo-600 text-white rounded-lg shadow-xl mt-12">
+                        <div class="p-8 flex flex-col md:flex-row justify-between items-center">
+                            <div class="text-center md:text-left">
+                                <h3 class="text-3xl font-bold">"Each One, Refer Ten"</h3>
+                                <p class="mt-2 text-indigo-200 text-lg">Your referral can change a life. Help someone today.</p>
+                            </div>
+                            <a href="../00 GLOBAL/10 Probable RarePatient Identification_Flag.html" class="nav-link mt-6 md:mt-0 flex-shrink-0 inline-block px-8 py-4 bg-white text-indigo-600 font-bold rounded-lg text-lg hover:bg-indigo-50 transition">
+                                Flag a New Patient
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- DETAIL VIEWS -->
+                <div id="patients-flagged-details" class="page-content hidden"></div>
+                <div id="patients-vicinity-details" class="page-content hidden"></div>
+                <div id="patients-mapped-details" class="page-content hidden"></div>
+                <div id="man-hours-details" class="page-content hidden"></div>
+                <div id="advocacy-inputs-details" class="page-content hidden"></div>
+                <div id="tickets-raised-details" class="page-content hidden"></div>
+
+
+
+                <!-- Alerts & Reminders View -->
+                <div id="alerts" class="page-content hidden">
+                    <section><h2 class="text-4xl font-extrabold text-gray-800">Alerts & Reminders</h2></section>
+                    <section class="mt-8 bg-white p-6 rounded-lg shadow">
+                         <h3 class="text-xl font-bold">Upcoming Events in Your City (Hyderabad)</h3>
+                         <div class="mt-4">
+                            <p>Rare Disease Awareness Walk - September 20, 2025</p>
+                         </div>
+                    </section>
+                </div>
+                
+                <!-- Rewards & Recognitions View -->
+                <div id="rewards" class="page-content hidden">
+                    <section><h2 class="text-4xl font-extrabold text-gray-800">My Rewards & Recognitions</h2></section>
+                     <section class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="p-6 bg-white rounded-lg shadow border-l-4 border-yellow-400">
+                            <h3 class="text-lg font-bold">Star Volunteer - Q3 2025</h3>
+                            <p class="text-gray-600 mt-2">For logging over 50 volunteer hours.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow border-l-4 border-blue-400">
+                            <h3 class="text-lg font-bold">Top Referrer Badge</h3>
+                            <p class="text-gray-600 mt-2">For flagging more than 10 potential patients.</p>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Support/Help View -->
+                <div id="support" class="page-content hidden">
+                     <section><h2 class="text-4xl font-extrabold text-gray-800">Support & Help Center</h2></section>
+                    <section class="mt-8 grid md:grid-cols-3 gap-8"><div class="md:col-span-2"><div class="bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">FAQ for Volunteers</h3><div class="space-y-4" id="faq-accordion"></div></div></div><div class="space-y-6"><div class="bg-white p-6 rounded-lg shadow"><h3 class="text-xl font-bold mb-4">Contact SFRD Coordinator</h3><form><div class="space-y-4"><div><input type="text" placeholder="Subject" class="w-full rounded-md"></div><div><textarea rows="4" placeholder="Your message..." class="w-full rounded-md"></textarea></div><button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white rounded-md">Send</button></div></form></div></div></section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="tutorial-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden opacity-0 z-50">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 transform scale-95"><div class="flex justify-between items-center border-b pb-3"><h2 class="text-2xl font-bold">How to Use Your Dashboard</h2><button id="close-tutorial-btn-icon" class="text-3xl">&times;</button></div><div class="mt-4"><div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen class="w-full h-full"></iframe></div></div><div class="mt-6 flex justify-between items-center"><div class="flex items-center"><input id="dont-show-again-checkbox" type="checkbox" class="h-4 w-4"><label for="dont-show-again-checkbox" class="ml-2">Don't show this again</label></div><button id="close-tutorial-btn" class="px-6 py-2 bg-indigo-600 text-white rounded-md">Close</button></div></div>
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+        import { getFirestore, doc, getDoc, collection, getDocs, query, where } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+            alert("Could not connect to services. Please try again.");
+            window.location.href = '../00 GLOBAL/00-8 Login.html';
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                console.log('No user signed in. Redirecting to login.');
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+                return;
+            }
+
+            const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+            const docSnap = await getDoc(userRef);
+
+            if (docSnap.exists() && docSnap.data().role === 'volunteer' && docSnap.data().status === 'approved') {
+                const userData = docSnap.data();
+                // Check if the detailed profile has been completed.
+                if (userData.profileComplete === false) {
+                    // If not, redirect to the full onboarding form.
+                    console.log('Profile incomplete. Redirecting to onboarding form.');
+                    alert('Welcome! Please complete your volunteer profile to continue.');
+                    window.location.href = './04 Volunteer Onboarding Form.html';
+                } else {
+                    // If profile is complete, load the dashboard.
+                    console.log('Volunteer authenticated and approved. Loading dashboard...');
+                    loadDashboard(user, userData);
+                }
+            } else {
+                console.warn('User is not an approved volunteer or has no profile. Redirecting...');
+                await signOut(auth);
+                alert('Access Denied: You do not have permission to view this page or your account is pending approval.');
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        async function loadDashboard(user, userData) {
+            document.body.style.display = 'block'; // Show body only after auth check
+
+            // --- Populate User-Specific Data ---
+            const volunteerNameElement = document.querySelector('.mt-1.text-lg.text-indigo-600.font-semibold');
+            if (volunteerNameElement) {
+                volunteerNameElement.textContent = `${userData.fullName || 'Volunteer'} - ${userData.primaryExpertise || 'Expert'}`;
+            }
+            const volunteerUIDElement = document.querySelector('.mt-4.md\:mt-0.text-sm.text-gray-500 p:last-child');
+            if (volunteerUIDElement) {
+                volunteerUIDElement.textContent = `Volunteer UID: ${user.uid}`;
+            }
+            const avatar = document.querySelector('.relative.block.h-8.w-8.rounded-full.overflow-hidden.shadow img');
+            if (avatar) {
+                avatar.src = user.photoURL || `https://placehold.co/100x100/34d399/FFFFFF?text=${(userData.fullName || 'V').charAt(0).toUpperCase()}`;
+            }
+
+            // --- Fetch and Populate Counts ---
+            const flaggedQuery = query(collection(db, `artifacts/${appId}/patients`), where('refereeId', '==', user.uid));
+            const flaggedSnapshot = await getDocs(flaggedQuery);
+            const flaggedCountEl = document.getElementById('patients-flagged');
+            if(flaggedCountEl) flaggedCountEl.textContent = flaggedSnapshot.size;
+
+            // --- UI LOGIC ---
+            const pageContents = document.querySelectorAll('.page-content');
+            function switchTab(targetId) {
+                pageContents.forEach(content => content.classList.toggle('hidden', content.id !== targetId));
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.toggle('active', link.getAttribute('href')?.substring(1) === targetId));
+            }
+            document.body.addEventListener('click', e => { 
+                const link = e.target.closest('a.nav-link'); 
+                if (link && link.getAttribute('href')?.startsWith('#')) { 
+                    e.preventDefault(); 
+                    switchTab(link.getAttribute('href').substring(1)); 
+                } 
+            });
+            switchTab('dashboard');
+        }
+    </script>
+</body>
+</html>
+

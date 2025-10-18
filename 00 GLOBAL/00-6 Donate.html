@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .nav-link-desktop {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link-desktop::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #6D28D9; /* Violet-700 */
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link-desktop:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .donation-amount-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .donation-amount-btn.selected {
+            background-color: #4F46E5; /* indigo-600 */
+            color: white;
+            border-color: #4F46E5;
+        }
+        .donation-type-btn.selected {
+            background-color: #4F46E5;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <!-- Top Utility Bar -->
+        <div class="bg-gray-100/50 border-b border-gray-200">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-10 space-x-4">
+                    <div class="relative">
+                        <select class="text-xs text-gray-600 bg-transparent border-none focus:ring-0">
+                            <option>English</option>
+                            <option>हिन्दी</option>
+                            <option>తెలుగు</option>
+                        </select>
+                    </div>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="volume-2" class="w-4 h-4"></i><span>Screen Reader</span>
+                    </button>
+                    <button class="flex items-center space-x-1 text-xs text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="eye" class="w-4 h-4"></i><span>Accessibility</span>
+                    </button>
+                    <div class="relative flex items-center">
+                        <input type="text" placeholder="Search..." class="w-32 text-xs rounded-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="about_us.html" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">About Us</a>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
+                            <a href="faqs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
+                            Get Involved <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-64 py-2">
+                            <a href="sfrd_patient_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patients / Parents</a>
+                            <a href="sfrd_epo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Patient Organizations</a>
+                            <a href="sfrd_hcp_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Doctors / Clinicians</a>
+                            <a href="sfrd_ngo_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For NGOs / Community</a>
+                            <a href="sfrd_volunteer_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Volunteers</a>
+                            <a href="sfrd_lab_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Diagnostic Labs</a>
+                            <a href="sfrd_hospital_onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">For Hospitals</a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">Advocacy</a>
+                    <a href="#" class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600">News & Events</a>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a href="#" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-indigo-600">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden">
+            <!-- Mobile links -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Donation Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left Column: Impact Statement -->
+                    <div class="space-y-6">
+                        <span class="inline-block px-3 py-1 text-sm font-semibold text-indigo-800 bg-indigo-100 rounded-full">Support Our Mission</span>
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Your Donation is a Lifeline.</h1>
+                        <p class="text-lg text-gray-600">Every contribution, no matter the size, directly fuels our ability to connect a family with the answers they've been desperately searching for. You can fund a critical diagnostic test, support a patient's travel to a specialist, or help us build the technology that connects our entire national network.</p>
+                        
+                        <div class="space-y-4 pt-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center bg-emerald-100 rounded-lg">
+                                    <i data-lucide="heart-pulse" class="w-6 h-6 text-emerald-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold">Fund a Diagnosis</h3>
+                                    <p class="text-gray-600">Help cover the cost of a genetic or specialized test that can end a family's diagnostic odyssey.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center bg-blue-100 rounded-lg">
+                                    <i data-lucide="navigation" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold">Support a Journey</h3>
+                                    <p class="text-gray-600">Enable a patient to travel to a Centre of Excellence for the specialized care they cannot get locally.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center bg-violet-100 rounded-lg">
+                                    <i data-lucide="share-2" class="w-6 h-6 text-violet-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold">Power the Network</h3>
+                                    <p class="text-gray-600">Maintain our national helpline and the digital platform that connects all our stakeholders.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Donation Form -->
+                    <div class="bg-gray-50 p-6 md:p-8 rounded-2xl border border-gray-200 shadow-lg">
+                        <form id="donation-form" class="space-y-6">
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-900">Make a Secure Donation</h2>
+                                <p class="text-sm text-gray-500 mt-1">All donations are 50% tax exempt under Section 80G of IT Act, 1961.</p>
+                            </div>
+
+                            <!-- Donation Type -->
+                            <div class="grid grid-cols-2 gap-2 bg-gray-200 p-1 rounded-lg">
+                                <button type="button" class="donation-type-btn selected w-full py-2 px-4 rounded-md text-sm font-semibold" data-type="one-time">One-Time</button>
+                                <button type="button" class="donation-type-btn w-full py-2 px-4 rounded-md text-sm font-semibold text-gray-600" data-type="monthly">Monthly</button>
+                            </div>
+                             <input type="hidden" id="donationType" name="donationType" value="one-time">
+
+                            <!-- Donation Amount -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Select an amount (INR)</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button type="button" class="donation-amount-btn w-full py-3 px-2 border border-gray-300 rounded-md font-semibold text-gray-700 hover:bg-indigo-100 hover:border-indigo-500" data-amount="1000">₹1,000</button>
+                                    <button type="button" class="donation-amount-btn w-full py-3 px-2 border border-gray-300 rounded-md font-semibold text-gray-700 hover:bg-indigo-100 hover:border-indigo-500" data-amount="2500">₹2,500</button>
+                                    <button type="button" class="donation-amount-btn w-full py-3 px-2 border border-gray-300 rounded-md font-semibold text-gray-700 hover:bg-indigo-100 hover:border-indigo-500" data-amount="5000">₹5,000</button>
+                                </div>
+                                <div class="mt-4 relative">
+                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">₹</span>
+                                    <input type="number" id="customAmount" name="amount" placeholder="Or enter a custom amount" required class="pl-7 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                </div>
+                            </div>
+
+                            <!-- Donor Information -->
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="donorName" class="block text-sm font-medium text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                                    <input type="text" id="donorName" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                </div>
+                                <div>
+                                    <label for="donorEmail" class="block text-sm font-medium text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                                    <input type="email" id="donorEmail" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                </div>
+                                <div>
+                                    <label for="donorPhone" class="block text-sm font-medium text-gray-700">Phone Number <span class="text-red-500">*</span></label>
+                                    <input type="tel" id="donorPhone" name="phone" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                </div>
+                                 <div>
+                                    <label for="donorPan" class="block text-sm font-medium text-gray-700">PAN Number (for 80G receipt)</label>
+                                    <input type="text" id="donorPan" name="pan" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                                </div>
+                                 <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="anonymous" name="anonymous" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="anonymous" class="font-medium text-gray-700">Make my donation anonymous</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" id="submit-button" class="w-full inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500">
+                                    Donate Now
+                                </button>
+                                <p class="text-xs text-center text-gray-500 mt-2">You will be redirected to our secure payment partner.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <!-- Footer content from previous pages -->
+         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="col-span-2 lg:col-span-2"><h3 class="text-lg font-semibold">Saba Foundation for Rare Diseases</h3><p class="mt-2 text-gray-400 text-sm">Connecting, Collaborating, and Championing the Rare Disease Community in India.</p><div class="mt-4"><h4 class="font-semibold">Signup for SFRD News</h4><div class="flex mt-2"><input type="email" placeholder="Your email" class="w-full rounded-l-md border-gray-600 bg-gray-700 text-white focus:ring-indigo-500"><button class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 rounded-r-md">Go</button></div></div></div>
+                <div><h4 class="font-semibold tracking-wider uppercase">About</h4><ul class="mt-4 space-y-2 text-sm"><li><a href="about_us.html" class="text-gray-400 hover:text-white">About Us</a></li><li><a href="careers.html" class="text-gray-400 hover:text-white">Careers</a></li><li><a href="media_enquiries.html" class="text-gray-400 hover:text-white">Media Inquiries</a></li><li><a href="contact_us.html" class="text-gray-400 hover:text-white">Contact Us</a></li></ul></div>
+                <div><h4 class="font-semibold tracking-wider uppercase">Resources</h4><ul class="mt-4 space-y-2 text-sm"><li><a href="faqs.html" class="text-gray-400 hover:text-white">FAQs</a></li><li><a href="#" class="text-gray-400 hover:text-white">Patient Stories</a></li><li><a href="#" class="text-gray-400 hover:text-white">Annual Filings</a></li><li><a href="#" class="text-gray-400 hover:text-white">Site Map</a></li></ul></div>
+                <div class="col-span-2 lg:col-span-2"><h4 class="font-semibold tracking-wider uppercase">Contact</h4><div class="mt-4 text-sm text-gray-400 space-y-2"><p>#1-8-143, 2nd Floor, Penderghast Road, Secunderabad, Hyderabad - 500 003, Telangana, India</p><p>Email: <a href="mailto:help@sfrd.in" class="hover:text-white">help@sfrd.in</a></p><p>Phone: <a href="tel:+917995755855" class="hover:text-white">+91 7995 755 855</a></p></div></div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700"><h4 class="font-semibold text-gray-300">Disclaimer</h4><p class="text-xs text-gray-500 mt-2">SFRD provides this information for the benefit of the rare disease community & its ecosystem...</p><p class="text-xs text-gray-400 mt-4">Not-for-Profit Foundation Incorporated under Section 8 of Companies Act, 2013...</p></div>
+            <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-sm"><p class="text-gray-500">&copy; 2025 SFRD - Saba Foundation for Rare Diseases. All rights reserved.</p><div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a><a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a></div></div>
+        </div>
+    </footer>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div id="modal-icon-container" class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full sm:mx-0 sm:h-10 sm:w-10"></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left"><h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title"></h3><div class="mt-2"><p class="text-sm text-gray-500" id="modal-message"></p></div></div></div></div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"><button type="button" id="modal-close-button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">OK</button></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        // Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, setPersistence, inMemoryPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // Firebase Config
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-sfrd-app';
+        
+        let app, auth, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            setLogLevel('debug');
+        } catch (error) {
+            console.error("Firebase initialization failed:", error);
+        }
+
+        async function setupAuth() {
+            if (!auth) return;
+            try {
+                await setPersistence(auth, inMemoryPersistence);
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Authentication failed:", error);
+            }
+        }
+        setupAuth();
+
+        // Lucide Icons replacement
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Donation Form Logic
+        const donationForm = document.getElementById('donation-form');
+        const submitButton = document.getElementById('submit-button');
+        const donationTypeButtons = document.querySelectorAll('.donation-type-btn');
+        const donationAmountButtons = document.querySelectorAll('.donation-amount-btn');
+        const customAmountInput = document.getElementById('customAmount');
+        const donationTypeInput = document.getElementById('donationType');
+
+        donationTypeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                donationTypeButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                donationTypeInput.value = btn.dataset.type;
+            });
+        });
+
+        donationAmountButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                donationAmountButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                customAmountInput.value = btn.dataset.amount;
+            });
+        });
+
+        customAmountInput.addEventListener('input', () => {
+             donationAmountButtons.forEach(b => b.classList.remove('selected'));
+        });
+
+        donationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!db) {
+                showMessage('Error', 'Database connection not available. Cannot process donation at this time.', 'error');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Processing...`;
+
+            const formData = new FormData(donationForm);
+            const donationData = {
+                donorName: formData.get('name'),
+                donorEmail: formData.get('email'),
+                donorPhone: formData.get('phone'),
+                donorPan: formData.get('pan'),
+                isAnonymous: formData.get('anonymous') === 'on',
+                amount: Number(formData.get('amount')),
+                donationType: formData.get('donationType'),
+                status: 'Initiated', // This would be updated by a payment gateway webhook
+                submittedAt: serverTimestamp()
+            };
+
+            // In a real application, you would now redirect to a payment gateway.
+            // Here, we'll simulate a successful payment and database write.
+            try {
+                await addDoc(collection(db, `artifacts/${appId}/donations`), donationData);
+                showMessage('Thank You!', `Your generous donation of ₹${donationData.amount.toLocaleString('en-IN')} has been initiated. You will receive a confirmation and 80G receipt at your registered email address shortly.`, 'success');
+                donationForm.reset();
+                donationAmountButtons.forEach(b => b.classList.remove('selected'));
+                donationTypeButtons[0].click();
+            } catch (error) {
+                console.error("Error writing donation record: ", error);
+                showMessage('Error', 'Could not record your donation intent. Please try again.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Donate Now';
+            }
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('message-modal');
+        const modalCloseButton = document.getElementById('modal-close-button');
+        
+        function showMessage(title, message, type = 'success') {
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const iconContainer = document.getElementById('modal-icon-container');
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            if (type === 'success') {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+            } else {
+                iconContainer.className = 'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10';
+                iconContainer.innerHTML = `<svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        modalCloseButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Profile | Saba Foundation for Rare Diseases (SFRD)</title>
+    <link rel="icon" href="../../public/Logo_SFRD.jpg" type="image/jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .form-section {
+            border-left: 3px solid #10B981; /* Emerald-500 for NGOs */
+            transition: all 0.3s ease-in-out;
+        }
+        .form-section h2 {
+            color: #111827; /* gray-900 */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Dashboard Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="../../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-gray-800">SFRD Portal</span>
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span id="user-display-name" class="font-medium hidden sm:block">Welcome!</span>
+                    <button id="logout-button" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Community Partner (NGO) Profile</h1>
+                <p class="text-gray-600 mt-2">Complete your organization's profile to formalize our partnership and activate your role in the SFRD National Community Alliance.</p>
+                <div class="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progress-text" class="text-sm text-right text-gray-600 mt-1">Profile 0% Complete</p>
+            </div>
+            
+            <form id="ngo-profile-form" class="space-y-10">
+                
+                <!-- Section A: Organizational Identity -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section A: Organizational Identity & Contact</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="md:col-span-2"><label for="orgName" class="block text-sm font-medium">Full Legal Name of Organization <span class="text-red-500">*</span></label><input type="text" id="orgName" name="orgName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="inceptionDate" class="block text-sm font-medium">Date of Inception</label><input type="date" id="inceptionDate" name="inceptionDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="websiteUrl" class="block text-sm font-medium">Official Website URL</label><input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://www.yourngo.org" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label for="socialHandles" class="block text-sm font-medium">Social Media Handles</label><textarea id="socialHandles" name="socialHandles" rows="2" placeholder="One link per line" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div class="md:col-span-2"><label for="hqAddress" class="block text-sm font-medium">Headquarters Address</label><textarea id="hqAddress" name="hqAddress" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div><label for="officialEmail" class="block text-sm font-medium">Official Contact Email <span class="text-red-500">*</span></label><input type="email" id="officialEmail" name="officialEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100" readonly></div>
+                        <div><label for="officialPhone" class="block text-sm font-medium">Official Contact Phone</label><input type="tel" id="officialPhone" name="officialPhone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                    </div>
+                </section>
+
+                <!-- Section B: Legal, Structural & Operational Scope -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section B: Legal, Structural & Operational Scope</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div><label for="orgType" class="block text-sm font-medium">Type of Organization</label><select id="orgType" name="orgType" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"><option>Registered Trust</option><option>Registered Society</option><option>Section 8 Company</option><option>Other</option></select></div>
+                        <div><label class="block text-sm font-medium">Tax Exemption Status</label><div class="mt-2 space-x-4"><label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="12A" class="rounded"> 12A</label><label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="80G" class="rounded"> 80G</label><label class="inline-flex items-center"><input type="checkbox" name="taxStatus" value="FCRA" class="rounded"> FCRA</label></div></div>
+                        <div class="md:col-span-2"><label for="missionStatement" class="block text-sm font-medium">Mission Statement</label><textarea id="missionStatement" name="missionStatement" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea></div>
+                        <div class="md:col-span-2"><label for="legalDocs" class="block text-sm font-medium">Upload Key Documents (By-laws, MoA, AoA)</label><input type="file" id="legalDocs" name="legalDocs" multiple class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"/></div>
+                        <div class="md:col-span-2">
+                            <h3 class="text-lg font-medium text-gray-900">Key Office Bearers</h3>
+                            <div id="office-bearers-container" class="mt-4 space-y-4"></div>
+                            <button type="button" id="add-office-bearer" class="mt-4 text-sm font-medium text-indigo-600 hover:text-indigo-500">+ Add Office Bearer</button>
+                        </div>
+                        <div class="md:col-span-2"><label for="geographicalPresence" class="block text-sm font-medium">Geographical Presence (States/UTs)</label><input type="text" id="geographicalPresence" name="geographicalPresence" placeholder="e.g., Telangana, Maharashtra, Pan-India" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="staffCount" class="block text-sm font-medium">No. of Full-Time Staff</label><input type="number" id="staffCount" name="staffCount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="volunteerCount" class="block text-sm font-medium">No. of Active Volunteers</label><input type="number" id="volunteerCount" name="volunteerCount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div><label for="projectCount" class="block text-sm font-medium">Current Project Load</label><input type="number" id="projectCount" name="projectCount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        <div class="md:col-span-2"><label class="block text-sm font-medium">Primary Activities</label><div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-4"><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Healthcare" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Healthcare</label></div><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Education" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Education</label></div><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Vaccination" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Vaccination</label></div><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Water & Sanitation" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Water & Sanitation</label></div><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Livelihoods" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Livelihoods</label></div><div class="flex items-start"><input name="primaryActivities" type="checkbox" value="Advocacy" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Advocacy</label></div></div></div>
+                        <div class="md:col-span-2"><label for="impactSummary" class="block text-sm font-medium">Brief on Impact</label><textarea id="impactSummary" name="impactSummary" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Summarize your key programs and on-ground impact."></textarea></div>
+                    </div>
+                </section>
+                
+                <!-- Section C: The Rare Disease Mandate -->
+                <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section C: Partnership Commitments</h2>
+                     <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input id="mandate-agreement" name="mandateAgreement" type="checkbox" required class="h-4 w-4 rounded"><label for="mandate-agreement" class="ml-3 text-sm font-medium">**Agreement to Mandate:** We agree to adopt the mandate of identifying and referring probable rare disease patients. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="sfrd-support-ack" name="sfrdSupportAck" type="checkbox" required class="h-4 w-4 rounded"><label for="sfrd-support-ack" class="ml-3 text-sm font-medium">**Acknowledgement of Support:** We acknowledge that SFRD will provide comprehensive training and support. <span class="text-red-500">*</span></label></div>
+                        
+                        <div class="pt-4"><label class="block text-sm font-medium">How else can we collaborate?</label><div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start"><input name="collaboration" type="checkbox" value="Joint Awareness Campaigns" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Joint Awareness Campaigns</label></div>
+                            <div class="flex items-start"><input name="collaboration" type="checkbox" value="Patient Hand-holding" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Patient Hand-holding</label></div>
+                            <div class="flex items-start"><input name="collaboration" type="checkbox" value="Logistical Support" class="h-4 w-4 rounded"><label class="ml-3 text-sm">Logistical Support for Camps</label></div>
+                            <div class="flex items-start"><input name="collaboration" type="checkbox" value="Advocacy" class="h-4 w-4 rounded"><label class="ml-3 text-sm">District/State Level Advocacy</label></div>
+                        </div></div>
+                    </div>
+                </section>
+                
+                <!-- Section D: Consent & Formal Agreement -->
+                 <section class="bg-white p-6 rounded-lg shadow-sm form-section pl-6 fade-in">
+                    <h2 class="text-2xl font-semibold mb-1">Section D: Consent & Formal Agreement</h2>
+                    <div class="space-y-5 mt-6">
+                        <div class="relative flex items-start"><input id="consent-auth" name="consentAuth" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-auth" class="ml-3 text-sm font-medium">I confirm I am an authorized representative of this organization. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-voluntary" name="consentVoluntary" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-voluntary" class="ml-3 text-sm font-medium">I understand this partnership is voluntary and can be ended with written notice. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-listing" name="consentListing" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-listing" class="ml-3 text-sm font-medium">I consent to SFRD storing our information and listing us as a trusted Community Partner. <span class="text-red-500">*</span></label></div>
+                        <div class="relative flex items-start"><input id="consent-ethics" name="consentEthics" type="checkbox" required class="h-4 w-4 rounded"><label for="consent-ethics" class="ml-3 text-sm font-medium">We agree to uphold the highest ethical standards and patient confidentiality. <span class="text-red-500">*</span></label></div>
+                        <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div><label for="authRepName" class="block text-sm font-medium">Full Name of Authorized Representative <span class="text-red-500">*</span></label><input type="text" id="authRepName" name="authRepName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                            <div><label for="authRepDesignation" class="block text-sm font-medium">Designation <span class="text-red-500">*</span></label><input type="text" id="authRepDesignation" name="authRepDesignation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="flex justify-end pt-8">
+                    <button type="submit" id="submit-button" class="w-full md:w-auto inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Save Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Modal for messages -->
+    <div id="message-modal" class="hidden fixed z-50 inset-0 overflow-y-auto">
+        <!-- ... modal html ... -->
+    </div>
+
+    <script src="../00 GLOBAL/firebase-config.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        
+        let app, auth, db, storage;
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            storage = getStorage(app);
+        } catch (e) { console.error("Firebase init error", e); }
+
+        const userDisplayName = document.getElementById('user-display-name');
+        const logoutButton = document.getElementById('logout-button');
+        const form = document.getElementById('ngo-profile-form');
+        const submitButton = document.getElementById('submit-button');
+        const officeBearersContainer = document.getElementById('office-bearers-container');
+        const addOfficeBearerButton = document.getElementById('add-office-bearer');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        
+        let currentUser = null;
+        let bearerCount = 0;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(db, `artifacts/${appId}/users`, user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists() && userSnap.data().role === 'ngo') {
+                    currentUser = user;
+                    loadProfileData(user.uid, userSnap.data());
+                } else {
+                    console.warn('User is not an NGO or has no profile. Redirecting...');
+                    signOut(auth);
+                    window.location.href = '../00 GLOBAL/00-8 Login.html';
+                }
+            } else {
+                console.log("User not logged in. Redirecting to login.");
+                window.location.href = '../00 GLOBAL/00-8 Login.html';
+            }
+        });
+
+        logoutButton.addEventListener('click', () => signOut(auth).catch(console.error));
+        
+        const addBearerFields = () => {
+            bearerCount++;
+            const bearerDiv = document.createElement('div');
+            bearerDiv.className = 'grid grid-cols-1 md:grid-cols-4 gap-3 p-3 border rounded-md relative';
+            bearerDiv.innerHTML = `
+                <input type="text" name="bearerName_${bearerCount}" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="text" name="bearerDesignation_${bearerCount}" placeholder="Designation" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="email" name="bearerEmail_${bearerCount}" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <input type="tel" name="bearerPhone_${bearerCount}" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                <button type="button" class="remove-bearer absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">&times;</button>
+            `;
+            officeBearersContainer.appendChild(bearerDiv);
+        };
+        
+        officeBearersContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-bearer')) { e.target.parentElement.remove(); }
+        });
+        
+        addOfficeBearerButton.addEventListener('click', addBearerFields);
+
+        async function loadProfileData(userId, userData) {
+            userDisplayName.textContent = `Welcome, ${userData.orgName || userData.displayName}`;
+            userDisplayName.classList.remove('hidden');
+            form.elements.officialEmail.value = userData.email;
+            form.elements.orgName.value = userData.orgName || '';
+            const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/ngos`, userId);
+            const docSnap = await getDoc(profileRef);
+            if (docSnap.exists()) {
+                populateForm(docSnap.data());
+            } else {
+                addBearerFields(); 
+            }
+            updateProgress();
+        }
+
+        function populateForm(data) {
+             for (const sectionKey in data) {
+                for (const fieldKey in data[sectionKey]) {
+                    const value = data[sectionKey][fieldKey];
+                    const field = form.elements[fieldKey];
+                    if (field) {
+                         if (Array.isArray(value) && field.length > 1 && field[0].type === 'checkbox') {
+                             value.forEach(v => {
+                                const checkbox = document.querySelector(`input[name="${fieldKey}"][value="${v}"]`);
+                                if (checkbox) checkbox.checked = true;
+                            });
+                        } else if(field.type === 'checkbox') {
+                            field.checked = value;
+                        } else {
+                           field.value = value;
+                        }
+                    }
+                }
+            }
+            if (data.legal?.officeBearers?.length > 0) {
+                officeBearersContainer.innerHTML = '';
+                data.legal.officeBearers.forEach(bearer => {
+                    bearerCount++;
+                    const bearerDiv = document.createElement('div');
+                    bearerDiv.className = 'grid grid-cols-1 md:grid-cols-4 gap-3 p-3 border rounded-md relative';
+                    bearerDiv.innerHTML = `
+                        <input type="text" name="bearerName_${bearerCount}" value="${bearer.name || ''}" placeholder="Full Name" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                        <input type="text" name="bearerDesignation_${bearerCount}" value="${bearer.designation || ''}" placeholder="Designation" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                        <input type="email" name="bearerEmail_${bearerCount}" value="${bearer.email || ''}" placeholder="Email" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                        <input type="tel" name="bearerPhone_${bearerCount}" value="${bearer.phone || ''}" placeholder="Phone" required class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm">
+                        <button type="button" class="remove-bearer absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">&times;</button>
+                    `;
+                    officeBearersContainer.appendChild(bearerDiv);
+                });
+            } else {
+                 addBearerFields();
+            }
+        }
+
+        function updateProgress() {
+            const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            let completed = 0;
+            requiredInputs.forEach(input => {
+                if ( (input.type === 'checkbox' && input.checked) || (input.type !== 'checkbox' && input.value.trim() !== '') ) {
+                    completed++;
+                }
+            });
+            const percentage = Math.round((completed / requiredInputs.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `Profile ${percentage}% Complete`;
+        }
+        form.addEventListener('input', updateProgress);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) { alert('You must be logged in.'); return; }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Saving...';
+            
+            try {
+                const formData = new FormData(form);
+                const legalDocUrls = [];
+                for (const file of formData.getAll('legalDocs')) {
+                     if (file.size > 0) {
+                        const storageRef = ref(storage, `artifacts/${appId}/partnerProfiles/ngos/${currentUser.uid}/legalDocs/${Date.now()}_${file.name}`);
+                        const snapshot = await uploadBytes(storageRef, file);
+                        const downloadURL = await getDownloadURL(snapshot.ref);
+                        legalDocUrls.push({ name: file.name, url: downloadURL });
+                     }
+                }
+                const officeBearers = [];
+                for (let i = 1; i <= bearerCount; i++) {
+                    const name = formData.get(`bearerName_${i}`);
+                    if (name) {
+                        officeBearers.push({ name, designation: formData.get(`bearerDesignation_${i}`), email: formData.get(`bearerEmail_${i}`), phone: formData.get(`bearerPhone_${i}`) });
+                    }
+                }
+
+                const profileData = {
+                    identity: { orgName: formData.get('orgName'), inceptionDate: formData.get('inceptionDate'), websiteUrl: formData.get('websiteUrl'), socialHandles: formData.get('socialHandles'), hqAddress: formData.get('hqAddress'), officialEmail: formData.get('officialEmail'), officialPhone: formData.get('officialPhone') },
+                    legal: { orgType: formData.get('orgType'), taxStatus: formData.getAll('taxStatus'), missionStatement: formData.get('missionStatement'), officeBearers: officeBearers },
+                    operations: { geographicalPresence: formData.get('geographicalPresence'), staffCount: Number(formData.get('staffCount')), volunteerCount: Number(formData.get('volunteerCount')), projectCount: Number(formData.get('projectCount')), primaryActivities: formData.getAll('primaryActivities'), impactSummary: formData.get('impactSummary') },
+                    partnership: { mandateAgreement: formData.get('mandateAgreement') === 'on', sfrdSupportAck: formData.get('sfrdSupportAck') === 'on', collaborationInterests: formData.getAll('collaboration') },
+                    consent: { isAuthorized: formData.get('consentAuth') === 'on', isVoluntary: formData.get('consentVoluntary') === 'on', allowListing: formData.get('consentListing') === 'on', agreesToEthics: formData.get('consentEthics') === 'on', representativeName: formData.get('authRepName'), representativeDesignation: formData.get('authRepDesignation') },
+                    lastUpdatedAt: serverTimestamp(),
+                };
+                if (legalDocUrls.length > 0) profileData.legal.legalDocUrls = legalDocUrls;
+
+                const profileRef = doc(db, `artifacts/${appId}/partnerProfiles/ngos`, currentUser.uid);
+                await setDoc(profileRef, profileData, { merge: true });
+                
+                alert('Profile saved successfully!');
+            } catch (error) {
+                console.error("Error saving profile:", error);
+                alert('Error saving profile.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Save Profile';
+            }
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
