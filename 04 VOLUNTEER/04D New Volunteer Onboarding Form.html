@@ -144,6 +144,11 @@
                         <input type="text" id="volunteerId" name="volunteerId" class="form-input bg-gray-100" readonly>
                         <p class="helper-text">Your permanent identification no in SFRD. Helps you login into SFRD Framework.</p>
                     </div>
+                    <div class="md:col-span-2">
+                        <label for="resumeUpload" class="form-label">Upload Resume/CV (Optional)</label>
+                        <input type="file" id="resumeUpload" name="resumeUpload" class="form-input" multiple>
+                        <p class="helper-text">You can upload your resume, CV, or any other relevant documents. (PDF, DOCX, JPG)</p>
+                    </div>
                 </div>
             </div>
             
@@ -296,8 +301,9 @@
         new Tagify(input);
     </script>
     <script type="module">
-        import { auth, db, appId } from '../js/firebase-config.js';
+        import { auth, db, storage, appId } from '../js/firebase-config.js';
         import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
         import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
         import { initializeFormEnhancements } from '../js/form-enhancements.js';
         import { ProgressBarManager } from '../js/progress-bar-utils.js';
@@ -399,6 +405,18 @@
                     } else { data[key] = value; }
                 });
                 Object.assign(data, checkboxGroups);
+
+                // Handle file uploads
+                delete data.resumeUpload;
+                const resumeInput = document.getElementById('resumeUpload');
+                if (resumeInput.files.length > 0) {
+                    const uploadPromises = Array.from(resumeInput.files).map(file => {
+                        const filePath = `artifacts/${appId}/volunteer-files/${currentUserId}/${file.name}`;
+                        const fileRef = ref(storage, filePath);
+                        return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
+                    });
+                    data.resumeUrls = await Promise.all(uploadPromises);
+                }
 
                 console.log('Saving Volunteer data:', data);
                 console.log('Using appId:', appId);

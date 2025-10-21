@@ -405,7 +405,7 @@
                 const accreditationCertsInput = document.getElementById('accreditationCerts');
                 if (accreditationCertsInput.files.length > 0) {
                     const uploadPromises = Array.from(accreditationCertsInput.files).map(file => {
-                        const filePath = `artifacts/lab-accreditations/${currentUserId}/${file.name}`;
+                        const filePath = `artifacts/${appId}/lab-accreditations/${currentUserId}/${file.name}`;
                         const fileRef = ref(storage, filePath);
                         return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
                     });

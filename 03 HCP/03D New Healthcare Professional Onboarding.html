@@ -146,6 +146,11 @@
                         <input type="text" id="expertId" name="expertId" class="form-input bg-gray-100" readonly>
                         <p class="helper-text">Your permanent identification no in SFRD. Helps you login into SFRD Framework.</p>
                     </div>
+                    <div class="md:col-span-2">
+                        <label for="credentialsUpload" class="form-label">Upload Credentials</label>
+                        <input type="file" id="credentialsUpload" name="credentialsUpload" class="form-input" multiple>
+                        <p class="helper-text">Upload a copy of your medical license, degree, or other relevant credentials. (PDF, JPG, PNG)</p>
+                    </div>
                 </div>
             </div>
 
@@ -371,8 +376,9 @@
     </div>
 
     <script type="module">
-        import { auth, db, appId } from '../js/firebase-config.js';
+        import { auth, db, storage, appId } from '../js/firebase-config.js';
         import { doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+        import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-storage.js';
         import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
         import { initializeFormEnhancements } from '../js/form-enhancements.js';
         import { ProgressBarManager } from '../js/progress-bar-utils.js';
@@ -495,7 +501,17 @@
                 });
                 Object.assign(data, checkboxGroups);
 
-                // No file uploads for this form
+                // Handle file uploads
+                delete data.credentialsUpload;
+                const credentialsInput = document.getElementById('credentialsUpload');
+                if (credentialsInput.files.length > 0) {
+                    const uploadPromises = Array.from(credentialsInput.files).map(file => {
+                        const filePath = `artifacts/${appId}/hcp-credentials/${currentUserId}/${file.name}`;
+                        const fileRef = ref(storage, filePath);
+                        return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
+                    });
+                    data.credentialUrls = await Promise.all(uploadPromises);
+                }
 
                 console.log('Saving HCP data:', data);
                 console.log('Using appId:', appId);

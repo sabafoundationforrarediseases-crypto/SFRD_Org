@@ -474,12 +474,15 @@
                 const checkboxGroups = {};
                 const officeBearers = [];
 
-                document.querySelectorAll('#officeBearersContainer .repeatable-section').forEach((section, index) => {
+                document.querySelectorAll('#officeBearersContainer .repeatable-section').forEach(section => {
+                                        const nameInput = section.querySelector('[name^="bearerName_"]');
+                    if (!nameInput) return;
+                    const index = nameInput.name.split('_')[1];
                     const bearer = {
-                        name: section.querySelector(`[name=bearerName_${index}]`).value,
-                        designation: section.querySelector(`[name=bearerDesignation_${index}]`).value,
-                        email: section.querySelector(`[name=bearerEmail_${index}]`).value,
-                        phone: section.querySelector(`[name=bearerPhone_${index}]`).value,
+                        name: nameInput.value,
+                        designation: section.querySelector(`[name=bearerDesignation_${index}]`)?.value,
+                        email: section.querySelector(`[name=bearerEmail_${index}]`)?.value,
+                        phone: section.querySelector(`[name=bearerPhone_${index}]`)?.value,
                     };
                     if(bearer.name) officeBearers.push(bearer);
                 });
@@ -501,7 +504,7 @@
                 const keyDocumentsInput = document.getElementById('keyDocuments');
                 if (keyDocumentsInput.files.length > 0) {
                     const uploadPromises = Array.from(keyDocumentsInput.files).map(file => {
-                        const filePath = `artifacts/epo-documents/${currentUserId}/${file.name}`;
+                        const filePath = `artifacts/${appId}/epo-documents/${currentUserId}/${file.name}`;
                         const fileRef = ref(storage, filePath);
                         return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
                     });
