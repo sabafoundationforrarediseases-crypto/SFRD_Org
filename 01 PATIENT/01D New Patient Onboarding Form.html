@@ -626,7 +626,7 @@
                 const medicalReportsInput = document.getElementById('medicalReports');
                 if (medicalReportsInput.files.length > 0) {
                     const uploadPromises = Array.from(medicalReportsInput.files).map(file => {
-                        const filePath = `artifacts/patient-reports/${currentUserId}/${file.name}`;
+                        const filePath = `artifacts/${appId}/patient-reports/${currentUserId}/${file.name}`;
                         const fileRef = ref(storage, filePath);
                         return uploadBytes(fileRef, file).then(snapshot => getDownloadURL(snapshot.ref));
                     });

@@ -81,7 +81,7 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2">
+                <a href="/00 GLOBAL/00 Homepage.html" class="flex items-center space-x-2">
                     <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
                     <span class="text-xl font-bold text-gray-800">SFRD</span>
                 </a>
@@ -132,10 +132,6 @@
             </div>
         </nav>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden">
-            <!-- Mobile links -->
-        </div>
     </header>
 
     <main>
@@ -324,6 +320,23 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Accordion Logic
+        const accordionButtons = document.querySelectorAll('.mobile-accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i[data-lucide="chevron-down"]');
+                
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.classList.remove('rotate-180');
+                } else {
+                    content.style.display = 'block';
+                    icon.classList.add('rotate-180');
+                }
+            });
         });
 
         // Donation Form Logic

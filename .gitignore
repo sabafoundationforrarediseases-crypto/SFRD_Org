@@ -14,3 +14,21 @@ test-*.html
 # Ignore document source files
 *.docx
 *.txt
+
+# Ignore SDK directory
+google-cloud-sdk/
+
+# Ignore temporary and configuration files
+cors.json
+*.xlsx
+cloud_env.bat
+storage.rules.*
+
+# Ignore installer artifacts
+uninstaller.exe
+install_mode
+supercloud-16x16.ico
+
+# Ignore reference documents
+MOBILE APP FOUNDATIONAL CODE BASE.HTML
+

@@ -73,7 +73,7 @@
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="index.html" class="flex items-center space-x-2">
+                <a href="/00 GLOBAL/00 Homepage.html" class="flex items-center space-x-2">
                     <img src="../public/Logo_SFRD.jpg" alt="SFRD Logo" class="h-10 w-10">
                     <span class="text-xl font-bold text-gray-800">SFRD</span>
                 </a>
@@ -88,7 +88,7 @@
                             Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
                         </button>
                         <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
+                            <a href="about-rare-diseases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
                         </div>
@@ -129,12 +129,42 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="about_us.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-gray-100">About Us</a>
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Learn</a>
-                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Get Involved</a>
+                <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">About Us</a>
+                
+                <!-- Learn Accordion -->
+                <div>
+                    <button class="mobile-accordion-button w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">
+                        <span>Learn</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-accordion-content pl-4 pt-2 pb-1 space-y-1" style="display: none;">
+                        <a href="about-rare-diseases.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">About Rare Diseases</a>
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patient Stories</a>
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">FAQs</a>
+                    </div>
+                </div>
+
+                <!-- Get Involved Accordion -->
+                <div>
+                    <button class="mobile-accordion-button w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">
+                        <span>Get Involved</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="mobile-accordion-content pl-4 pt-2 pb-1 space-y-1" style="display: none;">
+                        <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Patients / Parents</a>
+                        <a href="../02 EPO/02D New EPO Onboarding Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Patient Organizations</a>
+                        <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Doctors / Clinicians</a>
+                        <a href="../05 NGO/05D New NGO Onboarding Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For NGOs / Community</a>
+                        <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Volunteers</a>
+                        <a href="../06 LAB/06D New Lab Onboarding Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Diagnostic Labs</a>
+                        <a href="../07 HOSPITAL/07D New Hospital Onbaording Form.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">For Hospitals</a>
+                    </div>
+                </div>
+
                 <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Advocacy</a>
                 <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">News & Events</a>
-                 <div class="border-t border-gray-200 mt-4 pt-4">
+                
+                <div id="mobile-auth-buttons" class="border-t border-gray-200 mt-4 pt-4">
                     <a href="00-8 Login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
                     <a href="00-7 Register.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
                     <a href="00-6 Donate.html" class="block w-full text-left mt-2 px-4 py-2 rounded-md text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
@@ -323,6 +353,23 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile Accordion Logic
+        const accordionButtons = document.querySelectorAll('.mobile-accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i[data-lucide="chevron-down"]');
+                
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.classList.remove('rotate-180');
+                } else {
+                    content.style.display = 'block';
+                    icon.classList.add('rotate-180');
+                }
+            });
         });
     </script>
 </body>
