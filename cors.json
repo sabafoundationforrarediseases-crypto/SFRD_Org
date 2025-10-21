@@ -1,0 +1,17 @@
+[
+  {
+    "origin": [
+      "https://sfrd.in",
+      "https://sfrd-organization.firebaseapp.com",
+      "https://sfrd-organization.web.app",
+      "http://127.0.0.1:3000",
+      "http://localhost:3000"
+    ],
+    "method": ["GET", "POST", "PUT", "DELETE", "HEAD"],
+    "responseHeader": [
+      "Content-Type",
+      "Access-Control-Allow-Origin"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]

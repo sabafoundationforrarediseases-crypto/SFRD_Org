@@ -19,7 +19,7 @@ test-*.html
 google-cloud-sdk/
 
 # Ignore temporary and configuration files
-cors.json
+#cors.json
 *.xlsx
 cloud_env.bat
 storage.rules.*
