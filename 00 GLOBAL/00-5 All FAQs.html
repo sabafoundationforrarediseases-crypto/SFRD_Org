@@ -155,7 +155,56 @@
                 </div>
             </div>
         </div>
-    </header>
+         <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About Us</a>
+                
+                <div>
+                    <button class="mobile-accordion-button w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">
+                        <span>Learn</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pl-4 mt-1 space-y-1" style="display: none;">
+                        <a href="about-rare-diseases.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">About Rare Diseases</a>
+                        <a href="Patient-stories.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patient Stories</a>
+                        <a href="./00-5 All FAQs.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">FAQs</a>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="mobile-accordion-button w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">
+                        <span>Get Involved</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pl-4 mt-1 space-y-1" style="display: none;">
+                        <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patients / Parents</a>
+                        <a href="../02 EPO/02D New EPO Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patient Organizations</a>
+                        <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Doctors / Clinicians</a>
+                        <a href="../05 NGO/05D New NGO Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">NGOs / Community</a>
+                        <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Volunteers</a>
+                        <a href="../06 LAB/06D New Lab Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Diagnostic Labs</a>
+                        <a href="../07 HOSPITAL/07D New Hospital Onbaording Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Hospitals</a>
+                        <a href="./10 Probable RarePatient Identification_Flag.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Refer a patient</a>
+                        <a href="00-6 Donate.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Donation</a>
+                    </div>
+                </div>
+
+                <a href="./partner-with-us.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Partner With Us</a>
+                <a href="crowdfund.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Crowdfund</a>
+                <a href="news-and-events.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">News & Events</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-200">
+                <div class="px-5 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <a href="./00-8 Login.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-700 bg-gray-100 hover:bg-gray-200">Login</a>
+                        <a href="./00-7 Register.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Register</a>
+                    </div>
+                    <a href="./00-6 Donate.html" class="ml-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
+                </div>
+            </div>
+        </div>
+   </header>
 
     <main>
         <!-- Page Header Section -->
@@ -239,195 +288,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- SCRIPT START ---
-
-            const faqContent = {
-                patients: [
-                    { q: "What is the first step to get help from SFRD?", a: "The best way to start is by filling out our Patient Onboarding Form. This helps us gather all your information in a structured way. If you need help, you can call our national helpline, and a trained coordinator will guide you through the process." },
-                    { q: "Is there any fee for registering with SFRD?", a: "No. All of SFRD's core services, including registration, patient navigation, and connection to our network, are completely free of charge." },
-                    { q: "Will SFRD diagnose or treat my condition?", a: "SFRD is not a hospital or a medical provider. We do not provide diagnosis or treatment. Our role is to be your navigator—we connect you to the right, verified experts (doctors, labs, hospitals) within our network who can provide these services." },
-                    { q: "How do you protect my medical information?", a: "Your data privacy is our highest priority. All your information is stored in a secure, encrypted database. We will never share your identifiable information with anyone—not even a doctor in our network—without your explicit, written consent. You are the owner of your data." },
-                    { q: "Can SFRD help with the cost of treatment?", a: "While SFRD is not a funding body that can cover all costs, we help in two key ways: 1) We partner with labs and hospitals to provide special discounted rates for patients in our network. 2) We will guide you on how to apply for relevant government schemes and other financial aid programs." },
-                    { q: "How long will it take to get a diagnosis?", a: "The \"diagnostic odyssey\" for rare diseases can be long and complex. While we cannot guarantee a specific timeframe, our entire model is designed to accelerate this process by connecting you to the right experts and labs faster than you might be able to on your own." },
-                    { q: "What is a \"Rare Disease Champion\"?", a: "A \"Rare Disease Champion\" is a trained SFRD volunteer who will be your personal point of contact. They are there to provide emotional support, help you understand the process, coordinate appointments, and be a friendly, reliable guide on your journey." },
-                    { q: "How do I access my real-time dashboard?", a: "Once your onboarding is complete, you will receive login credentials for our secure patient portal. Through this dashboard, you can track the status of your case, view communications, and access educational resources specific to your needs." },
-                    { q: "What if a diagnosis is found? What happens next?", a: "A diagnosis is the beginning of a new chapter. We will then connect you with your \"homogeneous group\" (other families with the same condition), the specific Expert Patient Organization for your disease, and a team of doctors and hospitals who can provide care and management. You remain a part of the SFRD family for long-term support." },
-                    { q: "Can I withdraw my consent for data sharing later?", a: "Absolutely. You are in full control of your data. You can contact us at any time to change your consent preferences for research, clinical trials, or any other data use you previously approved." },
-                ],
-                doctors: [
-                    { q: "Why should I join the SFRD Network as a clinician?", a: "By joining, you become part of a national mission to solve the most challenging clinical cases. You gain access to a curated network of peers, contribute to national-level data, and get opportunities for research and mentorship, all while our team handles the administrative burden of patient coordination." },
-                    { q: "What is the primary commitment expected of me?", a: "Your primary commitment is to apply your clinical expertise to provide timely, evidence-based opinions on referred cases. This is a voluntary partnership, and your level of engagement is flexible based on the availability you specify during onboarding." },
-                    { q: "How is patient confidentiality maintained when cases are shared?", a: "We operate with the highest ethical standards. Patient cases shared for virtual review are anonymized. Your direct contact details are never shared with patients without your explicit, case-by-case permission. All interactions are governed by our strict Code of Conduct and NMC guidelines." },
-                    { q: "How are patient cases referred to me?", a: "Our internal clinical team first vets all patient inquiries. Cases are then matched to you based on your specific area of specialization (e.g., Lysosomal Storage Disorders, Skeletal Dysplasia). You will receive a complete, well-documented digital case file through our secure portal." },
-                    { q: "Can I refer my own patients into the SFRD network?", a: "Absolutely. If you have a patient facing a diagnostic or treatment challenge, you can refer them into our network to access our full range of support services, including connections to other specialists, labs, and support groups." },
-                    { q: "Are there opportunities for research and publication?", a: "Yes. By participating, you contribute to a valuable national dataset. SFRD plans to facilitate multi-center research studies and publications based on anonymized, aggregated data, with all contributing clinicians receiving due academic credit." },
-                    { q: "How do you verify the credentials of professionals in the network?", a: "We have a strict verification process. Upon onboarding, we verify your Medical Council registration number and credentials to ensure the integrity and high quality of our expert network." },
-                    { q: "What is my role in policy advocacy?", a: "As a subject matter expert, your insights are invaluable. We may invite you to review policy documents for medical accuracy or contribute your expert opinion to our submissions to government health bodies." },
-                    { q: "What is the 'Partnership of Peers' principle?", a: "This means we view you as an esteemed colleague and a strategic partner. Our role is to provide logistical and administrative support, allowing you to focus purely on the clinical aspects of a case in a secure, non-commercial, and collaborative environment." },
-                    { q: "What if I have a potential conflict of interest?", a: "We require all our network professionals to proactively declare any potential conflict of interest (e.g., advisory roles, financial interest in specific tests) to the SFRD Secretariat on a case-by-case basis to ensure unbiased opinions." }
-                ],
-                hospitals: [
-                    { q: "What is the primary benefit for our hospital or lab to partner with SFRD?", a: "The primary benefit is strategic. SFRD will help you build a recognized vertical for rare disease care or diagnostics by providing specialized training and a streamlined funnel of qualified patient referrals, positioning your institution as a leader in this underserved field." },
-                    { q: "How does the patient referral process work?", a: "You will receive pre-screened, well-documented patient cases through our secure digital platform. This eliminates unqualified inquiries and provides your clinicians or technicians with a comprehensive patient history upfront, improving efficiency." },
-                    { q: "What does 'priority service' entail?", a: "It means establishing an internal protocol to ensure SFRD-referred patients are given appointments, admissions, or sample processing slots with reduced waiting times compared to the general queue, acknowledging the urgency of their condition." },
-                    { q: "What kind of capacity building does SFRD provide for hospitals?", a: "SFRD will organize and provide free access to CMEs, workshops, and training modules for your clinicians, nurses, and paramedics on identifying and managing rare diseases, delivered by national and international experts." },
-                    { q: "How is the 'concessional rate card' managed?", a: "During onboarding, we agree on a special discounted rate for SFRD patients. This rate is applied to all referred patients. Our platform's payment module is designed to handle this, including any co-payments from SFRD for needy patients." },
-                    { q: "What are the technical requirements for integrating with the SFRD platform?", a: "Our platform is web-based and requires no complex technical integration. Your designated nodal officer will be given secure login credentials to manage referrals and update patient statuses, requiring only an internet connection and a web browser." },
-                    { q: "How does this partnership enhance our institution's visibility?", a: "We will prominently feature your hospital or lab in our public directory of trusted partners. We also highlight our joint successes in our annual reports, on social media, and at national healthcare forums." },
-                    { q: "What are our obligations regarding patient data?", a: "You are expected to handle all patient data received from SFRD with the same high level of confidentiality and security as you would for any other patient, in full compliance with all NABH/NABL/JCI and national data privacy regulations." },
-                    { q: "What is the 'Coordinated Care Lifecycle'?", a: "It's our end-to-end digital workflow. It begins with a secure digital referral to your facility and includes real-time status updates on our shared dashboard (e.g., 'Sample Received', 'Consultation Complete'), ensuring transparency and reducing anxiety for patients and clinicians." },
-                    { q: "How do we collaborate on research or health camps?", a: "Once onboarded, your nodal officer will be our point of contact to plan joint initiatives. We can co-host diagnostic camps in your community or discuss your institution's participation as a site for upcoming clinical trials." },
-                ],
-                epos: [
-                    { q: "We are an established patient organization. How does partnering with SFRD help us?", a: "SFRD acts as a force multiplier. We amplify your voice on our national platform, connect you to a broader network of doctors and researchers, provide a free technology framework to manage your patient data, and represent your community's needs in our collective policy advocacy efforts." },
-                    { q: "Will SFRD take over our relationship with our patients?", a: "Absolutely not. We operate on the principle of an 'Alliance of Equals'. We respect your autonomy and your primary relationship with your community. Our role is to support and complement your work, not replace it." },
-                    { q: "What does using the SFRD 'data management framework' mean?", a: "We offer you free access to our secure, modern patient registry platform. This can help you manage your patient cohort data in a structured, interoperable way. Importantly, you remain the owner and custodian of your data; we are simply providing the tool." },
-                    { q: "How does SFRD amplify our voice?", a: "We will feature your organization's work, events, and patient stories on our national social media channels and website. When we speak to policymakers, we will do so as an alliance, bringing your specific insights to the table." },
-                    { q: "Is there a fee to join the SFRD National Alliance?", a: "No, the partnership is entirely free. It is a collaborative alliance built on a shared mission." },
-                    { q: "How do we get access to international collaborations or clinical trials?", a: "SFRD is building relationships with global rare disease alliances. When we learn of international research opportunities or clinical trials relevant to your disease area, we will immediately share this information with you to pass on to your patient community." },
-                    { q: "What is the SFRD Policy Advocacy Council?", a: "It is a coalition of our partner EPOs and medical experts. When SFRD drafts a policy recommendation, we will circulate it within the council for your input, ensuring our advocacy is truly representative of the entire community's needs." },
-                    { q: "How does the patient referral system work?", a: "It's a two-way street. When we identify a patient with your disease, we refer them to you as the primary expert group. Similarly, if you have a patient who needs access to a specialist or lab in our broader network, you can refer them into the SFRD system for navigation support." },
-                    { q: "What if we already have our own patient registry?", a: "That's fantastic. We can explore ways to ensure our systems are interoperable, so that anonymized data can be shared for larger research studies (with all necessary consents), without you having to migrate your existing system." },
-                    { q: "What are our commitments regarding data governance?", a: "We mutually agree that explicit patient consent is a non-negotiable prerequisite for any data sharing. We also acknowledge that you, the EPO, remain the primary owner of your data. Our partnership is built on a pillar of trust and shared security standards." },
-                ],
-                volunteers: [
-                    { q: "What kind of volunteers is SFRD looking for?", a: "We need a diverse range of skills! From on-ground community outreach and patient support (as a 'Rare Disease Champion') to professionals offering their skills (legal, IT, design) and students helping with events and social media. Everyone has a role to play." },
-                    { q: "What is the time commitment required to be a volunteer?", a: "It's flexible. On our onboarding form, you can choose from options like 1-3 hours a week, 4-6 hours, or being available on a flexible, event-based basis. We value any time you can contribute." },
-                    { q: "Will I receive any training?", a: "Yes. All volunteers go through a mandatory virtual orientation on rare diseases, our code of conduct, and the critical importance of patient confidentiality. For specific roles like a 'Rare Disease Champion', you will receive specialized training on patient interaction and navigation." },
-                    { q: "What is the 'Gives and Gets' partnership model?", a: "It means our relationship is a two-way street. You 'give' your time and skills, and SFRD 'gets' to advance its mission. In return, SFRD 'gives' you skill development, a real-time impact dashboard, recognition, and networking opportunities, which are your 'gets'." },
-                    { q: "How do you track my contribution?", a: "You will get access to a personal dashboard on our volunteer portal to log your hours and see the tangible impact of your work. This helps us in our recognition program and is useful for providing you with experience certificates." },
-                    { q: "Can volunteering with SFRD lead to a paid job?", a: "While volunteer roles are unpaid, we are committed to looking at our pool of dedicated, high-performing volunteers first for any relevant paid positions that may open up in the Secretariat. Your volunteer experience is a significant asset." },
-                    { q: "What is a 'Rare Disease Champion'?", a: "This is a key on-ground volunteer role. After training, a Champion acts as a direct, compassionate guide for a patient or family, helping them navigate the SFRD network and the healthcare system. It's one of our most impactful roles." },
-                    { q: "How does an NGO partner with SFRD?", a: "NGOs partner with us by agreeing to integrate a crucial mandate: to identify and refer potential rare disease patients into our network. We provide the training and backend support, and you leverage your community trust to save lives." },
-                    { q: "What's in it for our NGO?", a: "By partnering with us, you add a specialized, high-impact healthcare vertical to your work without the cost. We upskill your team, amplify your work on our national platform, and connect you to a broader network of healthcare and policy stakeholders." },
-                    { q: "What is the most important rule in the Volunteer Code of Conduct?", a: "Absolute patient confidentiality. All patient information is sacred and must never be disclosed outside the authorized SFRD network. A breach of this rule can lead to immediate termination of the volunteer status." },
-                ],
-                researchers: [
-                    { q: "What kind of data does SFRD collect?", a: "We collect comprehensive, standardized patient data based on global interoperability standards, including demographics (FHIR), diagnosis (Orphanet/ICD-11), phenotype (HPO), and genetics (HGVS). This creates a high-quality, research-ready dataset." },
-                    { q: "How can I get access to SFRD's patient data for my research?", a: "Access to data is governed by strict ethical protocols and patient consent. Researchers from verified institutions can submit a formal research proposal to our Scientific Advisory Committee. If approved, we can provide access to de-identified, anonymized datasets that match the specific consent given by patients." },
-                    { q: "Do you support clinical trial recruitment?", a: "Yes. This is a key objective. We can help identify eligible patient cohorts for approved clinical trials based on our registry data. We will then facilitate communication with the patients who have explicitly consented to be contacted for such opportunities." },
-                    { q: "How can pharmaceutical companies partner with SFRD?", a: "We welcome partnerships with the orphan drug industry. Collaborations can include sponsoring diagnostic initiatives, supporting our patient registry, co-hosting educational CMEs for doctors, or developing patient access programs for approved therapies." },
-                    { q: "What are your policies on industry-sponsored research?", a: "All proposed research, including industry-sponsored studies, must be approved by our Scientific Advisory Committee. Our primary commitment is to the welfare of our patients, and all collaborations must be transparent and ethically sound, with no conflict of interest." },
-                    { q: "Can we collaborate on generating India-specific prevalence data?", a: "Absolutely. This is a core part of our mission. By building a national registry, our goal is to provide a reliable source of data for researchers and policymakers to understand the true burden of specific rare diseases in the Indian context." },
-                    { q: "How do you ensure data quality and standardization?", a: "Our onboarding forms are built on Common Data Elements (CDEs) from global standards like HPO and Orphanet. Our internal team, guided by clinicians, ensures that incoming data is curated and mapped correctly, ensuring the quality of the registry." },
-                    { q: "Does SFRD fund research projects?", a: "As of now, SFRD does not directly fund external research projects. Our primary role is to enable research by providing access to high-quality data and a network of patients and clinicians. We can, however, act as a partner on joint grant applications." },
-                    { q: "How do you handle patient privacy in research collaborations?", a: "Patient privacy is non-negotiable. All data shared for research is fully anonymized and aggregated. No personal identifiable information is ever shared. The specific level of data shared is always determined by the consent given by the patient in our granular consent model." },
-                    { q: "We are developing a new therapy. How can we engage with your patient community?", a: "The best way is through a formal partnership. We can help you understand the patient journey and needs through ethically conducted focus groups (with patient consent), share information about your work with our network, and, when the time comes, assist with clinical trial recruitment." },
-                ],
-                government: [
-                    { q: "How does SFRD's work align with the National Policy for Rare Diseases (NPRD), 2021?", a: "Our work is designed to be a direct, on-ground implementation partner for the NPRD. We help achieve the policy's goals by creating the patient funnels, building the professional networks, and raising the public awareness necessary for the policy's success." },
-                    { q: "How do you support the national Centres of Excellence (CoEs)?", a: "We support CoEs by acting as a national screening and referral system. We manage a centralized helpline and patient registry, ensuring that the cases referred to CoEs are well-documented and appropriate. This reduces their administrative burden and allows them to focus on complex diagnostics and treatment." },
-                    { q: "What kind of data can you provide for policy-making?", a: "Through our national patient registry, we can provide de-identified, aggregated data on disease prevalence, geographic distribution of patients, and the average diagnostic delay. This India-specific data can be invaluable for refining national health policies and allocating resources effectively." },
-                    { q: "Are you a private or a government entity?", a: "SFRD is a private, not-for-profit organization registered as a Section 8 company in India. We are designed to work as a collaborative partner to government bodies like the Ministry of Health and Family Welfare and the ICMR." },
-                    { q: "How do you ensure your network of doctors and hospitals is credible?", a: "We have a rigorous verification process for all healthcare professionals and institutions. We verify medical council registrations for doctors and key accreditations (like NABH/NABL) for hospitals and labs to ensure the quality and integrity of our network." },
-                    { q: "How can government health schemes integrate with your network?", a: "We actively work to educate patients about government schemes like the Rashtriya Arogya Nidhi (RAN) and other state-level initiatives. We can serve as a channel to guide eligible patients towards applying for these schemes and help them with the necessary documentation." },
-                    { q: "Can you help in raising awareness for government-led rare disease initiatives?", a: "Yes. Our extensive digital and on-ground network through partner NGOs is a powerful tool for public awareness. We would be happy to collaborate on disseminating information about government initiatives to ensure they reach the intended beneficiaries across the country." },
-                    { q: "How are you funded? Are you open to public-private partnerships (PPPs)?", a: "We are funded through a mix of philanthropic donations, CSR grants, and individual contributions. We are absolutely open to exploring formal Public-Private Partnership models where we can serve as the operational arm for specific government-led rare disease projects." },
-                    { q: "What is your long-term vision for the patient registry?", a: "Our vision is to build a comprehensive, interoperable National Rare Disease Registry that can securely integrate with the government's health infrastructure, such as the Ayushman Bharat Digital Mission (ABDM). This would provide a single, unified view of rare diseases in India." },
-                    { q: "How can a government department or a CoE formally partner with SFRD?", a: "We would welcome a formal partnership through a Memorandum of Understanding (MoU). Our Executive Director would be pleased to meet with you to discuss how we can align our operational capabilities with your strategic priorities to best serve the people of India." },
-                ],
-            };
-            
-            // --- SCRIPT START ---
-            
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const tabs = document.querySelectorAll('[role="tab"]');
-            const tabPanels = document.querySelectorAll('[role="tabpanel"]');
-
-            lucide.createIcons();
-
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            const renderFaqContent = (panelId) => {
-                const panel = document.getElementById(panelId);
-                if (!panel || (panel.innerHTML.trim() && panel.innerHTML.includes('faq-item'))) return;
-
-                const key = panelId.split('-')[1];
-                const content = faqContent[key];
-
-                if (content) {
-                    panel.innerHTML = `<div class="space-y-4">${content.map(item => `
-                        <div class="faq-item bg-white rounded-lg">
-                            <button class="faq-question w-full text-left flex justify-between items-center p-4 md:p-6 cursor-pointer hover:bg-gray-100 rounded-lg">
-                                <span class="text-lg font-semibold text-gray-900">${item.q}</span>
-                                <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-gray-500"></i>
-                            </button>
-                            <div class="faq-answer px-4 md:px-6 text-gray-600">${item.a}</div>
-                        </div>
-                    `).join('')}</div>
-                    <div class="mt-8 text-center">
-                        <p class="text-gray-600">Something to Add or Inform please connect with us</p>
-                        <a href="00-2 Contact Us.html" class="inline-block bg-indigo-600 text-white font-semibold py-2 px-5 rounded-md hover:bg-indigo-700 transition mt-2">Connect with us</a>
-                    </div>`;
-
-                    lucide.createIcons();
-                    
-                    const newItems = panel.querySelectorAll('.faq-item');
-                    newItems.forEach(newItem => {
-                        const newQuestion = newItem.querySelector('.faq-question');
-                        newQuestion.addEventListener('click', () => {
-                            const isActive = newItem.classList.contains('active');
-                            newItems.forEach(i => i.classList.remove('active'));
-                            if (!isActive) {
-                                newItem.classList.add('active');
-                            }
-                        });
-                    });
-                }
-            };
-            
-            renderFaqContent('tabpanel-patients');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => {
-                        t.setAttribute('aria-selected', 'false');
-                        t.classList.remove('text-indigo-600', 'border-indigo-600');
-                        t.classList.add('text-gray-500', 'hover:text-gray-700', 'border-transparent');
-                    });
-                    tab.setAttribute('aria-selected', 'true');
-                    tab.classList.add('text-indigo-600', 'border-indigo-600');
-                    tab.classList.remove('text-gray-500', 'hover:text-gray-700', 'border-transparent');
-
-                    const targetId = tab.getAttribute('aria-controls');
-                    
-                    tabPanels.forEach(panel => {
-                        if (panel.id === targetId) {
-                            panel.classList.remove('hidden');
-                            renderFaqContent(panel.id);
-                        } else {
-                            panel.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-
-        // Newsletter Modal Logic
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterModal = document.getElementById('newsletter-modal');
-        const newsletterModalCloseButton = document.getElementById('newsletter-modal-close-button');
-        const newsletterModalOverlay = document.getElementById('newsletter-modal-overlay');
-
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            newsletterModal.classList.remove('hidden');
-        });
-
-        newsletterModalCloseButton.addEventListener('click', () => {
-            newsletterModal.classList.add('hidden');
-        });
-
-        newsletterModalOverlay.addEventListener('click', () => {
-            newsletterModal.classList.add('hidden');
-        });
-    
-        });
-    </script>
+<script src="../js/nav-menu.js"></script>
 </body>
 </html>
 

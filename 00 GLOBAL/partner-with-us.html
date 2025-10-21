@@ -98,7 +98,56 @@
                 </div>
             </div>
         </nav>
-    </header>
+            <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About Us</a>
+                
+                <div>
+                    <button class="mobile-accordion-button w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">
+                        <span>Learn</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pl-4 mt-1 space-y-1" style="display: none;">
+                        <a href="about-rare-diseases.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">About Rare Diseases</a>
+                        <a href="Patient-stories.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patient Stories</a>
+                        <a href="./00-5 All FAQs.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">FAQs</a>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="mobile-accordion-button w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">
+                        <span>Get Involved</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="pl-4 mt-1 space-y-1" style="display: none;">
+                        <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patients / Parents</a>
+                        <a href="../02 EPO/02D New EPO Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Patient Organizations</a>
+                        <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Doctors / Clinicians</a>
+                        <a href="../05 NGO/05D New NGO Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">NGOs / Community</a>
+                        <a href="../04 VOLUNTEER/04D New Volunteer Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Volunteers</a>
+                        <a href="../06 LAB/06D New Lab Onboarding Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Diagnostic Labs</a>
+                        <a href="../07 HOSPITAL/07D New Hospital Onbaording Form.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Hospitals</a>
+                        <a href="./10 Probable RarePatient Identification_Flag.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Refer a patient</a>
+                        <a href="00-6 Donate.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-gray-50">Donation</a>
+                    </div>
+                </div>
+
+                <a href="./partner-with-us.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Partner With Us</a>
+                <a href="crowdfund.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Crowdfund</a>
+                <a href="news-and-events.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">News & Events</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-200">
+                <div class="px-5 flex items-center justify-between">
+                    <div class="flex space-x-2">
+                        <a href="./00-8 Login.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-700 bg-gray-100 hover:bg-gray-200">Login</a>
+                        <a href="./00-7 Register.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Register</a>
+                    </div>
+                    <a href="./00-6 Donate.html" class="ml-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
+                </div>
+            </div>
+        </div>
+</header>
 
     <!-- Main Content -->
     <main>
@@ -241,27 +290,6 @@
         </div>
     </div>
 
-    <script>
-        lucide.createIcons();
-
-        // Newsletter Modal Logic
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterModal = document.getElementById('newsletter-modal');
-        const newsletterModalCloseButton = document.getElementById('newsletter-modal-close-button');
-        const newsletterModalOverlay = document.getElementById('newsletter-modal-overlay');
-
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            newsletterModal.classList.remove('hidden');
-        });
-
-        newsletterModalCloseButton.addEventListener('click', () => {
-            newsletterModal.classList.add('hidden');
-        });
-
-        newsletterModalOverlay.addEventListener('click', () => {
-            newsletterModal.classList.add('hidden');
-        });
-    </script>
+    <script src="../js/nav-menu.js"></script>
 </body>
 </html>
