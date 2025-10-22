@@ -52,7 +52,7 @@
                         <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
                             Learn <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
                         </button>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-56 py-2">
+                        <div class="absolute hidden  bg-white shadow-lg rounded-md mt-2 w-56 py-2">
                             <a href="about-rare-diseases.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About Rare Diseases</a>
                             <a href="Patient-stories.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Stories</a>
                             <a href="./00-5 All FAQs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">FAQs</a>
@@ -62,7 +62,7 @@
                         <button class="nav-link-desktop font-medium text-gray-600 hover:text-indigo-600 flex items-center">
                             Get Involved <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
                         </button>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 w-64 py-2">
+                        <div class="absolute hidden  bg-white shadow-lg rounded-md mt-2 w-64 py-2">
                             <a href="../01 PATIENT/01D New Patient Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patients / Parents</a>
                             <a href="../02 EPO/02D New EPO Onboarding Form.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Patient Organizations</a>
                             <a href="../03 HCP/03D New Healthcare Professional Onboarding.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Doctors / Clinicians</a>
@@ -91,7 +91,7 @@
             </div>
         </nav>
             <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200 relative z-50">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About Us</a>
                 
@@ -130,12 +130,14 @@
                 <a href="news-and-events.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">News & Events</a>
             </div>
             <div class="pt-4 pb-3 border-t border-gray-200">
-                <div class="px-5 flex items-center justify-between">
-                    <div class="flex space-x-2">
-                        <a href="./00-8 Login.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-gray-700 bg-gray-100 hover:bg-gray-200">Login</a>
-                        <a href="./00-7 Register.html" class="w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Register</a>
+                <div id="mobile-auth-buttons" class="px-5">
+                    <div class="flex flex-col gap-3">
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="./00-8 Login.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition">Login</a>
+                            <a href="./00-7 Register.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">Register</a>
+                        </div>
+                        <a href="./00-6 Donate.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-white bg-violet-600 hover:bg-violet-700 transition">Donate</a>
                     </div>
-                    <a href="./00-6 Donate.html" class="ml-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
                 </div>
             </div>
         </div>

@@ -85,9 +85,9 @@
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-3">
-                    <a href="#" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
-                    <a href="#" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
-                    <a href="00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
+                    <a href="./00-8 Login.html" class="text-sm font-medium text-gray-600 hover:text-indigo-600">Login</a>
+                    <a href="./00-7 Register.html" class="text-sm font-semibold text-indigo-600 border border-indigo-600 px-4 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Register</a>
+                    <a href="./00-6 Donate.html" class="text-sm font-semibold text-white bg-violet-600 px-4 py-2 rounded-full hover:bg-violet-700 transition">Donate</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -140,15 +140,19 @@
                 <a href="crowdfund.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Crowd fund</a>
                 <a href="news-and-events.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">News & Events</a>
                 
-                <div id="mobile-auth-buttons" class="border-t border-gray-200 mt-4 pt-4">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Login</a>
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-100">Register</a>
-                    <a href="00-6 Donate.html" class="block w-full text-left mt-2 px-4 py-2 rounded-md text-base font-medium text-white bg-violet-600 hover:bg-violet-700">Donate</a>
+                <div id="mobile-auth-buttons" class="border-t border-gray-200 mt-4 pt-4 px-3">
+                    <div class="flex flex-col gap-3">
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="./00-8 Login.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition">Login</a>
+                            <a href="./00-7 Register.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition">Register</a>
+                        </div>
+                        <a href="./00-6 Donate.html" class="text-center px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-white bg-violet-600 hover:bg-violet-700 transition">Donate</a>
+                    </div>
                 </div>
             </div>
         </div>
          <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200 relative z-50">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="./00-1 About Us Page.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About Us</a>
                 
